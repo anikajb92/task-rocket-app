@@ -3,7 +3,7 @@ import SignUpForm from './components/SignUpForm';
 import LoginForm from './components/LoginForm';
 import Welcome from './components/Welcome';
 
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 
 function App() {
 
@@ -11,6 +11,24 @@ function App() {
 
   const handleLogin = () => setIsLoggedIn(true)
   const handleLogout = () => setIsLoggedIn(false)
+
+  useEffect(() => {
+    if (localStorage.token) {
+      fetch('http://localhost:3000/users', {
+        headers: {
+          Authorization: `Bearer ${localStorage.token}`
+        }
+      })
+        .then(response => response.json())
+        .then(result => {
+          if (result.error) {
+            console.error(result.error);
+          } else {
+            handleLogin();
+          }
+        })
+    }
+  })
   
   return (
     <div className="App">
