@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     if (localStorage.token) {
-      fetch('http://localhost:3000/users', {
+      fetch('http://localhost:3000/profile', {
         headers: {
           Authorization: `Bearer ${localStorage.token}`
         }
@@ -25,10 +25,11 @@ function App() {
             console.error(result.error);
           } else {
             handleLogin();
+            console.log(result);
           }
         })
     }
-  })
+  }, [])
   
   return (
     <div className="App">
