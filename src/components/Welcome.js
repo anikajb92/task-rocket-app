@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import TaskForm from './TaskForm';
 
 export default function Welcome() {
   const handleClick = () => {
@@ -14,6 +15,7 @@ export default function Welcome() {
     <div>
       <h2>Welcome!</h2>
       <button onClick={handleClick}>Admin Access to see all users</button>
+      <TaskForm />
     </div>
   )
 }
