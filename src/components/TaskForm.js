@@ -16,7 +16,8 @@ export default function TaskForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add A Task</h2>
+      <h2>------Task Form------</h2>
+      <h3>Add A Task </h3>
       <label> Description: 
         <input
           type='text'
@@ -40,7 +41,7 @@ export default function TaskForm() {
             value={dueDate} 
             onChange={(event) => setDueToday(event.target.value)}
           >
-              <option selected value="null">Due Today?</option>
+              <option value="null">Due Today?</option>
               <option value="true">Yes, I Have To Get This Done Today!</option>
               <option value="false">No, It Can Wait</option>
         </select> {/* ON CHANGE NOT SHOWING IN DROP DOWN */}

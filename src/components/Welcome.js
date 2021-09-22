@@ -14,7 +14,8 @@ export default function Welcome() {
   }
   return (
     <div>
-      <h2>Welcome!</h2>
+      <hr></hr>
+      <h2>Successfully Logged in. Welcome!</h2>
       <button onClick={handleClick}>Admin Access to see all users</button>
       <CategoryForm />
       <TaskForm />
