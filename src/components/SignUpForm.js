@@ -1,16 +1,22 @@
-import { PostAdd } from '@material-ui/icons';
 import React from 'react';
 import { useState } from 'react';
 
 export default function CreateUserForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log('username', username);
-    console.log('password', password);
+    console.log(
+      'username:', username, 
+      'password:', password, 
+      'first name:', firstname, 
+      'last name:', lastname
+    );
+  
 
     fetch('http://localhost:3000/users', {
       method: 'POST', 
@@ -18,7 +24,7 @@ export default function CreateUserForm() {
         Accept: 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({user: {username, password} })
+      body: JSON.stringify({user: {username, password, firstname, lastname} })
     })
     .then(response => response.json())
     .then(newUser => console.log(newUser))
@@ -26,21 +32,47 @@ export default function CreateUserForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>------SignUp Form-------</h2>
-      <input 
-        type="text" 
-        name="username" 
-        placeholder="Desired Username"
-        value={username}
-        onChange={(event) => setUsername(event.target.value)}
-      />
-      <input 
-        type="password" 
-        name="password" 
-        placeholder="Secure Password"
-        value={password}
-        onChange={(event) => setPassword(event.target.value)}
-      />
+      <label> Please Enter Your Full Name:
+        <br/>
+        <input 
+          type="text" 
+          name="firstname" 
+          placeholder="First Name"
+          value={firstname}
+          onChange={(event) => setFirstname(event.target.value)}
+        />
+        <br/>
+        <input 
+          type="text" 
+          name="lastname" 
+          placeholder="Last Name"
+          value={lastname}
+          onChange={(event) => setLastname(event.target.value)}
+        />
+      </label>
+      <br/>
+      <label>Desired Username (must be unique):
+        <br/>
+        <input 
+          type="text" 
+          name="username" 
+          placeholder="Enter Here"
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
+        />
+      </label>
+      <br/>
+      <label>Secure Password:
+        <br/>
+        <input 
+          type="password" 
+          name="password" 
+          placeholder="Enter Here"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </label>
+      <br/>
       <input type="submit" value="Create User" />
     </form>
   );
