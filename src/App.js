@@ -1,11 +1,11 @@
 import './App.css';
-import SignUpForm from './components/SignUpForm';
-import LoginForm from './components/LoginForm';
-import Welcome from './components/Welcome';
-
 import {useState, useEffect} from 'react';
 import {BrowserRouter, Router, Switch, Route, Link} from 'react-router-dom';
 
+import Credentials from './components/Credentials';
+import Home from './components/Home';
+import NavBar from './components/NavBar';
+import About from './components/About';
 
 function App() {
 
@@ -34,17 +34,31 @@ function App() {
   }, [])
   
   return (
-    <div className="App">
-      <h1> Sign In To Task Rocket</h1>
-      <h2> Create User </h2>
-      <SignUpForm />
-      <h2> Login </h2>
-      <LoginForm handleLogin={handleLogin}/>
-      {isLoggedIn
-        ? <Welcome />
-        : null
-      }
+    <BrowserRouter>
+      <div className="App">
+        <NavBar 
+          isLoggedIn={isLoggedIn}
+          />
+        <Switch>
+          <Route
+            exact path="/home"
+            component={Home}
+            />
+          <Route 
+            path="/about"
+            component={About}
+            />
+          <Route 
+            path="/login"
+            render={() =>
+              <Credentials 
+              isLoggedIn={isLoggedIn}
+              />
+            }  
+            />
+        </Switch>
     </div>
+  </BrowserRouter>
   );
 }
 
