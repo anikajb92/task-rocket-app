@@ -1,5 +1,6 @@
 import React from 'react';
 import TaskForm from './TaskForm';
+import CategoryForm from './CategoryForm';
 
 export default function Welcome() {
   const handleClick = () => {
@@ -15,6 +16,7 @@ export default function Welcome() {
     <div>
       <h2>Welcome!</h2>
       <button onClick={handleClick}>Admin Access to see all users</button>
+      <CategoryForm />
       <TaskForm />
     </div>
   )
