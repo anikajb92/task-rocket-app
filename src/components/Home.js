@@ -14,7 +14,6 @@ export default function Welcome() {
   }
   return (
     <div>
-      <hr></hr>
       <h2>Successfully Logged in. Welcome!</h2>
       <button onClick={handleClick}>Admin Access to see all users</button>
       <CategoryForm />

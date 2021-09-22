@@ -39,6 +39,7 @@ function App() {
         <NavBar 
           isLoggedIn={isLoggedIn}
           />
+        <hr></hr>
         <Switch>
           <Route
             exact path="/home"
