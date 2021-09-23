@@ -16,6 +16,17 @@
   font-size: 150px;
 }
 
+.about span {
+  font-size: 60px;
+  color: #E85D04;
+  animation: rocket 0.1s ease infinite;
+}
+
+.about span2 {
+  font-size: 30px;
+  color: #E85D04;
+}
+
 .pulse-container {
   display: flex;
   justify-content: center;
@@ -24,14 +35,14 @@
   min-width: 20vw;
   /* background: #ffeb3b; */
   overflow: hidden;
-  margin:auto;
+  margin:auto; 
 }
 
-.pulse {
+/* .pulse {
   position: relative;
   width: 200px;
   height: 200px;
-  background: #ff5722;
+  background: #E85D04;
   border-radius: 50%;
   z-index: 2;
 }
@@ -40,7 +51,7 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #ff5722;
+  background: #E85D04;
   z-index: 3;
   border-radius: 50%;
   display: inline-block;
@@ -61,7 +72,7 @@
     transform: scale(4);
     opacity: 0;
   }
-}
+} */
 
 .rocket {
   position: relative;
@@ -87,7 +98,7 @@
   transform: translateX(-50%);
   width: 20px;
   height: 250px;
-  background: linear-gradient(#FFBA08, transparent);
+  background: linear-gradient(#E85D04, transparent);
 }
 .rocket::after {
   content: '';
@@ -97,6 +108,6 @@
   transform: translateX(-50%);
   width: 20px;
   height: 250px;
-  background: linear-gradient(#FFBA08, transparent);
+  background: linear-gradient(#E85D04, transparent);
   filter: blur(20px);
 }

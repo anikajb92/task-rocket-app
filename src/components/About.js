@@ -13,7 +13,6 @@ export default function About() {
           <span style={{"--i": 3}}></span>
           <span style={{"--i": 4}}></span>
           <span style={{"--i": 5}}></span>
-
           <div className="rocket">
             <img src={Rocket}></img>
           </div>
@@ -23,13 +22,17 @@ export default function About() {
         <h1>Welcome!</h1>
         <hr/>
         <h3>
-          Task Rocket is a task-management platform that organizes all 
-          of your to-do's in one place. With a customizable and 
-          easy-to-navigate user interface and robust tracking systems, 
-          this application will encourage productivity and lower
-          turnaround times for all of your task completion needs. 
-          Together, we can Rock It! 
+          <span>Task Rocket</span> is a task-management platform that <span2>organizes</span2> all 
+          of your to-do's in one place. 
         </h3>
+        <h3>  
+          With a customizable and easy-to-navigate user interface and <span2>robust tracking</span2> systems, 
+          this application will encourage <span2>productivity</span2> and lower
+          turnaround times for all of your task completion needs. 
+        </h3>
+        <div>
+          <h3>Together, we can <span2>rock</span2> it! </h3>
+        </div>
       </div>
     </div>
   )
