@@ -16,7 +16,7 @@ export default function Credentials(props) {
   };
 
   return (
-  <div id="body">
+  <div className="main">
     <div 
       className="credentials"
     >

@@ -34,7 +34,9 @@ export default function LoginForm(props) {
     
     <div className="form-container sign-in-container">
       <form id="login" onSubmit={handleSubmit}>
-      <h1>Sign In <IoRocketOutline className="icon"/></h1>
+      <IoRocketOutline className="iconlarge"/>
+      <h3>Already have an account?</h3>
+      <h1>Sign In</h1>
       <br/>
           <input 
             name="username"

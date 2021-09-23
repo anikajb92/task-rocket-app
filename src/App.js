@@ -51,7 +51,6 @@ function App() {
             isLoggedIn={isLoggedIn}
             user={user}
             />
-          <hr></hr>
         </div>
       <div className="container">
         <Switch>

@@ -35,7 +35,8 @@ export default function CreateUserForm() {
         onSubmit={handleSubmit}
         id="signup"
       >
-        <h1>Sign Up </h1>
+        <h3>New to Task Rocket?</h3>
+        <h1>Create An Account</h1>
           <br/>
           <input 
             type="text" 
