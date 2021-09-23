@@ -4,12 +4,12 @@
 	box-sizing: border-box;
 }
 
-body {
+.container {
 	background: #f6f5f7;
-	display: flex;
+  display: flex;
 	justify-content: center;
+  flex-direction: column;
 	align-items: center;
-	flex-direction: column;
 	font-family: 'Montserrat', sans-serif;
 	height: 100vh;
 	margin: -20px 0 50px;
@@ -32,17 +32,50 @@ p {
 	margin: 20px 0 30px;
 }
 
+button {
+	border-radius: 20px;
+	border: 1px solid #FF4B2B;
+	background-color: #FF4B2B;
+	color: #FFFFFF;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 12px 45px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	transition: transform 80ms ease-in;
+}
+
+button:active {
+	transform: scale(0.95);
+}
+
+button:focus {
+	outline: none;
+}
+
+button.ghost {
+	background-color: transparent;
+	border-color: #FFFFFF;
+}
+
+.icon {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+  color: #FF4B2B;
+	margin: 0 5px;
+	height: 30px;
+	width: 30px;
+}
+
 #navbar {
-  overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.735);
+  font-family: 'Montserrat', sans-serif;
+  background: #f6f5f7;
   position: sticky;
-  top: 5px;
-  width: 100%;
-  border-radius: 20px;
-  margin-bottom: 5px;
-  z-index: 2;
   display: flex;
   justify-content: space-between;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 #navbar a {
@@ -53,4 +86,20 @@ p {
   padding: 14px;
   text-decoration: none;
   box-shadow: 0px 37px 20px -20px rgba(0,0,0,0.1)
+}
+
+footer {
+  background-color: #222;
+  color: #fff;
+  font-size: 14px;
+  bottom: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  text-align: center;
+  z-index: 999;
+}
+
+footer p {
+  margin: 10px 0;
 }

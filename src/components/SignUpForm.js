@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react';
+import React, {useState} from 'react';
 
 export default function CreateUserForm() {
   const [username, setUsername] = useState('');
@@ -31,50 +30,48 @@ export default function CreateUserForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Create New User</h2>
-      <label> Please Enter Your Full Name:
-        <br/>
-        <input 
-          type="text" 
-          name="firstname" 
-          placeholder="First Name"
-          value={firstname}
-          onChange={(event) => setFirstname(event.target.value)}
-        />
-        <br/>
-        <input 
-          type="text" 
-          name="lastname" 
-          placeholder="Last Name"
-          value={lastname}
-          onChange={(event) => setLastname(event.target.value)}
-        />
-      </label>
-      <br/>
-      <label>Desired Username (must be unique):
-        <br/>
-        <input 
-          type="text" 
-          name="username" 
-          placeholder="Enter Here"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-      </label>
-      <br/>
-      <label>Secure Password:
-        <br/>
-        <input 
-          type="password" 
-          name="password" 
-          placeholder="Enter Here"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </label>
-      <br/>
-      <button>Create User</button>
-    </form>
+    <div className="signup-form signup-right">
+      <form 
+        onSubmit={handleSubmit}
+        id="signup"
+      >
+        <h1>Sign Up </h1>
+          <br/>
+          <input 
+            type="text" 
+            name="firstname" 
+            placeholder="First Name"
+            value={firstname}
+            onChange={(event) => setFirstname(event.target.value)}
+          />
+          <input 
+            type="text" 
+            name="lastname" 
+            placeholder="Last Name"
+            value={lastname}
+            onChange={(event) => setLastname(event.target.value)}
+          />
+          <input 
+            type="text" 
+            name="username" 
+            placeholder="Username (must be unique)"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+          <input 
+            type="password" 
+            name="password" 
+            placeholder="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+        <button 
+          className="ghost"
+          id="signUp"
+        >
+          Create User
+        </button>
+      </form>
+    </div>
   );
 }

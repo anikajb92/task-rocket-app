@@ -3,43 +3,29 @@ import '../styles/creds.css';
 
 import SignUpForm from './SignUpForm';
 import LoginForm from './LoginForm';
+import { Container } from '@material-ui/core';
 
 export default function Credentials(props) {
-  const [loginInstead, setLoginInstead] = useState(false)
-  const [newUser, setNewUser] = useState(true)
+  const [loginInstead, setLoginInstead] = useState(false);
+  const [newUser, setNewUser] = useState(true);
+  const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
-      setLoginInstead(true)
-      setNewUser(false)
-  }
+      setLoginInstead(!loginInstead);
+      setNewUser(!newUser);
+  };
 
   return (
-    <div className="credentials">
-      <h1> Sign In To Task Rocket</h1>
-      {newUser? (
-      <>
+  <div id="body">
+    <div 
+      className="credentials"
+    >
         <SignUpForm />
-        <h3>Already have an account?</h3>
-        <button onClick={handleClick}>Login</button>
-      </>) : (
-      <>
         <LoginForm 
-        handleLogin={props.handleLogin}
-        setUser={props.setUser}
-        />
-        <h3>Create an account</h3>
-        <button onClick={handleClick}>Login</button>
-      </>
-      )}
-      {/* {loginInstead? (
-      <>
-        <LoginForm 
-        handleLogin={props.handleLogin}
-        setUser={props.setUser}
-        />
-        <h3>Already have an account?</h3>
-        <button onClick={handleClick}>Login</button>
-      )} */}
+          handleLogin={props.handleLogin}
+          setUser={props.setUser}
+          /> 
     </div>
+  </div>
   )
 }

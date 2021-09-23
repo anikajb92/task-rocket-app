@@ -46,11 +46,14 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-        <NavBar 
-          isLoggedIn={isLoggedIn}
-          user={user}
-          />
-        <hr></hr>
+        <div className="navbar">
+          <NavBar 
+            isLoggedIn={isLoggedIn}
+            user={user}
+            />
+          <hr></hr>
+        </div>
+      <div className="container">
         <Switch>
           <Route
             exact path="/home"
@@ -87,6 +90,10 @@ function App() {
             }
           />
         </Switch>
+        </div>
+        <footer>
+          <p>Task Rocket was created by Anika Bernstein 2021. All rights reserved.</p>
+        </footer>
     </div>
   </BrowserRouter>
   );

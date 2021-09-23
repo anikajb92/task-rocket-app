@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {IoRocketOutline} from "react-icons/io5";
 
 export default function LoginForm(props) {
   const [username, setUsername] = useState('');
@@ -30,27 +31,28 @@ export default function LoginForm(props) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label> Username:
-        <input 
-          name="username"
-          type="text"
-          placeholder="Enter Here"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
-      </label>
+    
+    <div className="form-container sign-in-container">
+      <form id="login" onSubmit={handleSubmit}>
+      <h1>Sign In <IoRocketOutline className="icon"/></h1>
       <br/>
-      <label> Password:
-        <input
-          name="password"
-          type="password"
-          placeholder="Enter Here"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
-      </label>
-      <input type="submit" value="Login" />
-    </form>
+          <input 
+            name="username"
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
+          <input
+            name="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
+          <br/>
+        <button className="button">Login</button>
+      </form>
+    </div>
   )
 }
