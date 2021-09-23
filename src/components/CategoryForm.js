@@ -23,7 +23,6 @@ export default function CategoryForm() {
 
   return (
     <div>
-      <h2>-----Category Form------</h2>
       <h3>Let's Get You Ready To Rock These Tasks</h3>
       <form onSubmit={handleSubmit}>
         <label> What Would You Like To Create Tasks For?
@@ -35,10 +34,7 @@ export default function CategoryForm() {
             onChange={(event) => setName(event.target.value)}
           ></input>
         </label>
-        <input
-          type="submit"
-          value="Let's Get Started"
-        ></input>
+        <button>Let's Get Started</button>
       </form>
     </div>
   )

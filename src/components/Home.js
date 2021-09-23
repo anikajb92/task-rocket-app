@@ -1,23 +1,33 @@
 import React from 'react';
+import '../styles/home.css';
+import {FaBuffer} from "react-icons/fa";
+
 import TaskForm from './TaskForm';
 import CategoryForm from './CategoryForm';
+import CategoryList from './CategoryList';
 
 export default function Welcome(props) {
-  const handleClick = () => {
-    fetch('http://localhost:3000/users', {
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`
-      }
-    })
-    .then(response => response.json())
-    .then(result => console.log(result));
-  }
+  const renderCategories = () => props.categories.map(category => {
+    console.log(category);
+    return <h2><FaBuffer/> Name: {category.name}</h2>
+    
+    // return <CategoryList 
+    //   name={category.name}
+    //   tasks={category.tasks}
+    // />
+  })
+  
   return (
-    <div>
-      <h2>Successfully Logged in. Welcome back, {props.user.firstname}!</h2>
-      <button onClick={handleClick}>Admin Access to see all users</button>
-      <CategoryForm />
-      <TaskForm />
+    <div className="home">
+      <h1>Welcome back, {props.user.firstname}!</h1>
+      <br/>
+      <div className="board">
+        {renderCategories()}
+      </div>
+      <div>
+        <CategoryForm />
+        <TaskForm categories={props.categories}/>
+      </div>
     </div>
   )
 }

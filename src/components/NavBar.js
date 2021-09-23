@@ -1,6 +1,7 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {IoRocketOutline} from "react-icons/io5";
+import {CgProfile} from "react-icons/cg";
 
 export default function NavBar(props) {
   return (
@@ -13,7 +14,7 @@ export default function NavBar(props) {
           <Link classname="link" to="/home">My Tasks</Link>
         </nav>
         <nav>
-        <Link to="/profile">{props.user.firstname} {props.user.lastname}</Link>
+        <Link to="/profile"><CgProfile /> {props.user.firstname} {props.user.lastname}</Link>
         </nav>
       </>) : (
       <>

@@ -18,13 +18,13 @@
 
 .about span {
   font-size: 60px;
-  color: #E85D04;
+  color: #FF4B2B;
   animation: rocket 0.1s ease infinite;
 }
 
 .about span2 {
   font-size: 30px;
-  color: #E85D04;
+  color: #FF4B2B;
 }
 
 .pulse-container {
@@ -77,8 +77,13 @@
 .rocket {
   position: relative;
   top: 50px;
+  width: 100px;
   text-align: center;
   animation: rocket 0.1s ease infinite;
+}
+
+.rocket img {
+  width: 100px;
 }
 
 @keyframes rocket {
@@ -98,7 +103,7 @@
   transform: translateX(-50%);
   width: 20px;
   height: 250px;
-  background: linear-gradient(#E85D04, transparent);
+  background: linear-gradient(#FF4B2B, transparent);
 }
 .rocket::after {
   content: '';
@@ -108,6 +113,6 @@
   transform: translateX(-50%);
   width: 20px;
   height: 250px;
-  background: linear-gradient(#E85D04, transparent);
+  background: linear-gradient(#FF4B2B, transparent);
   filter: blur(20px);
 }

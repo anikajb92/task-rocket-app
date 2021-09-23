@@ -77,11 +77,7 @@ export default function TaskForm() {
         /> 
       </label> {/* NEED TO CHANGE TYPE, "03:54 PM" shows as "15:54" in console when we need timer not time */}
       <br/>
-       <input
-        type="submit"
-        value="Add To My List"
-       >
-       </input>
+       <button>Add To My List</button>
     </form>
   )
 }
