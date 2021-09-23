@@ -2,7 +2,7 @@ import React from 'react';
 import TaskForm from './TaskForm';
 import CategoryForm from './CategoryForm';
 
-export default function Welcome() {
+export default function Welcome(props) {
   const handleClick = () => {
     fetch('http://localhost:3000/users', {
       headers: {
@@ -14,7 +14,7 @@ export default function Welcome() {
   }
   return (
     <div>
-      <h2>Successfully Logged in. Welcome!</h2>
+      <h2>Successfully Logged in. Welcome back, {props.user.firstname}!</h2>
       <button onClick={handleClick}>Admin Access to see all users</button>
       <CategoryForm />
       <TaskForm />

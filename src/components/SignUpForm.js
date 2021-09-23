@@ -32,6 +32,7 @@ export default function CreateUserForm() {
 
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Create New User</h2>
       <label> Please Enter Your Full Name:
         <br/>
         <input 
@@ -73,7 +74,7 @@ export default function CreateUserForm() {
         />
       </label>
       <br/>
-      <input type="submit" value="Create User" />
+      <button>Create User</button>
     </form>
   );
 }
