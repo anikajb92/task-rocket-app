@@ -18,7 +18,7 @@
   flex-direction: column;
 	align-items: center;
 	font-family: 'Montserrat', sans-serif;
-	height: 90vh;
+	height: 100vh;
 	margin: 0px 20px 0px 20px;
 }
 
@@ -86,7 +86,7 @@ button.ghost {
   font-family: 'Montserrat', sans-serif;
   background: #f6f5f7;
   border-radius: 10px;
-  	box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.25);
   position: sticky;
   display: flex;
   align-items: center;
@@ -109,6 +109,13 @@ button.ghost {
   text-align: center;
   padding: 8px;
   text-decoration: none;
+}
+
+.profile {
+  box-sizing: border-box;
+  border-radius: 10px;
+  	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+			0 10px 10px rgba(0,0,0,0.22);
 }
 
 footer {

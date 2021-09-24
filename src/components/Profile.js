@@ -19,17 +19,22 @@ export default function Profile(props) {
   }
 
   return (
-    <div>
+    <div className="profile">
         {props.isLoggedIn? (
         <>
-          <h1> Hi {props.user.firstname} </h1>
+          <h1> Hi, {props.user.firstname}! </h1>
           <h2>Here's a look at your profile. Need to make changes?</h2>
+          <hr/>
           <h3>Full Name: {props.user.firstname} {props.user.lastname}</h3>
           <h3>Username: {props.user.username}</h3>
-          <img></img>
-
+          <h3>Password: (Currently Unavailable)</h3>
+          <h3>Profile Picture: </h3>
+          <button>Currently Unavailable</button>
+          <hr/>
+          <h2>Admin Access</h2>
           <button onClick={getUsers}>See all users</button>
           <br/>
+          <hr/>
           <button onClick={props.handleLogout}>Logout</button>
         </>) : (
         <>

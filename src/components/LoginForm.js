@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
+import {useHistory} from 'react-router-dom';
 import {IoRocketOutline} from "react-icons/io5";
 
 export default function LoginForm(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const history = useHistory()
 
   const handleSubmit = event => {
     event.preventDefault();
@@ -26,6 +28,7 @@ export default function LoginForm(props) {
           console.log('login successful');
           props.handleLogin();
           props.setUser(result.user);
+          history.push('/home');
         }
       });
   }

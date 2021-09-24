@@ -24,6 +24,7 @@ export default function Credentials(props) {
         <LoginForm 
           handleLogin={props.handleLogin}
           setUser={props.setUser}
+          routerprops={props.routerprops}
           /> 
     </div>
   </div>

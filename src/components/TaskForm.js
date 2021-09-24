@@ -6,8 +6,9 @@ export default function TaskForm() {
   const [dueDate, setDueDate] = useState();
   const [dueToday, setDueToday] = useState(false);
   const [category, setCategory] = useState('');
-  const [priority, setPriority] = useState(2)
-  const [timer, setTimer] = useState(0)
+  const [priority, setPriority] = useState(2);
+  const [timer, setTimer] = useState(0);
+  const [completed, setCompleted] = useState(false)
 
   const handleSubmit = event => {
     event.preventDefault();
