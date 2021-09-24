@@ -4,7 +4,6 @@ import {useState} from 'react';
 export default function TaskForm() {
   const [description, setDescription] = useState('');
   const [dueDate, setDueDate] = useState();
-  const [dueToday, setDueToday] = useState(false);
   const [category, setCategory] = useState('');
   const [priority, setPriority] = useState(2);
   const [timer, setTimer] = useState(0);
@@ -12,7 +11,7 @@ export default function TaskForm() {
 
   const handleSubmit = event => {
     event.preventDefault();
-    console.log("form values logged as", description, dueDate, dueToday, category, priority, timer)
+    console.log("form values logged as", description, dueDate, category, priority, timer)
   }
 
   return (
@@ -33,19 +32,10 @@ export default function TaskForm() {
         <input
           type='date'
           placeholder=''
-          value={dueToday}
-          name='dueToday'
+          value={dueDate}
+          name='dueDate'
           onChange={(event) => setDueDate(event.target.value)}
         /> {/* NEED TO CHANGE FORMAT AND ALLOW DATE TO SHOW UP IN OPTION FIELD UPON SELECTION */}
-          <select 
-            name="dueToday" 
-            value={dueDate} 
-            onChange={(event) => setDueToday(event.target.value)}
-          >
-              <option value="null">Due Today?</option>
-              <option value="true">Yes, I Have To Get This Done Today!</option>
-              <option value="false">No, It Can Wait</option>
-        </select> {/* ON CHANGE NOT SHOWING IN DROP DOWN */}
       </label>
       <br/>
       <label> Category: 
