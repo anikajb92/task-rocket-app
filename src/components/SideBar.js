@@ -4,38 +4,44 @@ export default function SideBar(props) {
 
   const handleClick = (event) => {
     props.changeSelected(event.target.name)
+    console.log(props.selected);
   }
 
   return (
     <div className="aside">
       <p id="title" >Filter</p>
       {props.selected === "all" ?
-        <button onClick={handleClick} name="all" style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>All Tasks</button> :
-        <button onClick={handleClick} name="all">All Tasks</button>
+        <button onClick={handleClick} name="all tasks" style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>All Tasks</button> :
+        <button onClick={handleClick} name="all tasks">All Tasks</button>
       }
       <h3>. . . . . . . . . .</h3>
       <p>Categories</p>
       {
-        props.selected === "Hot Drink" ?
-          <button onClick={handleClick} name="Hot Drink" style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>(Category 1)</button> :
-          <button onClick={handleClick} name="Hot Drink">Hot Drinks</button>
+        props.selected === "Category 1" ?
+          <button onClick={handleClick} style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>(Category 1)</button> :
+          <button onClick={handleClick}>(Category 1)</button>
       }
       {
-        props.selected === "Cold Drink" ?
-          <button onClick={handleClick} name="Cold Drink" style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>(Category 2)</button> :
-          <button onClick={handleClick} name="Cold Drink">Cold Drinks</button>
+        props.selected === "Category 2" ?
+          <button onClick={handleClick} style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>(Category 2)</button> :
+          <button onClick={handleClick}>(Category 2)</button>
       }
       <h3>. . . . . . . . . .</h3>
-      <p>DueDate</p>
+      <p>Priority</p>
       {
-        props.selected === "Pastry" ?
-          <button onClick={handleClick} name="Pastry" style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>Today</button> :
-          <button onClick={handleClick} name="Pastry">Today</button>
+        props.selected === "High" ?
+          <button onClick={handleClick} name="High" style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>High</button> :
+          <button onClick={handleClick} name="High">High</button>
       }
       {
-        props.selected === "Pastry" ?
-          <button onClick={handleClick} name="Pastry" style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>Next 7 Days</button> :
-          <button onClick={handleClick} name="Pastry">Next 7 Days</button>
+        props.selected === "Medium" ?
+          <button onClick={handleClick} name="Medium" style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>Medium</button> :
+          <button onClick={handleClick} name="Medium">Medium</button>
+      }
+      {
+        props.selected === "Low" ?
+          <button onClick={handleClick} name="Low" style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}>Low</button> :
+          <button onClick={handleClick} name="Low">Low</button>
       }
     </div>
   )
