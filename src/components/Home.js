@@ -3,22 +3,21 @@ import '../styles/home.css';
 import {FaBuffer} from "react-icons/fa";
 
 import TaskForm from './TaskForm';
-import CategoryForm from './CategoryForm';
 import CategoryList from './CategoryList';
 import SideBar from './SideBar';
 
 export default function Welcome(props) {
   const [selected, setSelected]= useState("all");
 
-  const renderCategories = () => props.categories.map(category => {
-    console.log(category);
-    return <h2><FaBuffer/> {category.name}</h2>
+  const renderTasks = () => props.tasks.map(task => {
+    console.log(task);
+  //   return <h2><FaBuffer/> {category.name}</h2>
     
-    // return <CategoryList 
-    //   name={category.name}
-    //   tasks={category.tasks}
-    // />
-  })
+  //   // return <CategoryList 
+  //   //   name={category.name}
+  //   //   tasks={category.tasks}
+  //   // />
+  // })
 
   const changeSelected = (value) => {setSelected(value)}
   
@@ -34,12 +33,11 @@ export default function Welcome(props) {
           />
         </div>
         <div className="board">
-          {renderCategories()}
+          {/* {props.tasks? {renderTasks() : (<TaskForm />} */}
         </div>
       </div>
       <div className="new-tasks">
-        <CategoryForm />
-        <TaskForm categories={props.categories}/>
+        {props.tasks? "null" : <TaskForm />}
       </div>
     </div>
   )
