@@ -17,7 +17,7 @@ export default function Welcome(props) {
   //   //   name={category.name}
   //   //   tasks={category.tasks}
   //   // />
-  // })
+  })
 
   const changeSelected = (value) => {setSelected(value)}
   
@@ -33,11 +33,11 @@ export default function Welcome(props) {
           />
         </div>
         <div className="board">
-          {/* {props.tasks? {renderTasks() : (<TaskForm />} */}
+          {renderTasks()}
         </div>
       </div>
       <div className="new-tasks">
-        {props.tasks? "null" : <TaskForm />}
+        <TaskForm />
       </div>
     </div>
   )
