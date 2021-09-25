@@ -3,7 +3,7 @@ import '../styles/home.css';
 import {FaBuffer} from "react-icons/fa";
 
 import TaskForm from './TaskForm';
-import CategoryList from './CategoryList';
+import Tasks from './Tasks';
 import SideBar from './SideBar';
 
 export default function Welcome(props) {
@@ -11,12 +11,11 @@ export default function Welcome(props) {
 
   const renderTasks = () => props.tasks.map(task => {
     console.log(task);
-  //   return <h2><FaBuffer/> {category.name}</h2>
-    
-  //   // return <CategoryList 
-  //   //   name={category.name}
-  //   //   tasks={category.tasks}
-  //   // />
+    return <Tasks 
+      description={task.description}
+      category={task.category}
+      priority={task.priority}
+    />
   })
 
   const changeSelected = (value) => {setSelected(value)}
