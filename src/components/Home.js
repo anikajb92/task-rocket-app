@@ -10,7 +10,7 @@ export default function Welcome(props) {
   const [selected, setSelected]= useState("all");
 
   const renderTasks = () => props.tasks.map(task => {
-    console.log(task);
+    // console.log(task);
     return <Tasks 
       description={task.description}
       category={task.category}
@@ -37,7 +37,7 @@ export default function Welcome(props) {
         </div>
       </div>
       <div className="new-tasks">
-        <TaskForm />
+        <TaskForm renderTasks={renderTasks}/>
       </div>
     </div>
   )

@@ -1,7 +1,7 @@
 import React from 'react';
 import {useState} from 'react';
 
-export default function TaskForm() {
+export default function TaskForm(props) {
   const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
   const [priority, setPriority] = useState(2);
@@ -12,30 +12,30 @@ export default function TaskForm() {
     event.preventDefault();
     console.log("form values logged as", description, category, priority, completed)
 
-    // fetch('http://localhost:3000/tasks', {
-    //   method: 'POST',
-    //   headers: {
-    //     Accept: 'application/json', 
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${localStorage.token}`
-    //   },
-    //   body: JSON.stringify({task: {description, category, priority, completed}})
-    // })
-    // .then(response => response.json())
-    // .then(result => {
-    //   if (result.error) {
-    //     console.log(result.error)
-    //   } else {
-    //     console.log(result)
-    //   }
-    // })
+    fetch('http://localhost:3000/tasks', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json', 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify({task: {description, category, priority, completed}})
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (result.error) {
+        console.log(result.error)
+      } else {
+        console.log(result);
+        props.renderTasks();
+      }
+    })
   }
 
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>------Task Form------</h2>
-      <h3>Add A Task </h3>
+      <h2>Add A Task </h2>
       <label> Description: 
         <input
           type='text'
@@ -47,13 +47,6 @@ export default function TaskForm() {
       </label> {/* WORKING */}
       <br/>
       <label> Category: 
-        {/* <input
-          type='text'
-          placeholder=''
-          value={category}
-          name='Category'
-          
-          /> */}
           <select 
             name="category" 
             value={category} 
