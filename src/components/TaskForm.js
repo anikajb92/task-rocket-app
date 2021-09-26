@@ -11,7 +11,26 @@ export default function TaskForm() {
   const handleSubmit = event => {
     event.preventDefault();
     console.log("form values logged as", description, category, priority, completed)
+
+    fetch('http://localhost:3000/tasks', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json', 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify({task: {description, category, priority, completed}})
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (result.error) {
+        console.log(result.error)
+      } else {
+        console.log(result)
+      }
+    })
   }
+
 
   return (
     <form onSubmit={handleSubmit}>

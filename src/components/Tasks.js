@@ -6,10 +6,9 @@ export default function Tasks(props) {
   return (
     <div>
       <BsCircle />
-      <h3>{props.description}</h3>
-      <h3>{props.dueDate}</h3>
-      <h3>{props.priority}</h3>
-      <h3>{props.dueDate}</h3>
+      <p>{props.description}</p>
+      <p>Priority: {props.priority}</p>
+      <p>Category: {props.category}</p>
     </div>
   )
 }
