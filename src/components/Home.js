@@ -7,7 +7,7 @@ import Tasks from './Tasks';
 import SideBar from './SideBar';
 
 export default function Welcome(props) {
-  const [selected, setSelected]= useState("all");
+  const [selected, setSelected]= useState("All Tasks");
 
   const renderTasks = () => props.tasks.map(task => {
     // console.log(task);

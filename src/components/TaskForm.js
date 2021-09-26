@@ -6,6 +6,7 @@ export default function TaskForm(props) {
   const [category, setCategory] = useState('');
   const [priority, setPriority] = useState(2);
   const [completed, setCompleted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   // add in due date, and timer features later
 
   const handleSubmit = event => {
@@ -28,6 +29,8 @@ export default function TaskForm(props) {
       } else {
         console.log(result);
         props.renderTasks();
+        setSubmitted(true);
+        // write function to have Thank You modal pop up 
       }
     })
   }
@@ -35,7 +38,7 @@ export default function TaskForm(props) {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Add A Task </h2>
+      <h2>{submitted? "Add Another Task" : "Add A Task"}</h2>
       <label> Description: 
         <input
           type='text'
@@ -71,7 +74,7 @@ export default function TaskForm(props) {
         />
       </label> {/* WORKING, BUT NEED TO SEE DIGIT ON SLIDER */}
       <br/>
-       <button>Add To My List</button>
+       <button>{submitted? "Added!" : "Add To My List"}</button>
     </form>
   )
 }

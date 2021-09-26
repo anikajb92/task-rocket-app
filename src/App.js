@@ -32,10 +32,9 @@ function App() {
         .then(response => response.json())
         .then(result => {
           if (result.error) {
-            console.error(result.error);
+            alert(result.error);
           } else {
             handleLogin();
-            console.log(result);
             setUser(result.user);
             setTasks(result.tasks);
           }
