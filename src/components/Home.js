@@ -15,6 +15,7 @@ export default function Welcome(props) {
       description={task.description}
       category={task.category}
       priority={task.priority}
+      selected={selected}
     />
   })
 

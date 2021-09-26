@@ -12,23 +12,23 @@ export default function TaskForm() {
     event.preventDefault();
     console.log("form values logged as", description, category, priority, completed)
 
-    fetch('http://localhost:3000/tasks', {
-      method: 'POST',
-      headers: {
-        Accept: 'application/json', 
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.token}`
-      },
-      body: JSON.stringify({task: {description, category, priority, completed}})
-    })
-    .then(response => response.json())
-    .then(result => {
-      if (result.error) {
-        console.log(result.error)
-      } else {
-        console.log(result)
-      }
-    })
+    // fetch('http://localhost:3000/tasks', {
+    //   method: 'POST',
+    //   headers: {
+    //     Accept: 'application/json', 
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${localStorage.token}`
+    //   },
+    //   body: JSON.stringify({task: {description, category, priority, completed}})
+    // })
+    // .then(response => response.json())
+    // .then(result => {
+    //   if (result.error) {
+    //     console.log(result.error)
+    //   } else {
+    //     console.log(result)
+    //   }
+    // })
   }
 
 
@@ -47,13 +47,24 @@ export default function TaskForm() {
       </label> {/* WORKING */}
       <br/>
       <label> Category: 
-        <input
+        {/* <input
           type='text'
           placeholder=''
           value={category}
-          name='dueDate'
-          onChange={(event) => setCategory(event.target.value)}
-          />
+          name='Category'
+          
+          /> */}
+          <select 
+            name="category" 
+            value={category} 
+            id="category" 
+            onChange={(event) => setCategory(event.target.value)}
+          >
+            <option value="Work">Work</option>
+            <option value="Household">Household</option>
+            <option value="Personal">Personal</option>
+            <option value="Social">Social</option>
+          </select>
       </label> {/* WORKING, but need to change to drop down and add text field */}
       <br/>
       <label> Priority Level: 

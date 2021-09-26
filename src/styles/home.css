@@ -19,7 +19,7 @@
 
 .board {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-content: center;
   align-items: stretch;
   min-height: 500px; 
@@ -69,4 +69,12 @@
   margin: 15px 0px 15px 0px;
   letter-spacing: 2px;
   font-size: 15px;
+}
+
+.task {
+  background-color: #eee;
+	border: none;
+	padding: 0px 15px;
+	margin: 8px 0;
+	width: 90%;
 }
