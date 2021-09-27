@@ -1,11 +1,13 @@
 import React from 'react';
 import {useState} from 'react';
+import Tasks from './Tasks';
 
-export default function TaskForm() {
+export default function TaskForm(props) {
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Work');
   const [priority, setPriority] = useState(2);
   const [completed, setCompleted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   // add in due date, and timer features later
 
   const handleSubmit = event => {
@@ -26,16 +28,19 @@ export default function TaskForm() {
       if (result.error) {
         console.log(result.error)
       } else {
-        console.log(result)
+        console.log(result);
+        props.setTasks([...props.tasks, result]);
+        // props.renderTasks();
+        setSubmitted(true);
+        // write function to have Thank You modal pop up 
       }
     })
   }
 
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>------Task Form------</h2>
-      <h3>Add A Task </h3>
+    <form onSubmit={handleSubmit} className="taskform">
+      <h2>{submitted? "Add Another Task" : "Add A Task"}</h2>
       <label> Description: 
         <input
           type='text'
@@ -47,13 +52,17 @@ export default function TaskForm() {
       </label> {/* WORKING */}
       <br/>
       <label> Category: 
-        <input
-          type='text'
-          placeholder=''
-          value={category}
-          name='dueDate'
-          onChange={(event) => setCategory(event.target.value)}
-          />
+          <select 
+            name="category" 
+            value={category} 
+            id="category" 
+            onChange={(event) => setCategory(event.target.value)}
+          >
+            <option value="Work">Work</option>
+            <option value="Household">Household</option>
+            <option value="Personal">Personal</option>
+            <option value="Social">Social</option>
+          </select>
       </label> {/* WORKING, but need to change to drop down and add text field */}
       <br/>
       <label> Priority Level: 
@@ -67,7 +76,7 @@ export default function TaskForm() {
         />
       </label> {/* WORKING, BUT NEED TO SEE DIGIT ON SLIDER */}
       <br/>
-       <button>Add To My List</button>
+       <button>{submitted? "Added!" : "Add To My List"}</button>
     </form>
   )
 }

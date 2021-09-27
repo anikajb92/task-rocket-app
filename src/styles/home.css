@@ -1,5 +1,9 @@
 .home {
   background-color: #f6f5f7;
+  position: relative;
+  width: calc(100% - 100px);
+  min-height: calc(100vh - 280px);
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -17,13 +21,78 @@
   margin: 5px;
 }
 
+.new-tasks {
+  display: inline-flex;
+  flex-direction: row;
+}
+.taskform {
+  display: flex;
+  flex-direction: column;
+  align-content: stretch;
+  align-items: stretch;
+}
+.taskform select {
+  width: 100%;
+  height: 2rem;
+  padding: 1rem;
+  border: none;
+  background-color: #eee;
+  font-size: 16px;
+  color:black;
+}
+
+.taskform input[type=range]{
+  -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    background: #eee;
+    border: none;
+    border-radius: 3px;
+}
+.taskform input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: #FF4B2B;
+    margin-top: -4px;
+}
+.taskform input[type=range]::-webkit-slider-thumb:hover {
+  filter: brightness(1.06);
+  box-shadow: 0 0 0 5px rgba(255,75,43,0.25);
+}
+.taskform input[type=range]::-webkit-slider-thumb:active {
+  box-shadow: 0 0 0 7px rgba(255,75,43,0.5);
+}
+.taskform input[type=range]:focus {
+    outline: none;
+}
+
+.taskform input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #ccc;
+    height: 2px;
+}
+
+.taskform button:hover{
+  filter: brightness(1.06);
+  animation: mismove 1s ease-in-out 0s 2 alternate;
+  transform-origin: 50% 50%;
+}
+
+@keyframes mismove {
+  0%   { transform: scale(1)}
+  50%  { transform: scale(0.95)}
+  100%  { transform: scale(1)}
+}
+
 .board {
   display: flex;
   flex-direction: row;
   align-content: center;
   align-items: stretch;
   min-height: 500px; 
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.25);
 }
 
@@ -62,11 +131,32 @@
   font-size: 25px ;
   margin-top: 0px;
   padding-left: 7px;
-
 }
 .aside h3 {
   color: rgba(113, 165, 228, 0.228);
   margin: 15px 0px 15px 0px;
   letter-spacing: 2px;
   font-size: 15px;
+}
+.aside button{
+  background-color: transparent;
+	border-color: #FF4B2B;
+  color: #FF4B2B;
+}
+
+.task {
+  background-color: #eee;
+	border: none;
+  border-radius: 5px;
+	padding: 0px 15px;
+	margin: 8px 0;
+	width: 90%;
+}
+
+.taskform label{
+  font-weight: 500;
+  text-align: left;
+  font-size: 25px ;
+  margin-top: 0px;
+  padding-left: 7px;
 }

@@ -32,7 +32,7 @@ function App() {
         .then(response => response.json())
         .then(result => {
           if (result.error) {
-            console.error(result.error);
+            alert(result.error);
           } else {
             handleLogin();
             console.log(result);
@@ -60,6 +60,7 @@ function App() {
               <Home 
                 user={user}
                 tasks={tasks}
+                setTasks={setTasks}
               />
             }
             />
