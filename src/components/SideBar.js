@@ -1,7 +1,8 @@
 import React from 'react';
 import {MdComputer, MdPersonOutline, MdPeopleOutline} from 'react-icons/md';
 import{BsHouseDoor} from 'react-icons/bs';
-import {RiBarChartHorizontalLine} from 'react-icons/ri'
+import {RiBarChartHorizontalLine} from 'react-icons/ri';
+import {IoRocketOutline} from 'react-icons/io5';
 
 export default function SideBar(props) {
 
@@ -17,7 +18,7 @@ export default function SideBar(props) {
         <button onClick={handleClick} id="All Tasks" name="All Tasks" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><RiBarChartHorizontalLine style={{fill: "#ffffff"}} /> All Tasks</button> :
         <button onClick={handleClick} id="All Tasks" name="All Tasks"><RiBarChartHorizontalLine style={{fill: "#FF4B2B"}} /> All Tasks</button>
       }
-      <h3>. . . . . . . . . .</h3>
+      <h3>. . . . . . . . </h3>
       <p>Categories</p>
       {
         props.selected.name === "Work" ?
@@ -39,7 +40,8 @@ export default function SideBar(props) {
           <button onClick={handleClick} id="Category" name="Social" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><MdPeopleOutline style={{fill: "#ffffff"}}/> Social</button> :
           <button onClick={handleClick} id="Category" name="Social"><MdPeopleOutline style={{fill: "#FF4B2B"}}/> Social</button>
       }
-      <h3>. . . . . . . . . .</h3>
+      <br/>
+      <h3>. . . . . . . . </h3>
       <p>Priority</p>
       {
         props.selected.name === "3" ?

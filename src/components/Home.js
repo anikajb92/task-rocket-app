@@ -30,14 +30,18 @@ export default function Welcome(props) {
       })
     } else if (selected.id == "Priority"){
       let items = props.tasks.filter(item => item.priority == selected.name)
-      return items.map(item => {
-        return <Tasks 
-          description={item.description}
-          selected={selected}
-          tasks={props.tasks}
-          items={items}
-        />
-      })
+      {return items? (
+        items.map(item => {
+          return <Tasks 
+            description={item.description}
+            selected={selected}
+            tasks={props.tasks}
+            items={items}
+          />
+        })
+      )
+        : "<p>Nothing is here</p>"
+      }
     } else if(selected.id == "Category"){
         let items = props.tasks.filter(item => item.category == selected.name)
         return items.map(item => {
@@ -53,7 +57,9 @@ export default function Welcome(props) {
   
   return (
     <div className="home">
-      <h1>Welcome back, {props.user.firstname}!</h1>
+      <div className="welcomeback">
+        <h1>Welcome Back, {props.user.firstname}!</h1>
+      </div>
       <br/>
       <div className="existing-tasks">
         <div className="aside-container">
@@ -64,23 +70,7 @@ export default function Welcome(props) {
         </div>
         <div className="board">
           <div className="taskcolumn">
-            {selected.id=="All Tasks"? (
-              <>
-              <h2>High Priority Tasks</h2>
-              </>) : (
-                <>
-              <h2>Showing All Pending Tasks For</h2>
-              <h3>{selected.id}: {selected.name}</h3>
-              </>)
-            }
-            {renderTasks()}
-          </div>
-          <div className="taskcolumn">
-          <h2>Medium Priority Tasks</h2>
-            {renderTasks()}
-          </div>
-          <div className="taskcolumn">
-          <h2>Low Priority Tasks</h2>
+            <h2>Pending Tasks</h2>
             {renderTasks()}
           </div>
         </div>
