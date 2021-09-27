@@ -31,21 +31,21 @@ export default function Welcome(props) {
   // })
 
   const renderTasks = () => {
-    if (selected.id === "all tasks") {
+    if (selected.id === "All tasks") {
       return props.tasks.map(task => {
         return <Tasks
         description={task.description}
         selected={selected}
         />
       })
-    } else if (selected.id == "priority"){
+    } else if (selected.id == "Priority"){
       let items = props.tasks.filter(item => item.priority == selected.name)
       return items.map(item => {
         return <Tasks 
           description={item.description}
           selected={selected}/>
       })
-    } else if(selected.id == "category"){
+    } else if(selected.id == "Category"){
         let items = props.tasks.filter(item => item.category == selected.name)
         return items.map(item => {
           return <Tasks 
@@ -69,6 +69,14 @@ export default function Welcome(props) {
           />
         </div>
         <div className="board">
+          {selected.id=="all tasks"? (
+            <>
+            <h2>All Tasks</h2>
+            </>) : (
+              <>
+            <h2>Showing All Tasks For: {selected.id}: {selected.name}</h2>
+            </>)
+          }
           {renderTasks()}
         </div>
       </div>
