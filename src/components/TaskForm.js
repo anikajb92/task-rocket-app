@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 export default function TaskForm(props) {
   const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('Work');
   const [priority, setPriority] = useState(2);
   const [completed, setCompleted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
