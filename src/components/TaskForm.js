@@ -1,5 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
+import Tasks from './Tasks';
 
 export default function TaskForm(props) {
   const [description, setDescription] = useState('');
@@ -28,7 +29,8 @@ export default function TaskForm(props) {
         console.log(result.error)
       } else {
         console.log(result);
-        props.renderTasks();
+        props.setTasks([...props.tasks, result]);
+        // props.renderTasks();
         setSubmitted(true);
         // write function to have Thank You modal pop up 
       }
@@ -37,7 +39,7 @@ export default function TaskForm(props) {
 
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="taskform">
       <h2>{submitted? "Add Another Task" : "Add A Task"}</h2>
       <label> Description: 
         <input

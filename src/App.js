@@ -60,6 +60,7 @@ function App() {
               <Home 
                 user={user}
                 tasks={tasks}
+                setTasks={setTasks}
               />
             }
             />

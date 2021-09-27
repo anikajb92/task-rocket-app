@@ -9,7 +9,7 @@ import SideBar from './SideBar';
 export default function Welcome(props) {
   const [selected, setSelected]= useState({
     name: 'All Tasks',
-    id: 'all tasks',
+    id: 'All Tasks',
   });
 
   const changeSelected = (name, id) => {
@@ -17,25 +17,15 @@ export default function Welcome(props) {
       name: name,
       id: id,
     })
-    console.log("attempting to setSelected", selected)
   }
 
-  // const renderTasks = () => {props.tasks.map(task => {
-  //   // console.log(task);
-  //   return <Tasks 
-  //     description={task.description}
-  //     category={task.category}
-  //     priority={task.priority}
-  //     selected={selected}
-  //   />
-  // })
-
   const renderTasks = () => {
-    if (selected.id === "All tasks") {
+    if (selected.id === "All Tasks") {
       return props.tasks.map(task => {
         return <Tasks
         description={task.description}
         selected={selected}
+        tasks={props.tasks}
         />
       })
     } else if (selected.id == "Priority"){
@@ -43,7 +33,10 @@ export default function Welcome(props) {
       return items.map(item => {
         return <Tasks 
           description={item.description}
-          selected={selected}/>
+          selected={selected}
+          tasks={props.tasks}
+          items={items}
+        />
       })
     } else if(selected.id == "Category"){
         let items = props.tasks.filter(item => item.category == selected.name)
@@ -51,16 +44,17 @@ export default function Welcome(props) {
           return <Tasks 
             description={item.description}
             selected={selected}
+            tasks={props.tasks}
+            items={items}
           />
         })
     }
   }
-
   
   return (
     <div className="home">
-      {/* <h1>Welcome back, {props.user.firstname}!</h1>
-      <br/> */}
+      <h1>Welcome back, {props.user.firstname}!</h1>
+      <br/>
       <div className="existing-tasks">
         <div className="aside-container">
           <SideBar 
@@ -69,19 +63,34 @@ export default function Welcome(props) {
           />
         </div>
         <div className="board">
-          {selected.id=="all tasks"? (
-            <>
-            <h2>All Tasks</h2>
-            </>) : (
+          <div className="column1">
+            {selected.id=="All Tasks"? (
               <>
-            <h2>Showing All Tasks For: {selected.id}: {selected.name}</h2>
-            </>)
-          }
-          {renderTasks()}
+              <h2>High Priority Tasks</h2>
+              </>) : (
+                <>
+              <h2>Showing All Pending Tasks For</h2>
+              <h3>{selected.id}: {selected.name}</h3>
+              </>)
+            }
+            {renderTasks()}
+          </div>
+          <div className="column2">
+          <h2>Medium Priority Tasks</h2>
+            {renderTasks()}
+          </div>
+          <div className="column3">
+          <h2>Low Priority Tasks</h2>
+            {renderTasks()}
+          </div>
         </div>
       </div>
       <div className="new-tasks">
-        <TaskForm renderTasks={renderTasks}/>
+        <TaskForm 
+        renderTasks={renderTasks}
+        setTasks={props.setTasks}
+        tasks={props.tasks}
+        />
       </div>
     </div>
   )
