@@ -145,12 +145,18 @@
 }
 
 .task {
+  display: flex;
   background-color: #eee;
 	border: none;
   border-radius: 5px;
 	padding: 0px 15px;
 	margin: 8px 0;
 	width: 90%;
+}
+
+.taskcolumn {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .taskform label{

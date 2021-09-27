@@ -63,7 +63,7 @@ export default function Welcome(props) {
           />
         </div>
         <div className="board">
-          <div className="column1">
+          <div className="taskcolumn">
             {selected.id=="All Tasks"? (
               <>
               <h2>High Priority Tasks</h2>
@@ -75,11 +75,11 @@ export default function Welcome(props) {
             }
             {renderTasks()}
           </div>
-          <div className="column2">
+          <div className="taskcolumn">
           <h2>Medium Priority Tasks</h2>
             {renderTasks()}
           </div>
-          <div className="column3">
+          <div className="taskcolumn">
           <h2>Low Priority Tasks</h2>
             {renderTasks()}
           </div>
