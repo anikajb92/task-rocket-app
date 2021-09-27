@@ -5,6 +5,7 @@ import {FaBuffer} from "react-icons/fa";
 import TaskForm from './TaskForm';
 import Tasks from './Tasks';
 import SideBar from './SideBar';
+import StatsContainer from './StatsContainer';
 
 export default function Welcome(props) {
   const [selected, setSelected]= useState({
@@ -52,7 +53,7 @@ export default function Welcome(props) {
             items={items}
           />
         })
-    }
+    } // write else if for completed tasks here
   }
   
   return (
@@ -72,6 +73,10 @@ export default function Welcome(props) {
           <div className="taskcolumn">
             <h2>Pending Tasks</h2>
             {renderTasks()}
+          </div>
+          <div className="statscolumn">
+            <h2>{props.user.firstname}'s Stats</h2>
+            <StatsContainer />
           </div>
         </div>
       </div>
