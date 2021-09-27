@@ -7,9 +7,18 @@ import Tasks from './Tasks';
 import SideBar from './SideBar';
 
 export default function Welcome(props) {
-  const [selected, setSelected]= useState("All Tasks");
+  const [selected, setSelected]= useState({
+    name: 'All Tasks',
+    id: 'all tasks',
+  });
 
-  const changeSelected = (value) => {setSelected(value)}
+  const changeSelected = (name, id) => {
+    setSelected({
+      name: name,
+      id: id,
+    })
+    console.log("attempting to setSelected", selected)
+  }
 
   // const renderTasks = () => {props.tasks.map(task => {
   //   // console.log(task);
@@ -22,24 +31,28 @@ export default function Welcome(props) {
   // })
 
   const renderTasks = () => {
-    if (selected === "All Tasks") {
+    if (selected.id === "all tasks") {
       return props.tasks.map(task => {
-        console.log("all tasks selected")
         return <Tasks
         description={task.description}
         selected={selected}
         />
       })
-    } else {
-      let items = props.tasks.filter(item => item.category == selected)
-      console.log("else statement:", items)
+    } else if (selected.id == "priority"){
+      let items = props.tasks.filter(item => item.priority == selected.name)
       return items.map(item => {
-        console.log("priority selected")
         return <Tasks 
           description={item.description}
-          selected={selected}
-        />
+          selected={selected}/>
       })
+    } else if(selected.id == "category"){
+        let items = props.tasks.filter(item => item.category == selected.name)
+        return items.map(item => {
+          return <Tasks 
+            description={item.description}
+            selected={selected}
+          />
+        })
     }
   }
 
