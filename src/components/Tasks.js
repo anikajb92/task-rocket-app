@@ -9,11 +9,11 @@ export default function Tasks(props) {
   return (
     <div className="task">
       <div className="task-left">
-        {props.completed?
+        {props.task.completed?
           <button className="check"><BsCheckCircle /> </button> :
           <button className="check"><BsCircle /> </button>
         }
-       <p> {props.description}</p>
+       <p> {props.task.description}</p>
       </div>
       <div className="task-right">
         <button className="edit" onClick={() => props.taskToEdit(props.task)}> <FiEdit /></button>

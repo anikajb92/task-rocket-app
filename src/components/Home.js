@@ -9,18 +9,20 @@ import StatsContainer from './StatsContainer';
 import EditTask from './EditTask';
 
 export default function Home(props) {
+  const [pendingTasks, setPendingTasks] = useState([]);
+  const [completedTasks, setCompletedTasks] = useState([]);
   // const [description, setDescription] = useState('');
   // const [category, setCategory] = useState('Work');
   // const [priority, setPriority] = useState(2);
   // const [completed, setCompleted] = useState(false);
   // const [submitted, setSubmitted] = useState(false);
-  // const [selected, setSelected]= useState({
-  //   name: 'All Tasks',
-  //   id: 'All Tasks',
-  // });
-  // const [selectedToEdit, setSelectedToEdit] = useState({});
-  // const [openEditTask, setOpenEditTask] = useState(false);
-  // const [openAddTask, setOpenAddTask] = useState(false);
+  const [selected, setSelected]= useState({
+    name: 'All Tasks',
+    id: 'All Tasks',
+  });
+  const [selectedToEdit, setSelectedToEdit] = useState({});
+  const [openEditTask, setOpenEditTask] = useState(false);
+  const [openAddTask, setOpenAddTask] = useState(false);
 
   useEffect(() => {
     fetch('http://localhost:3000/alltasks', {
@@ -33,23 +35,24 @@ export default function Home(props) {
         if (result.error) {
           alert(result.error);
         } else {
-          console.log(result)
+          setPendingTasks(result.sorted_tasks);
+          setCompletedTasks(result.completed_tasks);
         }
       })
   }, [])
 
-  // const taskToEdit = (task) => {
-  //   console.log(task);
-  //   setOpenEditTask(true);
-  //   setSelectedToEdit(task);
-  // }
+  const taskToEdit = (task) => {
+    console.log(task);
+    setOpenEditTask(true);
+    setSelectedToEdit(task);
+  }
 
-  // const changeSelected = (name, id) => {
-  //   setSelected({
-  //     name: name,
-  //     id: id,
-  //   })
-  // }
+  const changeSelected = (name, id) => {
+    setSelected({
+      name: name,
+      id: id,
+    })
+  }
 
   // const submitUpdate = event => {
   //   event.preventDefault();
@@ -67,54 +70,43 @@ export default function Home(props) {
   //   .then(response => response.json())
   // }
 
-  // const renderTasks = () => {
-  //   if (selected.id === "All Tasks") {
-  //     return props.tasks.map(task => {
-  //       return <Tasks
-  //       description={task.description}
-  //       selected={selected}
-  //       task={task}
-  //       completed={completed}
-  //       handleEdit={setOpenEditTask}
-  //       taskToEdit={taskToEdit}
-  //       />
-  //     })
-  //   } else if (selected.id == "Priority"){
-  //     let items = props.tasks.filter(item => item.priority == selected.name)
-  //     {return items? (
-  //       items.map(item => {
-  //         return <Tasks 
-  //           description={item.description}
-  //           selected={selected}
-  //           task={item}
-  //           items={items}
-  //           completed={completed}
-  //           handleEdit={setOpenEditTask}
-  //           taskToEdit={taskToEdit}
-  //         />
-  //       })
-  //     )
-  //       : "<p>Nothing is here</p>"
-  //     }
-  //   } else if(selected.id == "Category"){
-  //       let items = props.tasks.filter(item => item.category == selected.name)
-  //       return items.map(item => {
-  //         return <Tasks 
-  //           description={item.description}
-  //           selected={selected}
-  //           tasks={props.tasks}
-  //           task={item}
-  //           completed={completed}
-  //           handleEdit={setOpenEditTask}
-  //           taskToEdit={taskToEdit}
-  //         />
-  //       })
-  //   } // write else if for completed tasks here
-  // }
+  const renderTasks = () => {
+    if (selected.id === "All Tasks") {
+      return pendingTasks.map(task => {
+        return <Tasks
+        task={task}
+        handleEdit={setOpenEditTask}
+        taskToEdit={taskToEdit}
+        />
+      })
+    } else if (selected.id == "Priority"){
+      let items = pendingTasks.filter(item => item.priority == selected.name)
+      {return items? (
+        items.map(item => {
+          return <Tasks 
+            task={item}
+            handleEdit={setOpenEditTask}
+            taskToEdit={taskToEdit}
+          />
+        })
+      )
+        : "<p>Nothing is here</p>"
+      }
+    } else if(selected.id == "Category"){
+        let items = pendingTasks.filter(item => item.category == selected.name)
+        return items.map(item => {
+          return <Tasks 
+            task={item}
+            handleEdit={setOpenEditTask}
+            taskToEdit={taskToEdit}
+          />
+        })
+    } // write else if for completed tasks here
+  }
   
   return (
     <div className="home">
-      {/* <div className="welcomeback">
+      <div className="welcomeback">
         <h1>Welcome Back, {props.user.firstname}!</h1>
       </div>
       <br/>
@@ -131,7 +123,7 @@ export default function Home(props) {
           <div className="taskcolumn">
             <h2>Pending Tasks</h2>
             {renderTasks()}
-            {openEditTask && <EditTask 
+            {/* {openEditTask && <EditTask 
               handleEdit={setOpenEditTask}
               submitUpdate={submitUpdate}
               description={description}
@@ -151,15 +143,15 @@ export default function Home(props) {
               setTasks={props.setTasks}
               tasks={props.tasks}
               completed={completed}
-              handleOpenAdd={setOpenAddTask}
-            />}
+              handleOpenAdd={setOpenAddTask} 
+            />} */}
           </div>
           <div className="statscolumn">
-            <h2>{props.user.firstname}'s Stats</h2>
+            <h2>{props.user.firstname}'s Stats</h2> {/* User props from App.js */}
             <StatsContainer />
           </div>
         </div>
-      </div> */}
+      </div>
     </div>
   )
 }
