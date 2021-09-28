@@ -6,12 +6,16 @@ import TaskForm from './TaskForm';
 import Tasks from './Tasks';
 import SideBar from './SideBar';
 import StatsContainer from './StatsContainer';
+import EditTask from './EditTask';
 
-export default function Welcome(props) {
+export default function Home(props) {
   const [selected, setSelected]= useState({
     name: 'All Tasks',
     id: 'All Tasks',
   });
+  const [openEditTask, setOpenEditTask] = useState(false);
+  const [openAddTask, setOpenAddTask] = useState(false);
+
 
   const changeSelected = (name, id) => {
     setSelected({
@@ -27,6 +31,7 @@ export default function Welcome(props) {
         description={task.description}
         selected={selected}
         tasks={props.tasks}
+        handleEdit={setOpenEditTask}
         />
       })
     } else if (selected.id == "Priority"){
@@ -38,6 +43,7 @@ export default function Welcome(props) {
             selected={selected}
             tasks={props.tasks}
             items={items}
+            handleEdit={setOpenEditTask}
           />
         })
       )
@@ -51,6 +57,7 @@ export default function Welcome(props) {
             selected={selected}
             tasks={props.tasks}
             items={items}
+            handleEdit={setOpenEditTask}
           />
         })
     } // write else if for completed tasks here
@@ -67,25 +74,27 @@ export default function Welcome(props) {
           <SideBar 
           selected={selected} 
           changeSelected={changeSelected}
+          handleOpenAdd={setOpenAddTask}
+          openAddTask={openAddTask}
           />
         </div>
         <div className="board">
           <div className="taskcolumn">
             <h2>Pending Tasks</h2>
             {renderTasks()}
+            {openEditTask && <EditTask handleEdit={setOpenEditTask}/>}
+            {openAddTask && <TaskForm 
+              renderTasks={renderTasks}
+              setTasks={props.setTasks}
+              tasks={props.tasks}
+              handleOpenAdd={setOpenAddTask}
+            />}
           </div>
           <div className="statscolumn">
             <h2>{props.user.firstname}'s Stats</h2>
             <StatsContainer />
           </div>
         </div>
-      </div>
-      <div className="new-tasks">
-        <TaskForm 
-        renderTasks={renderTasks}
-        setTasks={props.setTasks}
-        tasks={props.tasks}
-        />
       </div>
     </div>
   )

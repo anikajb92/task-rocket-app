@@ -2,7 +2,7 @@
   background-color: #f6f5f7;
   position: relative;
   width: calc(100% - 100px);
-  min-height: calc(100vh - 280px);
+  min-height: calc(100vh - 200px);
   min-height: 300px;
   display: flex;
   flex-direction: column;
@@ -166,17 +166,6 @@
   width: 90%;
 }
 
-.task {
-  display: flex;
-  justify-content: left;
-  align-items: center;
-  background-color: #eee;
-	border: none;
-  border-radius: 5px;
-	padding: 0px 15px;
-	margin: 4px 0px;
-	width: 90%;
-}
 
 .taskcolumn {
   display: flex;
@@ -191,4 +180,57 @@
   font-size: 25px ;
   margin-top: 0px;
   padding-left: 7px;
+}
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eee;
+  border: none;
+  border-radius: 5px;
+  padding: 0px 15px;
+  margin: 4px 0px;
+  width: 90%;
+}
+.task-left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+button.check {
+  border-radius: 60%;
+  padding: 2px;
+  background-color: transparent;
+  border: none;
+  height: 100%;
+}
+.task-right {
+  display: flex;
+  justify-content: center;
+}
+button.edit {
+  border-radius: 50%;
+  padding: 3px;
+  background-color: transparent;
+  color: #FF4B2B;
+  border: none;
+}
+.modalBackground {
+  width: 100vw;
+  height: 40vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalContainer {
+  width: 500px;
+  height: 500px;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px;
 }

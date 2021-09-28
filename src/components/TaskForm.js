@@ -39,44 +39,49 @@ export default function TaskForm(props) {
 
 
   return (
-    <form onSubmit={handleSubmit} className="taskform">
-      <h2>{submitted? "Add Another Task" : "Add A Task"}</h2>
-      <label> Description: 
-        <input
-          type='text'
-          placeholder='Type Here'
-          value={description}
-          name='description'
-          onChange={(event) => setDescription(event.target.value)}
-        />
-      </label> {/* WORKING */}
-      <br/>
-      <label> Category: 
-          <select 
-            name="category" 
-            value={category} 
-            id="category" 
-            onChange={(event) => setCategory(event.target.value)}
-          >
-            <option value="Work">Work</option>
-            <option value="Household">Household</option>
-            <option value="Personal">Personal</option>
-            <option value="Social">Social</option>
-          </select>
-      </label> {/* WORKING, but need to change to drop down and add text field */}
-      <br/>
-      <label> Priority Level: 
-        <input
-          type='range'
-          min="1"
-          max="3"
-          value={priority}
-          name='priority'
-          onChange={(event) => setPriority(event.target.value)}
-        />
-      </label> {/* WORKING, BUT NEED TO SEE DIGIT ON SLIDER */}
-      <br/>
-       <button>{submitted? "Added!" : "Add To My List"}</button>
-    </form>
+    <div className="modalBackground">
+      <div className="modalContainer">
+        <button onClick={() => props.handleOpenAdd(false)}> X </button>
+        <form onSubmit={handleSubmit} className="taskform">
+          <h2>{submitted? "Add Another Task" : "Add A Task"}</h2>
+          <label> Description: 
+            <input
+              type='text'
+              placeholder='Type Here'
+              value={description}
+              name='description'
+              onChange={(event) => setDescription(event.target.value)}
+            />
+          </label> {/* WORKING */}
+          <br/>
+          <label> Category: 
+              <select 
+                name="category" 
+                value={category} 
+                id="category" 
+                onChange={(event) => setCategory(event.target.value)}
+              >
+                <option value="Work">Work</option>
+                <option value="Household">Household</option>
+                <option value="Personal">Personal</option>
+                <option value="Social">Social</option>
+              </select>
+          </label> {/* WORKING, but need to change to drop down and add text field */}
+          <br/>
+          <label> Priority Level: 
+            <input
+              type='range'
+              min="1"
+              max="3"
+              value={priority}
+              name='priority'
+              onChange={(event) => setPriority(event.target.value)}
+            />
+          </label> {/* WORKING, BUT NEED TO SEE DIGIT ON SLIDER */}
+          <br/>
+          <button>{submitted? "Added!" : "Add To My List"}</button>
+        </form>
+      </div>
+    </div>
   )
 }

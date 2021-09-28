@@ -8,8 +8,13 @@ import {FiEdit} from "react-icons/fi";
 export default function Tasks(props) {
   return (
     <div className="task">
-       <p><BsCircle /> {props.description}</p>
-      <button><FiEdit /></button>
+      <div className="task-left">
+       <button className="check"><BsCircle /> </button>
+       <p> {props.description}</p>
+      </div>
+      <div className="task-right">
+        <button className="edit" onClick={() => props.handleEdit(true)}> <FiEdit /></button>
+      </div>
       {/* {props.category === "Work" ?
         <p style={{ backgroundColor: "#FF4B2B", color: "#fffff" }}><BsCircle /> {props.description}</p> :
         <p><BsCircle /> {props.description}</p>
