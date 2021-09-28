@@ -1,22 +1,47 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../styles/home.css';
 import {FaBuffer} from "react-icons/fa";
 
 import TaskForm from './TaskForm';
 import Tasks from './Tasks';
 import SideBar from './SideBar';
+import StatsContainer from './StatsContainer';
+import EditTask from './EditTask';
 
-export default function Welcome(props) {
+export default function Home(props) {
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('Work');
+  const [priority, setPriority] = useState(2);
+  const [completed, setCompleted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected]= useState({
     name: 'All Tasks',
     id: 'All Tasks',
   });
+  const [openEditTask, setOpenEditTask] = useState(false);
+  const [openAddTask, setOpenAddTask] = useState(false);
 
   const changeSelected = (name, id) => {
     setSelected({
       name: name,
       id: id,
     })
+  }
+
+  const submitUpdate = event => {
+    event.preventDefault();
+    console.log("form values updated as", description, category, priority, completed)
+
+    fetch('http://localhost:3000/tasks', {
+      method: 'PATCH',
+      headers: {
+        Accept: 'application/json', 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify({task: {description, category, priority, completed}})
+    })
+    .then(response => response.json())
   }
 
   const renderTasks = () => {
@@ -26,18 +51,26 @@ export default function Welcome(props) {
         description={task.description}
         selected={selected}
         tasks={props.tasks}
+        completed={completed}
+        handleEdit={setOpenEditTask}
         />
       })
     } else if (selected.id == "Priority"){
       let items = props.tasks.filter(item => item.priority == selected.name)
-      return items.map(item => {
-        return <Tasks 
-          description={item.description}
-          selected={selected}
-          tasks={props.tasks}
-          items={items}
-        />
-      })
+      {return items? (
+        items.map(item => {
+          return <Tasks 
+            description={item.description}
+            selected={selected}
+            tasks={props.tasks}
+            items={items}
+            completed={completed}
+            handleEdit={setOpenEditTask}
+          />
+        })
+      )
+        : "<p>Nothing is here</p>"
+      }
     } else if(selected.id == "Category"){
         let items = props.tasks.filter(item => item.category == selected.name)
         return items.map(item => {
@@ -46,51 +79,59 @@ export default function Welcome(props) {
             selected={selected}
             tasks={props.tasks}
             items={items}
+            completed={completed}
+            handleEdit={setOpenEditTask}
           />
         })
-    }
+    } // write else if for completed tasks here
   }
   
   return (
     <div className="home">
-      <h1>Welcome back, {props.user.firstname}!</h1>
+      <div className="welcomeback">
+        <h1>Welcome Back, {props.user.firstname}!</h1>
+      </div>
       <br/>
       <div className="existing-tasks">
         <div className="aside-container">
           <SideBar 
           selected={selected} 
           changeSelected={changeSelected}
+          handleOpenAdd={setOpenAddTask}
+          openAddTask={openAddTask}
           />
         </div>
         <div className="board">
-          <div className="column1">
-            {selected.id=="All Tasks"? (
-              <>
-              <h2>High Priority Tasks</h2>
-              </>) : (
-                <>
-              <h2>Showing All Pending Tasks For</h2>
-              <h3>{selected.id}: {selected.name}</h3>
-              </>)
-            }
+          <div className="taskcolumn">
+            <h2>Pending Tasks</h2>
             {renderTasks()}
+            {openEditTask && <EditTask 
+              handleEdit={setOpenEditTask}
+              submitUpdate={submitUpdate}
+              description={description}
+              setDescription={setDescription}
+              completed={completed}
+              setCompleted={setCompleted}
+              category={category}
+              setCategory={setCategory}
+              priority={priority}
+              setPriority={setPriority}
+              submitted={submitted}
+              setSubmitted={setSubmitted}
+            />}
+            {openAddTask && <TaskForm 
+              renderTasks={renderTasks}
+              setTasks={props.setTasks}
+              tasks={props.tasks}
+              completed={completed}
+              handleOpenAdd={setOpenAddTask}
+            />}
           </div>
-          <div className="column2">
-          <h2>Medium Priority Tasks</h2>
-            {renderTasks()}
-          </div>
-          <div className="column3">
-          <h2>Low Priority Tasks</h2>
-            {renderTasks()}
+          <div className="statscolumn">
+            <h2>{props.user.firstname}'s Stats</h2>
+            <StatsContainer />
           </div>
         </div>
-      </div>
-      <div className="new-tasks">
-        <TaskForm 
-        renderTasks={renderTasks}
-        setTasks={props.setTasks}
-        tasks={props.tasks}
-        />
       </div>
     </div>
   )

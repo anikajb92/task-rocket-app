@@ -1,7 +1,8 @@
 import React from 'react';
 import {MdComputer, MdPersonOutline, MdPeopleOutline} from 'react-icons/md';
 import{BsHouseDoor} from 'react-icons/bs';
-import {RiBarChartHorizontalLine} from 'react-icons/ri'
+import {RiBarChartHorizontalLine} from 'react-icons/ri';
+import {IoRocketOutline} from 'react-icons/io5';
 
 export default function SideBar(props) {
 
@@ -12,12 +13,21 @@ export default function SideBar(props) {
 
   return (
     <div className="aside">
-      <p id="title" >Filter</p>
-      {props.selected.name === "All Tasks" ?
-        <button onClick={handleClick} id="All Tasks" name="All Tasks" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><RiBarChartHorizontalLine style={{fill: "#ffffff"}} /> All Tasks</button> :
-        <button onClick={handleClick} id="All Tasks" name="All Tasks"><RiBarChartHorizontalLine style={{fill: "#FF4B2B"}} /> All Tasks</button>
+      <p id="title" >Get Rock'n</p>
+      {props.openAddTask ? <button> Adding... </button>:
+        <button onClick={() => props.handleOpenAdd(true)} style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}> Add Task </button>
       }
-      <h3>. . . . . . . . . .</h3>
+      <br/>
+      <p id="title" >Filter Tasks</p>
+      {props.selected.name === "All Tasks" ?
+        <button onClick={handleClick} id="All Tasks" name="All Tasks" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><RiBarChartHorizontalLine style={{fill: "#ffffff"}} /> All Pending Tasks</button> :
+        <button onClick={handleClick} id="All Tasks" name="All Tasks"><RiBarChartHorizontalLine style={{fill: "#FF4B2B"}} /> All Pending Tasks</button>
+      }
+      {props.selected.name === "Completed" ?
+        <button onClick={handleClick} id="Completed" name="Completed" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><RiBarChartHorizontalLine style={{fill: "#ffffff"}} /> All Completed Tasks</button> :
+        <button onClick={handleClick} id="Completed" name="Completed"><RiBarChartHorizontalLine style={{fill: "#FF4B2B"}} /> All Completed Tasks</button>
+      }
+      <h3>. . . . . . . . </h3>
       <p>Categories</p>
       {
         props.selected.name === "Work" ?
@@ -39,7 +49,8 @@ export default function SideBar(props) {
           <button onClick={handleClick} id="Category" name="Social" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><MdPeopleOutline style={{fill: "#ffffff"}}/> Social</button> :
           <button onClick={handleClick} id="Category" name="Social"><MdPeopleOutline style={{fill: "#FF4B2B"}}/> Social</button>
       }
-      <h3>. . . . . . . . . .</h3>
+      <br/>
+      <h3>. . . . . . . . </h3>
       <p>Priority</p>
       {
         props.selected.name === "3" ?
