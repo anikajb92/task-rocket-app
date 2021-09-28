@@ -80,8 +80,8 @@ export default function TaskForm(props) {
           </label> {/* WORKING, BUT NEED TO SEE DIGIT ON SLIDER */}
           <br/>
           <div className="editFormButtons">
-            <button className="ghost">{submitted? "Added!" : "Add To My List"}</button>
             <button className="ghost" onClick={() => props.handleOpenAdd(false)}>Cancel</button>
+            <button className="ghost">{submitted? "Added!" : "Add To My List"}</button>
           </div>
         </form>
       </div>

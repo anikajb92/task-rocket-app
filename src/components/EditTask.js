@@ -1,52 +1,32 @@
 import React, {useState} from 'react';
 
 export default function EditTask(props) {
-  const [description, setDescription] = useState('');
-  const [category, setCategory] = useState('Work');
-  const [priority, setPriority] = useState(2);
-  const [completed, setCompleted] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    console.log("form values updated as", description, category, priority, completed)
-
-    fetch('http://localhost:3000/tasks', {
-      method: 'PATCH',
-      headers: {
-        Accept: 'application/json', 
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.token}`
-      },
-      body: JSON.stringify({task: {description, category, priority, completed}})
-    })
-    .then(response => response.json())
-    
-  }
+  // const {id} = props.match.params.id
+  
 
   return (
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="editForm">
           <button className="ghost" onClick={() => props.handleEdit(false)}> X </button>
-          <form onSubmit={handleSubmit} className="taskform">
+          <form onSubmit={props.submitUpdate} className="taskform">
             <h2>Update This Task</h2>
             <label> Description: 
               <input
                 type='text'
-                placeholder='Type Here'
-                value={description}
+                placeholder="Type Here"
+                value={props.description}
                 name='description'
-                onChange={(event) => setDescription(event.target.value)}
+                onChange={(event) => props.setDescription(event.target.value)}
               />
             </label> 
             <br/>
             <label> Category: 
                 <select 
                   name="category" 
-                  value={category} 
+                  value={props.category} 
                   id="category" 
-                  onChange={(event) => setCategory(event.target.value)}
+                  onChange={(event) => props.setCategory(event.target.value)}
                 >
                   <option value="Work">Work</option>
                   <option value="Household">Household</option>
@@ -60,15 +40,28 @@ export default function EditTask(props) {
                 type='range'
                 min="1"
                 max="3"
-                value={priority}
+                value={props.priority}
                 name='priority'
-                onChange={(event) => setPriority(event.target.value)}
+                onChange={(event) => props.setPriority(event.target.value)}
               />
             </label> {/* WORKING, BUT NEED TO SEE DIGIT ON SLIDER */}
             <br/>
+            <label> Completed?
+              <select
+                name="completed"
+                value={props.completed}
+                id="completed"
+                onChange={(event) => props.setCompleted(event.target.value)}
+              >
+                <option value="true" value="true">Affirmative</option>
+                <option value="false" value="false">Negatory</option>
+              </select>
+            </label>
+
+            <br/>
             <div className="editFormButtons">
-              <button className="ghost">{submitted? "Updated!" : "Submit Update"}</button>
               <button className="ghost" onClick={() => props.handleEdit(false)}> Cancel </button>
+              <button className="ghost">{props.submitted? "Updated!" : "Submit Update"}</button>
             </div>
           </form>
         </div>

@@ -180,7 +180,13 @@
   font-size: 25px ;
   margin-top: 0px;
   padding-left: 7px;
+  color: white;
 }
+.taskform h2{
+  color: white;
+  font-size: 30px;
+}
+
 .task {
   display: flex;
   justify-content: space-between;
@@ -227,6 +233,7 @@ button.edit {
 .modalContainer {
   width: 500px;
   height: 500px;
+  overflow: scroll;
   border-radius: 12px;
   background: #FF416C;
 	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);

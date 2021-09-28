@@ -89,12 +89,6 @@ function App() {
             />
             }
           />
-          {/* <Route 
-            path="/edit"
-            render={() =>
-            <EditTask />
-            }
-          /> */}
         </Switch>
         </div>
         <footer>

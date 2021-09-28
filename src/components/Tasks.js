@@ -1,15 +1,17 @@
 import React from 'react';
 import '../styles/home.css';
 
-import {BsCircle} from "react-icons/bs";
-import {BsCheckCircle} from "react-icons/bs"; //when tasks are completed
+import {BsCircle, BsCheckCircle} from "react-icons/bs";
 import {FiEdit} from "react-icons/fi";
 
 export default function Tasks(props) {
   return (
     <div className="task">
       <div className="task-left">
-       <button className="check"><BsCircle /> </button>
+        {props.completed?
+          <button className="check"><BsCheckCircle /> </button> :
+          <button className="check"><BsCircle /> </button>
+        }
        <p> {props.description}</p>
       </div>
       <div className="task-right">

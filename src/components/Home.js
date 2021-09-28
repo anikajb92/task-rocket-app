@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import '../styles/home.css';
 import {FaBuffer} from "react-icons/fa";
 
@@ -9,6 +9,11 @@ import StatsContainer from './StatsContainer';
 import EditTask from './EditTask';
 
 export default function Home(props) {
+  const [description, setDescription] = useState('');
+  const [category, setCategory] = useState('Work');
+  const [priority, setPriority] = useState(2);
+  const [completed, setCompleted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected]= useState({
     name: 'All Tasks',
     id: 'All Tasks',
@@ -16,12 +21,27 @@ export default function Home(props) {
   const [openEditTask, setOpenEditTask] = useState(false);
   const [openAddTask, setOpenAddTask] = useState(false);
 
-
   const changeSelected = (name, id) => {
     setSelected({
       name: name,
       id: id,
     })
+  }
+
+  const submitUpdate = event => {
+    event.preventDefault();
+    console.log("form values updated as", description, category, priority, completed)
+
+    fetch('http://localhost:3000/tasks', {
+      method: 'PATCH',
+      headers: {
+        Accept: 'application/json', 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify({task: {description, category, priority, completed}})
+    })
+    .then(response => response.json())
   }
 
   const renderTasks = () => {
@@ -31,6 +51,7 @@ export default function Home(props) {
         description={task.description}
         selected={selected}
         tasks={props.tasks}
+        completed={completed}
         handleEdit={setOpenEditTask}
         />
       })
@@ -43,6 +64,7 @@ export default function Home(props) {
             selected={selected}
             tasks={props.tasks}
             items={items}
+            completed={completed}
             handleEdit={setOpenEditTask}
           />
         })
@@ -57,6 +79,7 @@ export default function Home(props) {
             selected={selected}
             tasks={props.tasks}
             items={items}
+            completed={completed}
             handleEdit={setOpenEditTask}
           />
         })
@@ -82,11 +105,25 @@ export default function Home(props) {
           <div className="taskcolumn">
             <h2>Pending Tasks</h2>
             {renderTasks()}
-            {openEditTask && <EditTask handleEdit={setOpenEditTask}/>}
+            {openEditTask && <EditTask 
+              handleEdit={setOpenEditTask}
+              submitUpdate={submitUpdate}
+              description={description}
+              setDescription={setDescription}
+              completed={completed}
+              setCompleted={setCompleted}
+              category={category}
+              setCategory={setCategory}
+              priority={priority}
+              setPriority={setPriority}
+              submitted={submitted}
+              setSubmitted={setSubmitted}
+            />}
             {openAddTask && <TaskForm 
               renderTasks={renderTasks}
               setTasks={props.setTasks}
               tasks={props.tasks}
+              completed={completed}
               handleOpenAdd={setOpenAddTask}
             />}
           </div>
