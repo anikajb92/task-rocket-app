@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 export default function EditTask(props) {
-  console.log(props.selectedToEdit);
 
   return (
     <div className="modalBackground">
@@ -59,8 +58,8 @@ export default function EditTask(props) {
 
             <br/>
             <div className="editFormButtons">
-              <button className="ghost" onClick={() => props.handleEdit(false)}> Cancel </button>
-              <button className="ghost">{props.submitted? "Updated!" : "Submit Update"}</button>
+              <button className="ghost" onClick={() => props.setOpenEditTask(false)}> Cancel </button>
+              <button className="ghost" onClick={() => props.handleEdit(false)}>{props.submitted? "Updated!" : "Submit Update"}</button>
             </div>
           </form>
         </div>

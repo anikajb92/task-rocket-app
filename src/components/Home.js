@@ -9,21 +9,22 @@ import StatsContainer from './StatsContainer';
 import EditTask from './EditTask';
 
 export default function Home(props) {
-  const [pendingTasks, setPendingTasks] = useState([]);
-  const [completedTasks, setCompletedTasks] = useState([]);
+  const [pendingTasks, setPendingTasks] = useState([]); // sorted pending tasks from High to Low
+  const [completedTasks, setCompletedTasks] = useState([]); // sorted completed tasks from High to Low
   // const [description, setDescription] = useState('');
   // const [category, setCategory] = useState('Work');
   // const [priority, setPriority] = useState(2);
   // const [completed, setCompleted] = useState(false);
-  // const [submitted, setSubmitted] = useState(false);
-  const [selected, setSelected]= useState({
+  const [submitted, setSubmitted] = useState(false);
+  const [selected, setSelected]= useState({ //holds state of filter selected on sidebar
     name: 'All Tasks',
     id: 'All Tasks',
   });
-  const [selectedToEdit, setSelectedToEdit] = useState({});
-  const [openEditTask, setOpenEditTask] = useState(false);
-  const [openAddTask, setOpenAddTask] = useState(false);
+  const [selectedToEdit, setSelectedToEdit] = useState({}); //holds state of the clicked task & all of its data to be updated
+  const [openEditTask, setOpenEditTask] = useState(false); //modal for task edit form
+  const [openAddTask, setOpenAddTask] = useState(false); //modal for task add form
 
+  // fetches all sorted tasks from backend on page load and sets state
   useEffect(() => {
     fetch('http://localhost:3000/alltasks', {
       headers: {
@@ -41,12 +42,14 @@ export default function Home(props) {
       })
   }, [])
 
+  // handles click of each Task: edit button
   const taskToEdit = (task) => {
     console.log(task);
     setOpenEditTask(true);
     setSelectedToEdit(task);
   }
 
+  // function to handle filter selection on sidebar
   const changeSelected = (name, id) => {
     setSelected({
       name: name,
@@ -101,7 +104,15 @@ export default function Home(props) {
             taskToEdit={taskToEdit}
           />
         })
-    } // write else if for completed tasks here
+    } else if(selected.id == "Completed"){
+        return completedTasks.map(item => {
+          return <Tasks 
+          task={item}
+          handleEdit={setOpenEditTask}
+          taskToEdit={taskToEdit}
+          />
+        })
+    }
   }
   
   return (
@@ -115,7 +126,7 @@ export default function Home(props) {
           <SideBar 
           selected={selected} 
           changeSelected={changeSelected}
-          handleOpenAdd={setOpenAddTask}
+          setOpenAddTask={setOpenAddTask}
           openAddTask={openAddTask}
           />
         </div>
@@ -123,28 +134,26 @@ export default function Home(props) {
           <div className="taskcolumn">
             <h2>Pending Tasks</h2>
             {renderTasks()}
-            {/* {openEditTask && <EditTask 
-              handleEdit={setOpenEditTask}
-              submitUpdate={submitUpdate}
-              description={description}
-              setDescription={setDescription}
-              completed={completed}
-              setCompleted={setCompleted}
-              category={category}
-              setCategory={setCategory}
-              priority={priority}
-              setPriority={setPriority}
+            {openEditTask && <EditTask 
+              setOpenEditTask={setOpenEditTask} //function to open/close modal
+              // submitUpdate={submitUpdate}
+              // description={description}
+              // setDescription={setDescription}
+              // completed={completed}
+              // setCompleted={setCompleted}
+              // category={category}
+              // setCategory={setCategory}
+              // priority={priority}
+              // setPriority={setPriority}
               submitted={submitted}
               setSubmitted={setSubmitted}
               selectedToEdit={selectedToEdit}
             />}
             {openAddTask && <TaskForm 
-              renderTasks={renderTasks}
               setTasks={props.setTasks}
-              tasks={props.tasks}
-              completed={completed}
+              tasks={pendingTasks}
               handleOpenAdd={setOpenAddTask} 
-            />} */}
+            />}
           </div>
           <div className="statscolumn">
             <h2>{props.user.firstname}'s Stats</h2> {/* User props from App.js */}
