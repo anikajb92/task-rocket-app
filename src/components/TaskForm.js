@@ -41,7 +41,7 @@ export default function TaskForm(props) {
   return (
     <div className="modalBackground">
       <div className="modalContainer">
-        <button onClick={() => props.handleOpenAdd(false)}> X </button>
+        <button className="ghost" onClick={() => props.handleOpenAdd(false)}> X </button>
         <form onSubmit={handleSubmit} className="taskform">
           <h2>{submitted? "Add Another Task" : "Add A Task"}</h2>
           <label> Description: 
@@ -79,7 +79,10 @@ export default function TaskForm(props) {
             />
           </label> {/* WORKING, BUT NEED TO SEE DIGIT ON SLIDER */}
           <br/>
-          <button>{submitted? "Added!" : "Add To My List"}</button>
+          <div className="editFormButtons">
+            <button className="ghost">{submitted? "Added!" : "Add To My List"}</button>
+            <button className="ghost" onClick={() => props.handleOpenAdd(false)}>Cancel</button>
+          </div>
         </form>
       </div>
     </div>

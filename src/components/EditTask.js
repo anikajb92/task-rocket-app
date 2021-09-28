@@ -28,7 +28,7 @@ export default function EditTask(props) {
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="editForm">
-          <button onClick={() => props.handleEdit(false)}> X </button>
+          <button className="ghost" onClick={() => props.handleEdit(false)}> X </button>
           <form onSubmit={handleSubmit} className="taskform">
             <h2>Update This Task</h2>
             <label> Description: 
@@ -67,8 +67,8 @@ export default function EditTask(props) {
             </label> {/* WORKING, BUT NEED TO SEE DIGIT ON SLIDER */}
             <br/>
             <div className="editFormButtons">
-              <button>{submitted? "Updated!" : "Submit Update"}</button>
-              <button onClick={() => props.handleEdit(false)}> Cancel </button>
+              <button className="ghost">{submitted? "Updated!" : "Submit Update"}</button>
+              <button className="ghost" onClick={() => props.handleEdit(false)}> Cancel </button>
             </div>
           </form>
         </div>

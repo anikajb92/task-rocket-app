@@ -228,9 +228,21 @@ button.edit {
   width: 500px;
   height: 500px;
   border-radius: 12px;
-  background-color: white;
+  background: #FF416C;
+	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background-repeat: no-repeat;
+	background-size: cover;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   display: flex;
   flex-direction: column;
   padding: 25px;
+}
+.editFormButtons{
+  display: flex;
+  justify-content: space-around;
+}
+.editFormButtons button{
+  border-color: white;
+  background-color: transparent;
 }
