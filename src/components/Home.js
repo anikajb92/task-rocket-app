@@ -18,8 +18,15 @@ export default function Home(props) {
     name: 'All Tasks',
     id: 'All Tasks',
   });
+  const [selectedToEdit, setSelectedToEdit] = useState({});
   const [openEditTask, setOpenEditTask] = useState(false);
   const [openAddTask, setOpenAddTask] = useState(false);
+
+  const taskToEdit = (task) => {
+    console.log(task);
+    setOpenEditTask(true);
+    setSelectedToEdit(task);
+  }
 
   const changeSelected = (name, id) => {
     setSelected({
@@ -50,9 +57,10 @@ export default function Home(props) {
         return <Tasks
         description={task.description}
         selected={selected}
-        tasks={props.tasks}
+        task={task}
         completed={completed}
         handleEdit={setOpenEditTask}
+        taskToEdit={taskToEdit}
         />
       })
     } else if (selected.id == "Priority"){
@@ -62,10 +70,11 @@ export default function Home(props) {
           return <Tasks 
             description={item.description}
             selected={selected}
-            tasks={props.tasks}
+            task={item}
             items={items}
             completed={completed}
             handleEdit={setOpenEditTask}
+            taskToEdit={taskToEdit}
           />
         })
       )
@@ -78,9 +87,10 @@ export default function Home(props) {
             description={item.description}
             selected={selected}
             tasks={props.tasks}
-            items={items}
+            task={item}
             completed={completed}
             handleEdit={setOpenEditTask}
+            taskToEdit={taskToEdit}
           />
         })
     } // write else if for completed tasks here
@@ -118,6 +128,7 @@ export default function Home(props) {
               setPriority={setPriority}
               submitted={submitted}
               setSubmitted={setSubmitted}
+              selectedToEdit={selectedToEdit}
             />}
             {openAddTask && <TaskForm 
               renderTasks={renderTasks}

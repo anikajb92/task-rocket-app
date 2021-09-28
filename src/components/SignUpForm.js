@@ -8,15 +8,6 @@ export default function SignUpForm() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    console.log(
-      'username:', username, 
-      'password:', password, 
-      'first name:', firstname, 
-      'last name:', lastname
-    );
-  
-
     fetch('http://localhost:3000/users', {
       method: 'POST', 
       headers: {

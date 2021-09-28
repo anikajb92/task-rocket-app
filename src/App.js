@@ -35,7 +35,6 @@ function App() {
             alert(result.error);
           } else {
             handleLogin();
-            console.log(result);
             setUser(result.user);
             setTasks(result.tasks);
           }

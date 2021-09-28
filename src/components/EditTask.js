@@ -1,8 +1,7 @@
 import React, {useState} from 'react';
 
 export default function EditTask(props) {
-  // const {id} = props.match.params.id
-  
+  console.log(props.selectedToEdit);
 
   return (
     <div className="modalBackground">
@@ -15,7 +14,7 @@ export default function EditTask(props) {
               <input
                 type='text'
                 placeholder="Type Here"
-                value={props.description}
+                value={props.selectedToEdit.description}
                 name='description'
                 onChange={(event) => props.setDescription(event.target.value)}
               />
@@ -24,7 +23,7 @@ export default function EditTask(props) {
             <label> Category: 
                 <select 
                   name="category" 
-                  value={props.category} 
+                  value={props.selectedToEdit.category} 
                   id="category" 
                   onChange={(event) => props.setCategory(event.target.value)}
                 >
@@ -40,7 +39,7 @@ export default function EditTask(props) {
                 type='range'
                 min="1"
                 max="3"
-                value={props.priority}
+                value={props.selectedToEdit.priority}
                 name='priority'
                 onChange={(event) => props.setPriority(event.target.value)}
               />
@@ -49,12 +48,12 @@ export default function EditTask(props) {
             <label> Completed?
               <select
                 name="completed"
-                value={props.completed}
+                defaultValue={props.selectedToEdit.completed}
                 id="completed"
                 onChange={(event) => props.setCompleted(event.target.value)}
               >
-                <option value="true" value="true">Affirmative</option>
-                <option value="false" value="false">Negatory</option>
+                <option value={false} >Negatory</option>
+                <option value={true} >Affirmative</option>
               </select>
             </label>
 
