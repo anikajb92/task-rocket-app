@@ -6,11 +6,11 @@ export default function CategoryChart(props) {
   return (
     <div>
       <Chart
-        width={'200px'}
-        height={'200px'}
+        width={'500px'}
+        height={'300px'}
         chartType="PieChart"
         loader={<div>Loading Chart</div>}
-        data={props.data}
+        data={[['Category', 'Number of Tasks Per'], ...props.data]}
         options={{
           legend: 'none',
           pieSliceText: 'label',
