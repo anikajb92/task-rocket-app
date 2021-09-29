@@ -17,10 +17,6 @@ export default function Home(props) {
     priority: 2,
     completed: false
   })
-  // const [description, setDescription] = useState('');
-  // const [category, setCategory] = useState('Work');
-  // const [priority, setPriority] = useState(2);
-  // const [completed, setCompleted] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected]= useState({ //holds state of filter selected on sidebar
     name: 'All Tasks',
@@ -90,7 +86,8 @@ export default function Home(props) {
     })
   }
 
-  // const submitUpdate = event => {
+  //function to handle edit task on form submit
+  // const handleEditTask = event => {
   //   event.preventDefault();
   //   console.log("form values updated as", description, category, priority, completed)
 

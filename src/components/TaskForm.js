@@ -3,38 +3,6 @@ import {useState} from 'react';
 import Tasks from './Tasks';
 
 export default function TaskForm(props) {
-  // const [description, setDescription] = useState('');
-  // const [category, setCategory] = useState('Work');
-  // const [priority, setPriority] = useState(2);
-  // const [completed, setCompleted] = useState(false);
-  // const [submitted, setSubmitted] = useState(false);
-  // add in due date, and timer features later
-
-  // const handleAddTask = event => {
-  //   event.preventDefault();
-  //   console.log("form values logged as", description, category, priority, completed)
-
-  //   fetch('http://localhost:3000/tasks', {
-  //     method: 'POST',
-  //     headers: {
-  //       Accept: 'application/json', 
-  //       'Content-Type': 'application/json',
-  //       Authorization: `Bearer ${localStorage.token}`
-  //     },
-  //     body: JSON.stringify({task: {description, category, priority, completed}})
-  //   })
-  //   .then(response => response.json())
-  //   .then(result => {
-  //     if (result.error) {
-  //       console.log(result.error)
-  //     } else {
-  //       console.log(result);
-  //       props.setTasks([...props.tasks, result]);
-  //       setSubmitted(true);
-  //       // write function to have Thank You/Nice work modal pop up 
-  //     }
-  //   })
-  // }
 
   return (
     <div className="modalBackground">
