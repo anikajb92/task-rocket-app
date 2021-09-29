@@ -138,9 +138,10 @@ export default function Home(props) {
         alert(result.error);
       } else {
         console.log("backend result", result);
-        setPendingTasks([...pendingTasks, result]);
+        setPendingTasks([...pendingTasks, result.new_task]);
         setSubmitted(true);
         setOpenAddTask(false);
+        setPercentComplete(result.data.perc_tasks_completed);
         // write function to have Thank You/Nice work modal pop up 
       }
     })
@@ -202,9 +203,9 @@ export default function Home(props) {
   }
 
   // function to delete task from editform
-  const handleDeleteTask = () => {
-    console.log('hitting handledelete task', selectedToEdit.id);
-    fetch(`http://localhost:3000/tasks/${selectedToEdit.id}`, {
+  const handleDeleteTask = (task) => {
+    console.log('hitting handledelete task', task.id);
+    fetch(`http://localhost:3000/tasks/${task.id}`, {
       method: 'DELETE',
       headers: {
         Authorization: `Bearer ${localStorage.token}`
@@ -214,7 +215,8 @@ export default function Home(props) {
       .then(result => {
         console.log("backend result", result);
         setOpenEditTask(false);
-        // removePendingTasks(); NEED TO PASS IN TASK
+        removePendingTasks(task);
+        setPercentComplete(result.data);
         alert('Task successfully deleted');
       })
   }
