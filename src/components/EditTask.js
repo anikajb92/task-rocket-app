@@ -2,6 +2,11 @@ import React, {useState} from 'react';
 
 export default function EditTask(props) {
 
+  const handleDelete = (thisTask) => {
+    props.setSelectedToEdit(thisTask);
+    props.handleDeleteTask();
+  }
+
   return (
     <div className="modalBackground">
       <div className="modalContainer">
@@ -61,7 +66,7 @@ export default function EditTask(props) {
             </div>
           </form>
           <div className="editFormButtons">
-            <button className="ghost">Delete Task</button>
+            <button className="ghost" onClick={() => handleDelete(props.selectedToEdit)}>Delete Task</button>
           </div>
         </div>
       </div>

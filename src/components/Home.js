@@ -44,6 +44,58 @@ export default function Home(props) {
       })
   }, [])
 
+  // function to filter through tasks based on (selected) state
+  const renderTasks = () => {
+    if (selected.id === "All Tasks") {
+      return pendingTasks.map(item => {
+        return <Tasks
+        task={item}
+        taskToEdit={taskToEdit}
+        selectedToEdit={selectedToEdit}
+        setSelectedToEdit={setSelectedToEdit}
+        handleMarkComplete={handleMarkComplete}
+        handleDeleteTask={handleDeleteTask}
+        />
+      })
+    } else if (selected.id == "Priority"){
+      let items = pendingTasks.filter(item => item.priority == selected.name)
+      {return items? (
+        items.map(item => {
+          return <Tasks 
+            task={item}
+            taskToEdit={taskToEdit}
+            selectedToEdit={selectedToEdit}
+            setSelectedToEdit={setSelectedToEdit}
+            handleMarkComplete={handleMarkComplete}
+            handleDeleteTask={handleDeleteTask}
+          />
+        })
+      )
+        : "<p>Nothing is here</p>"
+      }
+    } else if(selected.id == "Category"){
+        let items = pendingTasks.filter(item => item.category == selected.name)
+        return items.map(item => {
+          return <Tasks 
+            task={item}
+            taskToEdit={taskToEdit}
+            selectedToEdit={selectedToEdit}
+            setSelectedToEdit={setSelectedToEdit}
+            handleMarkComplete={handleMarkComplete}
+            handleDeleteTask={handleDeleteTask}
+          />
+        })
+    } else if(selected.id == "Completed"){
+        return completedTasks.map(item => {
+          return <Tasks 
+          task={item}
+          taskToEdit={taskToEdit} //cannot unclick checkmark on completed tasks
+          handleDeleteTask={handleDeleteTask}
+          />
+        })
+    }
+  }
+
   // handles click of each Task: edit button
   const taskToEdit = (task) => {
     setOpenEditTask(true);
@@ -119,48 +171,42 @@ export default function Home(props) {
     })
   }
 
-  // function to filter through tasks based on (selected) state
-  const renderTasks = () => {
-    if (selected.id === "All Tasks") {
-      return pendingTasks.map(item => {
-        return <Tasks
-        task={item}
-        handleEdit={setOpenEditTask}
-        taskToEdit={taskToEdit}
-        />
+  //function to mark complete from checkmark
+  const handleMarkComplete = () => {
+    console.log(selectedToEdit.id);
+    fetch(`http://localhost:3000/tasks/${selectedToEdit.id}`, {
+      method: 'PATCH',
+      headers: {
+        Accept: 'application/json', 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify({task: {completed: selectedToEdit.completed}})
       })
-    } else if (selected.id == "Priority"){
-      let items = pendingTasks.filter(item => item.priority == selected.name)
-      {return items? (
-        items.map(item => {
-          return <Tasks 
-            task={item}
-            handleEdit={setOpenEditTask}
-            taskToEdit={taskToEdit}
-          />
-        })
-      )
-        : "<p>Nothing is here</p>"
-      }
-    } else if(selected.id == "Category"){
-        let items = pendingTasks.filter(item => item.category == selected.name)
-        return items.map(item => {
-          return <Tasks 
-            task={item}
-            handleEdit={setOpenEditTask}
-            taskToEdit={taskToEdit}
-          />
-        })
-    } else if(selected.id == "Completed"){
-        return completedTasks.map(item => {
-          return <Tasks 
-          task={item}
-          handleEdit={setOpenEditTask}
-          taskToEdit={taskToEdit}
-          />
-        })
-    }
+      .then(response => response.json)
+      .then(result => {
+        console.log("backend result", result);
+        alert('You rocked it!');
+      })
   }
+
+  // function to delete task from editform
+  const handleDeleteTask = () => {
+    console.log('hitting handledelete task', selectedToEdit.id);
+    fetch(`http://localhost:3000/tasks/${selectedToEdit.id}`, {
+      method: 'DELETE',
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`
+      }
+    })
+      .then(response => response.json)
+      .then(result => {
+        console.log("backend result", result);
+        setOpenEditTask(false);
+        alert('Task successfully deleted');
+      })
+  }
+  
   
   return (
     <div className="home">
@@ -184,12 +230,13 @@ export default function Home(props) {
             {openEditTask && <EditTask 
               setOpenEditTask={setOpenEditTask} //function to open/close modal
               handleEditTask={handleEditTask}
+              selectedToEdit={selectedToEdit}
               setSelectedToEdit={setSelectedToEdit}
               task={task}
               setTask={setTask}
               submitted={submitted}
               setSubmitted={setSubmitted}
-              selectedToEdit={selectedToEdit}
+              handleDeleteTask={handleDeleteTask}
             />}
             {openAddTask && <TaskForm 
               handleAddTask={handleAddTask}
