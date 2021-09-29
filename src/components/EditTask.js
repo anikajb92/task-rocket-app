@@ -32,7 +32,7 @@ export default function EditTask(props) {
                   <option value="Social">Social</option>
                 </select>
             </label> 
-            {/* <br/>
+            <br/>
             <label> Priority Level: 
               <input
                 type='range'
@@ -40,10 +40,10 @@ export default function EditTask(props) {
                 max="3"
                 value={props.selectedToEdit.priority}
                 name='priority'
-                onChange={(event) => props.setTask({ ...props.task, priority: event.target.value})}
+                onChange={(event) => props.setSelectedToEdit({ ...props.selectedToEdit, priority: event.target.value})}
               />
             </label> 
-            <br/> */}
+            <br/>
             {/* <label> Completed?
               <select
                 name="completed"
