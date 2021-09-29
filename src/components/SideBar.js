@@ -6,16 +6,16 @@ import {IoRocketOutline} from 'react-icons/io5';
 
 export default function SideBar(props) {
 
+  //triggers changeSelected function on home.js level to setSelected filters
   const handleClick = (event) => {
     props.changeSelected(event.target.name, event.target.id)
-    console.log("(delayed) props.selected", props.selected);
   }
 
   return (
     <div className="aside">
       <p id="title" >Get Rock'n</p>
       {props.openAddTask ? <button> Adding... </button>:
-        <button onClick={() => props.handleOpenAdd(true)} style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}> Add Task </button>
+        <button onClick={() => props.setOpenAddTask(true)} style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}> Add Task </button>
       }
       <br/>
       <p id="title" >Filter Tasks</p>

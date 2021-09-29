@@ -172,6 +172,7 @@
   flex-wrap: wrap;
   justify-content: center;
   border: rgba(0,0,0,0.25);
+  overflow: scroll;
 }
 
 .taskform label{
@@ -197,7 +198,6 @@
   padding: 0px 15px;
   margin: 4px 0px;
   width: 90%;
-  overflow: scroll;
 }
 .task-left {
   display: flex;
@@ -253,4 +253,9 @@ button.edit {
 .editFormButtons button{
   border-color: white;
   background-color: transparent;
+}
+.chart {
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }
