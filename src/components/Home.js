@@ -172,20 +172,21 @@ export default function Home(props) {
   }
 
   //function to mark complete from checkmark
-  const handleMarkComplete = () => {
-    console.log(selectedToEdit.id);
-    fetch(`http://localhost:3000/tasks/${selectedToEdit.id}`, {
+  const handleMarkComplete = (task) => {
+    console.log(task.id);
+    fetch(`http://localhost:3000/tasks/${task.id}`, {
       method: 'PATCH',
       headers: {
         Accept: 'application/json', 
         'Content-Type': 'application/json',
         Authorization: `Bearer ${localStorage.token}`
       },
-      body: JSON.stringify({task: {completed: selectedToEdit.completed}})
+      body: JSON.stringify({...task, completed: true})
       })
-      .then(response => response.json)
+      .then(response => response.json())
       .then(result => {
         console.log("backend result", result);
+        removePendingTasks(task);
         alert('You rocked it!');
       })
   }
@@ -199,14 +200,21 @@ export default function Home(props) {
         Authorization: `Bearer ${localStorage.token}`
       }
     })
-      .then(response => response.json)
+      .then(response => response.json())
       .then(result => {
         console.log("backend result", result);
         setOpenEditTask(false);
+        // removePendingTasks(); NEED TO PASS IN TASK
         alert('Task successfully deleted');
       })
   }
   
+  // function to render pending tasks minus the recently edited task
+  const removePendingTasks = (task) => {
+    const newArray = pendingTasks.filter(t => t.id !== task.id);
+    console.log(newArray);
+    setPendingTasks(newArray);
+  }
   
   return (
     <div className="home">

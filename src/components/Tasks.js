@@ -9,9 +9,7 @@ export default function Tasks(props) {
 
   // These function store and pass state of the selected task to either mark as complete 
   const handleCheckmark = (thisTask) => {
-    props.setSelectedToEdit({ ...thisTask, completed: true});
-    // console.log(props.selectedToEdit);
-    props.handleMarkComplete();
+    props.handleMarkComplete(thisTask);
   }
 
   // or delete
@@ -26,7 +24,7 @@ export default function Tasks(props) {
       <div className="task-left">
         {props.task.completed?
           <button className="check"><BsCheckCircle /> </button> :
-          <button className="check" onClick={()=> handleCheckmark(props.task)}><BsCircle /> </button>
+          <button className="check" onClick={()=> props.handleMarkComplete(props.task)}><BsCircle /> </button>
         }
        <p> {props.task.description}</p>
       </div>
