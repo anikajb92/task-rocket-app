@@ -60,6 +60,9 @@ export default function EditTask(props) {
               <button className="ghost">Submit Update</button>
             </div>
           </form>
+          <div className="editFormButtons">
+            <button className="ghost">Delete Task</button>
+          </div>
         </div>
       </div>
     </div>

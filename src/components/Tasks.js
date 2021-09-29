@@ -11,7 +11,7 @@ export default function Tasks(props) {
       <div className="task-left">
         {props.task.completed?
           <button className="check"><BsCheckCircle /> </button> :
-          <button className="check"><BsCircle /> </button>
+          <button className="check" onClick={()=> setSelectedToEdit(props.task)}><BsCircle /> </button>
         }
        <p> {props.task.description}</p>
       </div>

@@ -46,7 +46,6 @@ export default function Home(props) {
 
   // handles click of each Task: edit button
   const taskToEdit = (task) => {
-    // console.log(task);
     setOpenEditTask(true);
     setSelectedToEdit(task);
   }
@@ -180,7 +179,7 @@ export default function Home(props) {
         </div>
         <div className="board">
           <div className="taskcolumn">
-            <h2>Pending Tasks</h2>
+            <h2>{selected.id == "Completed" ? "Completed Tasks" : "Pending Tasks"}</h2>
             {renderTasks()}
             {openEditTask && <EditTask 
               setOpenEditTask={setOpenEditTask} //function to open/close modal
