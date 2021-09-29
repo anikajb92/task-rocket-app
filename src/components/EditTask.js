@@ -44,17 +44,17 @@ export default function EditTask(props) {
               />
             </label> 
             <br/>
-            {/* <label> Completed?
+            <label> Completed?
               <select
                 name="completed"
-                defaultValue={props.selectedToEdit.completed}
+                value={props.selectedToEdit.completed}
                 id="completed"
-                onChange={(event) => props.setCompleted(event.target.value)}
+                onChange={(event) => props.setSelectedToEdit({ ...props.selectedToEdit, completed: event.target.value})}
               >
                 <option value={false} >Negatory</option>
                 <option value={true} >Affirmative</option>
               </select>
-            </label> */}
+            </label>
             <br/>
             <div className="editFormButtons">
               {/* <button className="ghost" onClick={() => props.setOpenEditTask(false)}> Cancel </button> */}
