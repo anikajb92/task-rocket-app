@@ -254,3 +254,8 @@ button.edit {
   border-color: white;
   background-color: transparent;
 }
+.chart {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
