@@ -26,7 +26,7 @@ export default function About() {
           of your to-do's in one place. 
         </h3>
         <h3>  
-          With a customizable and easy-to-navigate user interface and <span2>robust tracking</span2> systems, 
+          With a customizable, easy-to-navigate user interface and <span2>robust tracking</span2> systems, 
           this application will encourage <span2>productivity</span2> and lower
           turnaround times for all of your task completion needs. 
         </h3>
