@@ -62,6 +62,7 @@ export default function Home(props) {
   //function to handle add task on form submit
   const handleAddTask = event => {
     event.preventDefault();
+    setOpenAddTask(false);
     console.log("form values logged as", task)
 
     fetch('http://localhost:3000/tasks', {
@@ -76,9 +77,9 @@ export default function Home(props) {
     .then(response => response.json())
     .then(result => {
       if (result.error) {
-        console.log(result.error)
+        alert(result.error);
       } else {
-        console.log(result);
+        console.log("backend result", result);
         setPendingTasks([...pendingTasks, result]);
         setSubmitted(true);
         // write function to have Thank You/Nice work modal pop up 
@@ -90,19 +91,32 @@ export default function Home(props) {
   const handleEditTask = event => {
     event.preventDefault();
     setOpenEditTask(false);
-    console.log("form values updated as", selectedToEdit);
 
-    // fetch(`http://localhost:3000/tasks/${selectedToEdit.id}`, {
-    //   method: 'PATCH',
-    //   headers: {
-    //     Accept: 'application/json', 
-    //     'Content-Type': 'application/json',
-    //     Authorization: `Bearer ${localStorage.token}`
-    //   },
-    //   body: JSON.stringify({task})
-    // })
-    // .then(response => response.json())
-    // .then(result => console.log(result))
+    fetch(`http://localhost:3000/tasks/${selectedToEdit.id}`, {
+      method: 'PATCH',
+      headers: {
+        Accept: 'application/json', 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify(
+        {task: 
+          { description: selectedToEdit.description, 
+            category: selectedToEdit.category,
+            priority: selectedToEdit.priority,
+            completed: selectedToEdit.completed
+          }
+        })
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (result.error) {
+        alert(result.error)
+      } else {
+      console.log("backend result", result);
+      setPendingTasks([...pendingTasks, result]);
+      }
+    })
   }
 
   // function to filter through tasks based on (selected) state

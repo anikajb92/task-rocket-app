@@ -46,8 +46,7 @@ export default function TaskForm(props) {
           </label> 
           <br/>
           <div className="editFormButtons">
-            {/* <button className="ghost" onClick={() => props.setOpenAddTask(false)}>Cancel</button> */}
-            <button type="submit" className="ghost" onClick={() => props.setOpenAddTask(false)}>Add To My List</button>
+            <button type="submit" className="ghost">Add To My List</button>
           </div>
         </form>
       </div>
