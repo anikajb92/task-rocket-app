@@ -62,9 +62,8 @@ export default function Home(props) {
   //function to handle add task on form submit
   const handleAddTask = event => {
     event.preventDefault();
-    setOpenAddTask(false);
     console.log("form values logged as", task)
-
+    
     fetch('http://localhost:3000/tasks', {
       method: 'POST',
       headers: {
@@ -82,6 +81,7 @@ export default function Home(props) {
         console.log("backend result", result);
         setPendingTasks([...pendingTasks, result]);
         setSubmitted(true);
+        setOpenAddTask(false);
         // write function to have Thank You/Nice work modal pop up 
       }
     })
@@ -90,8 +90,7 @@ export default function Home(props) {
   //function to handle edit task on form submit
   const handleEditTask = event => {
     event.preventDefault();
-    setOpenEditTask(false);
-
+    
     fetch(`http://localhost:3000/tasks/${selectedToEdit.id}`, {
       method: 'PATCH',
       headers: {
@@ -107,14 +106,16 @@ export default function Home(props) {
             completed: selectedToEdit.completed
           }
         })
-    })
-    .then(response => response.json())
-    .then(result => {
-      if (result.error) {
-        alert(result.error)
-      } else {
-      console.log("backend result", result);
-      setPendingTasks([...pendingTasks, result]);
+      })
+      .then(response => response.json())
+      .then(result => {
+        if (result.error) {
+          alert(result.error)
+        } else {
+          console.log("backend result", result);
+          setPendingTasks([...pendingTasks, result]);
+          setSubmitted(true);
+          setOpenEditTask(false);
       }
     })
   }

@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
 
 export default function EditTask(props) {
-  console.log("props.selectedToEdit", props.selectedToEdit);
 
   return (
     <div className="modalBackground">
