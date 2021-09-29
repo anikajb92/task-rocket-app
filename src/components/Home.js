@@ -11,6 +11,12 @@ import EditTask from './EditTask';
 export default function Home(props) {
   const [pendingTasks, setPendingTasks] = useState([]); // sorted pending tasks from High to Low
   const [completedTasks, setCompletedTasks] = useState([]); // sorted completed tasks from High to Low
+  const [task, setTask] = useState({
+    description: '',
+    category: 'Work',
+    priority: 2,
+    completed: false
+  })
   // const [description, setDescription] = useState('');
   // const [category, setCategory] = useState('Work');
   // const [priority, setPriority] = useState(2);
@@ -44,7 +50,7 @@ export default function Home(props) {
 
   // handles click of each Task: edit button
   const taskToEdit = (task) => {
-    console.log(task);
+    // console.log(task);
     setOpenEditTask(true);
     setSelectedToEdit(task);
   }
@@ -54,6 +60,33 @@ export default function Home(props) {
     setSelected({
       name: name,
       id: id,
+    })
+  }
+
+  //function to handle add task on form submit
+  const handleAddTask = event => {
+    event.preventDefault();
+    console.log("form values logged as", task)
+
+    fetch('http://localhost:3000/tasks', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json', 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify({task}) // : {description, category, priority, completed}
+    })
+    .then(response => response.json())
+    .then(result => {
+      if (result.error) {
+        console.log(result.error)
+      } else {
+        console.log(result);
+        setPendingTasks([...pendingTasks, result]);
+        setSubmitted(true);
+        // write function to have Thank You/Nice work modal pop up 
+      }
     })
   }
 
@@ -73,11 +106,12 @@ export default function Home(props) {
   //   .then(response => response.json())
   // }
 
+  // function to filter through tasks based on (selected) state
   const renderTasks = () => {
     if (selected.id === "All Tasks") {
-      return pendingTasks.map(task => {
+      return pendingTasks.map(item => {
         return <Tasks
-        task={task}
+        task={item}
         handleEdit={setOpenEditTask}
         taskToEdit={taskToEdit}
         />
@@ -150,9 +184,10 @@ export default function Home(props) {
               selectedToEdit={selectedToEdit}
             />}
             {openAddTask && <TaskForm 
-              setTasks={props.setTasks}
-              tasks={pendingTasks}
-              handleOpenAdd={setOpenAddTask} 
+              handleAddTask={handleAddTask}
+              task={task}
+              setTask={setTask}
+              setOpenAddTask={setOpenAddTask} 
             />}
           </div>
           <div className="statscolumn">

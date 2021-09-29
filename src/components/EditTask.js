@@ -58,7 +58,7 @@ export default function EditTask(props) {
 
             <br/>
             <div className="editFormButtons">
-              <button className="ghost" onClick={() => props.setOpenEditTask(false)}> Cancel </button>
+              {/* <button className="ghost" onClick={() => props.setOpenEditTask(false)}> Cancel </button> */}
               <button className="ghost" onClick={() => props.handleEdit(false)}>{props.submitted? "Updated!" : "Submit Update"}</button>
             </div>
           </form>
