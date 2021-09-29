@@ -1,30 +1,30 @@
 import React, {useState} from 'react';
 
 export default function EditTask(props) {
+  console.log("props.selectedToEdit", props.selectedToEdit);
 
   return (
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="editForm">
           <button className="ghost" onClick={() => props.setOpenEditTask(false)}> X </button>
-          <form onSubmit={props.submitUpdate} className="taskform">
+          <form onSubmit={props.handleEditTask} className="taskform">
             <h2>Update This Task</h2>
             <label> Description: 
               <input
                 type='text'
-                placeholder="Type Here"
                 value={props.selectedToEdit.description}
-                name='description'
-                onChange={(event) => props.setDescription(event.target.value)}
+                name="description"
+                onChange={(event) => props.setSelectedToEdit({ ...props.selectedToEdit, description: event.target.value})}
               />
             </label> 
             <br/>
             <label> Category: 
                 <select 
                   name="category" 
-                  value={props.selectedToEdit.category} 
+                  value={props.selectedToEdit.category}
                   id="category" 
-                  onChange={(event) => props.setCategory(event.target.value)}
+                  onChange={(event) => props.setSelectedToEdit({ ...props.selectedToEdit, category: event.target.value})}
                 >
                   <option value="Work">Work</option>
                   <option value="Household">Household</option>
@@ -32,7 +32,7 @@ export default function EditTask(props) {
                   <option value="Social">Social</option>
                 </select>
             </label> 
-            <br/>
+            {/* <br/>
             <label> Priority Level: 
               <input
                 type='range'
@@ -40,11 +40,11 @@ export default function EditTask(props) {
                 max="3"
                 value={props.selectedToEdit.priority}
                 name='priority'
-                onChange={(event) => props.setPriority(event.target.value)}
+                onChange={(event) => props.setTask({ ...props.task, priority: event.target.value})}
               />
-            </label> {/* WORKING, BUT NEED TO SEE DIGIT ON SLIDER */}
-            <br/>
-            <label> Completed?
+            </label> 
+            <br/> */}
+            {/* <label> Completed?
               <select
                 name="completed"
                 defaultValue={props.selectedToEdit.completed}
@@ -54,12 +54,11 @@ export default function EditTask(props) {
                 <option value={false} >Negatory</option>
                 <option value={true} >Affirmative</option>
               </select>
-            </label>
-
+            </label> */}
             <br/>
             <div className="editFormButtons">
               {/* <button className="ghost" onClick={() => props.setOpenEditTask(false)}> Cancel </button> */}
-              <button className="ghost" onClick={() => props.handleEdit(false)}>{props.submitted? "Updated!" : "Submit Update"}</button>
+              <button className="ghost">Submit Update</button>
             </div>
           </form>
         </div>

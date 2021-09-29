@@ -87,21 +87,23 @@ export default function Home(props) {
   }
 
   //function to handle edit task on form submit
-  // const handleEditTask = event => {
-  //   event.preventDefault();
-  //   console.log("form values updated as", description, category, priority, completed)
+  const handleEditTask = event => {
+    event.preventDefault();
+    setOpenEditTask(false);
+    console.log("form values updated as", selectedToEdit);
 
-  //   fetch('http://localhost:3000/tasks', {
-  //     method: 'PATCH',
-  //     headers: {
-  //       Accept: 'application/json', 
-  //       'Content-Type': 'application/json',
-  //       Authorization: `Bearer ${localStorage.token}`
-  //     },
-  //     body: JSON.stringify({task: {description, category, priority, completed}})
-  //   })
-  //   .then(response => response.json())
-  // }
+    // fetch(`http://localhost:3000/tasks/${selectedToEdit.id}`, {
+    //   method: 'PATCH',
+    //   headers: {
+    //     Accept: 'application/json', 
+    //     'Content-Type': 'application/json',
+    //     Authorization: `Bearer ${localStorage.token}`
+    //   },
+    //   body: JSON.stringify({task})
+    // })
+    // .then(response => response.json())
+    // .then(result => console.log(result))
+  }
 
   // function to filter through tasks based on (selected) state
   const renderTasks = () => {
@@ -167,15 +169,10 @@ export default function Home(props) {
             {renderTasks()}
             {openEditTask && <EditTask 
               setOpenEditTask={setOpenEditTask} //function to open/close modal
-              // submitUpdate={submitUpdate}
-              // description={description}
-              // setDescription={setDescription}
-              // completed={completed}
-              // setCompleted={setCompleted}
-              // category={category}
-              // setCategory={setCategory}
-              // priority={priority}
-              // setPriority={setPriority}
+              handleEditTask={handleEditTask}
+              setSelectedToEdit={setSelectedToEdit}
+              task={task}
+              setTask={setTask}
               submitted={submitted}
               setSubmitted={setSubmitted}
               selectedToEdit={selectedToEdit}
