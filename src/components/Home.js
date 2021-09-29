@@ -17,6 +17,10 @@ export default function Home(props) {
     priority: 2,
     completed: false
   })
+  const [tasksPer, setTasksPer]= useState([])
+  const [percentComplete, setPercentComplete] = useState([])
+  const [userActive, setUserActive] = useState('')
+  const [mostProductive, setMostProductive] = useState('Monday')
   const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected]= useState({ //holds state of filter selected on sidebar
     name: 'All Tasks',
@@ -28,7 +32,7 @@ export default function Home(props) {
 
   // fetches all sorted tasks from backend on page load and sets state
   useEffect(() => {
-    fetch('http://localhost:3000/alltasks', {
+    fetch('http://localhost:3000/allinfo', {
       headers: {
         Authorization: `Bearer ${localStorage.token}`
       }
@@ -38,8 +42,12 @@ export default function Home(props) {
         if (result.error) {
           alert(result.error);
         } else {
+          console.log(result);
           setPendingTasks(result.sorted_tasks);
           setCompletedTasks(result.completed_tasks);
+          setTasksPer(result.num_tasks_per_category);
+          setPercentComplete(result.perc_tasks_completed);
+          setUserActive(result.user_active);
         }
       })
   }, [])
@@ -165,6 +173,7 @@ export default function Home(props) {
         } else {
           console.log("backend result", result);
           setPendingTasks([...pendingTasks, result]);
+          setPercentComplete(result.data);
           setSubmitted(true);
           setOpenEditTask(false);
       }
@@ -187,6 +196,7 @@ export default function Home(props) {
       .then(result => {
         console.log("backend result", result);
         removePendingTasks(task);
+        setPercentComplete(result.data);
         alert('You rocked it!');
       })
   }
@@ -255,7 +265,12 @@ export default function Home(props) {
           </div>
           <div className="statscolumn">
             <h2>{props.user.firstname}'s Stats</h2> {/* User props from App.js */}
-            <StatsContainer />
+            <StatsContainer 
+              tasksPer={tasksPer}
+              percentComplete={percentComplete}
+              userActive={userActive}
+              mostProductive={mostProductive}
+            />
           </div>
         </div>
       </div>
