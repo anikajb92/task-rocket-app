@@ -12,7 +12,6 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState({})
-  const [tasks, setTasks] = useState([])
 
   const handleLogout = () => {
     setIsLoggedIn(false)
@@ -36,7 +35,6 @@ function App() {
           } else {
             handleLogin();
             setUser(result.user);
-            setTasks(result.tasks);
           }
         })
     }
@@ -58,8 +56,6 @@ function App() {
             render={() =>
               <Home 
                 user={user}
-                tasks={tasks}
-                setTasks={setTasks}
               />
             }
             />
