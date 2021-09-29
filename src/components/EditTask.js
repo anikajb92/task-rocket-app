@@ -6,7 +6,7 @@ export default function EditTask(props) {
     <div className="modalBackground">
       <div className="modalContainer">
         <div className="editForm">
-          <button className="ghost" onClick={() => props.handleEdit(false)}> X </button>
+          <button className="ghost" onClick={() => props.setOpenEditTask(false)}> X </button>
           <form onSubmit={props.submitUpdate} className="taskform">
             <h2>Update This Task</h2>
             <label> Description: 

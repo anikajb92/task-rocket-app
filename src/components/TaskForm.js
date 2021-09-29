@@ -30,9 +30,8 @@ export default function TaskForm(props) {
       } else {
         console.log(result);
         props.setTasks([...props.tasks, result]);
-        // props.renderTasks();
         setSubmitted(true);
-        // write function to have Thank You modal pop up 
+        // write function to have Thank You/Nice work modal pop up 
       }
     })
   }

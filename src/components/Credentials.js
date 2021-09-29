@@ -8,7 +8,6 @@ import { Container } from '@material-ui/core';
 export default function Credentials(props) {
   const [loginInstead, setLoginInstead] = useState(false);
   const [newUser, setNewUser] = useState(true);
-  const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
       setLoginInstead(!loginInstead);
