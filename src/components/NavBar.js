@@ -9,9 +9,9 @@ export default function NavBar(props) {
       {props.isLoggedIn? (
         <>
         <nav>
-          <Link classname="icon" to="/about"><IoRocketOutline classname="icon"/></Link>
-          <Link classname="link" to="/about">Task Rocket</Link>
-          <Link classname="link" to="/home">My Tasks</Link>
+          <Link to="/about"><IoRocketOutline /></Link>
+          <Link className="link" to="/about">Task Rocket</Link>
+          <Link className="link" to="/home">My Tasks</Link>
         </nav>
         <nav>
         <Link to="/profile"><CgProfile /> {props.user.firstname} {props.user.lastname}</Link>
@@ -19,11 +19,11 @@ export default function NavBar(props) {
       </>) : (
       <>
       <nav>
-        <Link classname="icon" to="/about"><IoRocketOutline classname="icon"/></Link>
-        <Link classname="link" to="/about">Task Rocket</Link>
+        <Link to="/about"><IoRocketOutline /></Link>
+        <Link className="link" to="/about">Task Rocket</Link>
       </nav>
       <nav>
-        <Link classname="link" to="/login">Login</Link>
+        <Link className="link" to="/login">Login</Link>
       </nav>
       </>
       )

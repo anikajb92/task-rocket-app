@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { Chart } from "react-google-charts";
 
 export default function CategoryChart(props) {

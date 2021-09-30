@@ -1,6 +1,5 @@
 import React, {useState, useEffect} from 'react';
 import '../styles/home.css';
-import {FaBuffer} from "react-icons/fa";
 
 import TaskForm from './TaskForm';
 import Tasks from './Tasks';
@@ -48,6 +47,7 @@ export default function Home(props) {
           setTasksPer(result.num_tasks_per_category);
           setPercentComplete(result.perc_tasks_completed);
           setUserActive(result.user_active);
+          setMostProductive(result.most_productive_day);
         }
       })
   }, [])
@@ -58,6 +58,7 @@ export default function Home(props) {
       return pendingTasks.map(item => {
         return <Tasks
         task={item}
+        key={item.id}
         taskToEdit={taskToEdit}
         selectedToEdit={selectedToEdit}
         setSelectedToEdit={setSelectedToEdit}
@@ -65,12 +66,13 @@ export default function Home(props) {
         handleDeleteTask={handleDeleteTask}
         />
       })
-    } else if (selected.id == "Priority"){
-      let items = pendingTasks.filter(item => item.priority == selected.name)
-      {return items? (
+    } else if (selected.id === "Priority"){
+      let items = pendingTasks.filter(item => item.priority === selected.name)
+      return items? (
         items.map(item => {
           return <Tasks 
             task={item}
+            key={item.id}
             taskToEdit={taskToEdit}
             selectedToEdit={selectedToEdit}
             setSelectedToEdit={setSelectedToEdit}
@@ -80,12 +82,12 @@ export default function Home(props) {
         })
       )
         : "<p>Nothing is here</p>"
-      }
-    } else if(selected.id == "Category"){
-        let items = pendingTasks.filter(item => item.category == selected.name)
+    } else if(selected.id === "Category"){
+        let items = pendingTasks.filter(item => item.category === selected.name)
         return items.map(item => {
           return <Tasks 
             task={item}
+            key={item.id}
             taskToEdit={taskToEdit}
             selectedToEdit={selectedToEdit}
             setSelectedToEdit={setSelectedToEdit}
@@ -93,10 +95,11 @@ export default function Home(props) {
             handleDeleteTask={handleDeleteTask}
           />
         })
-    } else if(selected.id == "Completed"){
+    } else if(selected.id === "Completed"){
         return completedTasks.map(item => {
           return <Tasks 
           task={item}
+          key={item.id}
           taskToEdit={taskToEdit} //cannot unclick checkmark on completed tasks
           handleDeleteTask={handleDeleteTask}
           />
@@ -245,7 +248,7 @@ export default function Home(props) {
         </div>
         <div className="board">
           <div className="taskcolumn">
-            <h2>{selected.id == "Completed" ? "Completed Tasks" : "Pending Tasks"}</h2>
+            <h2>{selected.id === "Completed" ? "Completed Tasks" : "Pending Tasks"}</h2>
             {renderTasks()}
             {openEditTask && <EditTask 
               setOpenEditTask={setOpenEditTask} //function to open/close modal

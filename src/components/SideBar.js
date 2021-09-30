@@ -2,7 +2,6 @@ import React from 'react';
 import {MdComputer, MdPersonOutline, MdPeopleOutline} from 'react-icons/md';
 import{BsHouseDoor} from 'react-icons/bs';
 import {RiBarChartHorizontalLine} from 'react-icons/ri';
-import {IoRocketOutline} from 'react-icons/io5';
 
 export default function SideBar(props) {
 

@@ -7,14 +7,14 @@ export default function About() {
   return (
     <div className="about">
       <div className="pulse-container">
-        <div classname="pulse">
+        <div className="pulse">
           <span style={{"--i": 1}}></span>
           <span style={{"--i": 2}}></span>
           <span style={{"--i": 3}}></span>
           <span style={{"--i": 4}}></span>
           <span style={{"--i": 5}}></span>
           <div className="rocket">
-            <img src={Rocket}></img>
+            <img src={Rocket} alt="Rumbling rocket"></img>
           </div>
         </div>
       </div>
