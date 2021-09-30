@@ -1,22 +1,8 @@
-import React, {useState} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom';
 
 
 export default function Profile(props) {
-  const[users, setUsers]= useState([])
-
-  const getUsers = () => {
-    fetch('http://localhost:3000/users', {
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`
-      }
-    })
-    .then(response => response.json())
-    .then(result => {
-      console.log(result);
-      setUsers(result.users)
-    });
-  }
 
   return (
     <div className="profile">
@@ -31,8 +17,6 @@ export default function Profile(props) {
           <h3>Profile Picture: </h3>
           <button>Currently Unavailable</button>
           <hr/>
-          <h2>Admin Access</h2>
-          <button onClick={getUsers}>See all users</button>
           <br/>
           <hr/>
           <button onClick={props.handleLogout}>Logout</button>
