@@ -47,7 +47,7 @@ export default function Home(props) {
           setTasksPer(result.num_tasks_per_category);
           setPercentComplete(result.perc_tasks_completed);
           setUserActive(result.user_active);
-          setMostProductive("Monday"); //need to complete code on BE
+          setMostProductive("Wednesday"); //need to complete code on BE
         }
       })
   }, [])
