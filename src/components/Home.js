@@ -141,7 +141,6 @@ export default function Home(props) {
         alert(result.error);
       } else {
         console.log("backend result", result);
-        // debugger
         setPendingTasks([...pendingTasks, result.new_task]);
         setSubmitted(true);
         setOpenAddTask(false);
