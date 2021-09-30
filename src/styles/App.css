@@ -39,6 +39,14 @@ p {
 	margin: 20px 0 30px;
 }
 
+
+hr, vl {
+	border-top: 1px solid;
+	color: rgba(132, 152, 177, 0.228);
+	width: 70%;
+	text-align: center;
+}
+
 button {
 	border-radius: 10px;
 	border: 1px solid #FF4B2B;
