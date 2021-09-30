@@ -16,7 +16,7 @@ export default function SideBar(props) {
       {props.openAddTask ? <button> Adding... </button>:
         <button onClick={() => props.setOpenAddTask(true)} style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}> Add Task </button>
       }
-      <h3>. . . . . . . . </h3>
+      <hr/>
       <p id="title" >Filter Tasks</p>
       {props.selected.name === "All Tasks" ?
         <button onClick={handleClick} id="All Tasks" name="All Tasks" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><RiBarChartHorizontalLine style={{fill: "#ffffff"}} /> All Pending Tasks</button> :
@@ -26,7 +26,7 @@ export default function SideBar(props) {
         <button onClick={handleClick} id="Completed" name="Completed" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><RiBarChartHorizontalLine style={{fill: "#ffffff"}} /> All Completed Tasks</button> :
         <button onClick={handleClick} id="Completed" name="Completed"><RiBarChartHorizontalLine style={{fill: "#FF4B2B"}} /> All Completed Tasks</button>
       }
-      <h3>. . . . . . . . </h3>
+      <hr/>
       <p>Categories</p>
       {
         props.selected.name === "Work" ?
@@ -49,7 +49,7 @@ export default function SideBar(props) {
           <button onClick={handleClick} id="Category" name="Social"><MdPeopleOutline style={{fill: "#FF4B2B"}}/> Social</button>
       }
       <br/>
-      <h3>. . . . . . . . </h3>
+      <hr/>
       <p>Priority</p>
       {
         props.selected.name === "3" ?
