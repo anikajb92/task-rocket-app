@@ -141,10 +141,11 @@ export default function Home(props) {
         alert(result.error);
       } else {
         console.log("backend result", result);
+        // debugger
         setPendingTasks([...pendingTasks, result.new_task]);
         setSubmitted(true);
         setOpenAddTask(false);
-        setPercentComplete(result.data.perc_tasks_completed);
+        setPercentComplete(result.data);
         // write function to have Thank You/Nice work modal pop up 
       }
     })
