@@ -220,7 +220,6 @@ export default function Home(props) {
         setOpenEditTask(false);
         removePendingTasks(task);
         setPercentComplete(result.data);
-        alert('Task successfully deleted');
       })
   }
   
