@@ -269,6 +269,11 @@ button.edit {
 .allStats p{
   text-align: left;
 }
+.allStats span{
+  font-size: 20px;
+  font-weight: 500;
+  color: #FF416C;
+}
 
 .chart {
   display: flex;
