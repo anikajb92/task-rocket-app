@@ -1,33 +1,43 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
 import {BsClockHistory} from 'react-icons/bs';
+import {IoRocketOutline} from "react-icons/io5";
+
 
 export default function Profile(props) {
 
   return (
-    <div className="profile">
-        {props.isLoggedIn? (
-        <>
-          <h1> Hi, {props.user.firstname}! </h1>
-          <p><BsClockHistory /> Thank you for being a loyal patron of Task Rocket. Your acount has been active for <span>{props.user.user_active}</span> hours.</p>
+    <div className="profileContainer">
+      <div className="profile">
+          {props.isLoggedIn? (
+            <>
+            <h1> Hi, {props.user.firstname}! </h1>
+            <p><BsClockHistory /> Thank you for being a loyal patron of Task Rocket. Your acount has been active for <span>{props.user.user_active}</span> hours.</p>
 
-          <h2>Here's a look at your profile. Need to make changes?</h2>
-          <hr/>
-          <h3>Full Name: <p>{props.user.firstname} {props.user.lastname}</p></h3>
-          <h3>Username: <p>{props.user.username}</p></h3>
-          <h3>Password: <p>(Currently Unavailable)</p></h3>
-          <h3>Profile Picture: </h3>
-          <button>Currently Unavailable</button>
-          <hr/>
-          <br/>
-          <hr/>
-          <button onClick={props.handleLogout}>Logout</button>
-        </>) : (
-        <>
-          <h1>Please login to your account to view your profile</h1>
-          <Link className="link" to="/login">Login</Link>
-        </>
-        )}
+            <h2>Here's a look at your profile.</h2>
+            <hr/>
+            <h3>Full Name: <p>{props.user.firstname} {props.user.lastname}</p></h3>
+            <h3>Username: <p>{props.user.username}</p></h3>
+            <h3>Password: <p>(Currently Unavailable)</p></h3>
+            <h3>Profile Picture: </h3>
+            <button>Upload</button>
+            <br/>
+            <hr/>
+            <button onClick={props.handleLogout}>Logout</button>
+          </>) : (
+            <>
+            <div className="profile">
+              <h1 style={{fontSize:"100px"}}><IoRocketOutline /></h1>
+              <h1 style={{fontSize:"100px", color:"#FF4B2B"}}>!Mayday!</h1>
+              {/* <h1 style={{fontSize:"60px"}}>Crash landing!</h1> */}
+              <br/>
+              <h1>It doesn't look like we're able to find your information.</h1>
+              <br/>
+              <hr/>
+              <h2>Please log in to your account to view your profile.</h2>
+            </div>
+          </>
+          )}
+      </div>
     </div>
   )
 }
