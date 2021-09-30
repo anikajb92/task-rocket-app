@@ -25,7 +25,7 @@ export default function Profile(props) {
         </>) : (
         <>
           <h1>Please login to your account to view your profile</h1>
-          <Link classname="link" to="/login">Login</Link>
+          <Link className="link" to="/login">Login</Link>
         </>
         )}
     </div>
