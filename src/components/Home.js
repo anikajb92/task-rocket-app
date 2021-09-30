@@ -67,7 +67,7 @@ export default function Home(props) {
         />
       })
     } else if (selected.id === "Priority"){
-      let items = pendingTasks.filter(item => item.priority === selected.name)
+      let items = pendingTasks.filter(item => item.priority == selected.name) // need to keep == b/c not same type
       return items? (
         items.map(item => {
           return <Tasks 
