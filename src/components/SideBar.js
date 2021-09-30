@@ -12,11 +12,11 @@ export default function SideBar(props) {
 
   return (
     <div className="aside">
-      <p id="title" >Get Rock'n</p>
+      <h4 id="title" >Get Rock'n</h4>
       {props.openAddTask ? <button> Adding... </button>:
         <button onClick={() => props.setOpenAddTask(true)} style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}> Add Task </button>
       }
-      <br/>
+      <h3>. . . . . . . . </h3>
       <p id="title" >Filter Tasks</p>
       {props.selected.name === "All Tasks" ?
         <button onClick={handleClick} id="All Tasks" name="All Tasks" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><RiBarChartHorizontalLine style={{fill: "#ffffff"}} /> All Pending Tasks</button> :

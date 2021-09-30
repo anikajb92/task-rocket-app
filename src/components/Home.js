@@ -47,7 +47,7 @@ export default function Home(props) {
           setTasksPer(result.num_tasks_per_category);
           setPercentComplete(result.perc_tasks_completed);
           setUserActive(result.user_active);
-          setMostProductive(result.most_productive_day);
+          setMostProductive("Monday"); //need to complete code on BE
         }
       })
   }, [])
@@ -220,7 +220,6 @@ export default function Home(props) {
         setOpenEditTask(false);
         removePendingTasks(task);
         setPercentComplete(result.data);
-        alert('Task successfully deleted');
       })
   }
   

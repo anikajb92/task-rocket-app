@@ -4,6 +4,7 @@
   width: calc(100% - 100px);
   min-height: calc(100vh - 200px);
   min-height: 300px;
+  min-width: 1094px;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
@@ -136,17 +137,17 @@
   flex-direction: column;
   align-items: center;
   font-size: 20px;
-  width: 190px;
+  min-width: 186px;
   border-radius: 20px;
   margin: 20px;
-  /* height: 80vh; */
+  height: 80vh;
   text-align:center;
 }
 
 .aside p {
   font-weight: 500;
-  text-align: left;
-  font-size: 25px ;
+  text-align: center;
+  font-size: 20px ;
   margin-top: 0px;
   padding-left: 7px;
 }
@@ -164,12 +165,14 @@
   margin: 2px;
   font-size: 10px;
   width: 90%;
+  padding: 6px;
 }
 
 
 .taskcolumn {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   justify-content: center;
   border: rgba(0,0,0,0.25);
   overflow: scroll;
@@ -254,6 +257,24 @@ button.edit {
   border-color: white;
   background-color: transparent;
 }
+.statscolumn {
+  display: flex;
+  flex-direction: column;
+}
+.allStats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.allStats p{
+  text-align: left;
+}
+.allStats span{
+  font-size: 20px;
+  font-weight: 500;
+  color: #FF416C;
+}
+
 .chart {
   display: flex;
   justify-content: center;
