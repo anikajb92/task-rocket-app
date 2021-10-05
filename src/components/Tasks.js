@@ -14,7 +14,7 @@ export default function Tasks(props) {
           <button className="check"><BsCheckCircle /> </button> :
           <button className="check" onClick={()=> props.handleMarkComplete(props.task)}><BsCircle /> </button>
         }
-       <p> {props.task.description}</p>
+       <p> {props.task.description} </p>
       </div>
       <div className="task-right">
         <button className="edit" onClick={() => props.taskToEdit(props.task)}> <FiEdit /></button>
