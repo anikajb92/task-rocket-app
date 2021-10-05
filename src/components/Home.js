@@ -145,7 +145,7 @@ export default function Home(props) {
         alert(result.error);
       } else {
         console.log("backend result", result);
-        setPendingTasks([...pendingTasks, result.new_task]);
+        setPendingTasks([result.new_task, ...pendingTasks]);
         setSubmitted(true);
         setOpenAddTask(false);
         setPercentComplete(result.data);
