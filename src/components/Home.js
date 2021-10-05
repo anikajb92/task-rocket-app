@@ -20,6 +20,7 @@ export default function Home(props) {
   const [percentComplete, setPercentComplete] = useState([])
   const [userActive, setUserActive] = useState('')
   const [mostProductive, setMostProductive] = useState('Monday')
+  const [avgCompletion, setAvgCompletion] = useState('')
   const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected]= useState({ //holds state of filter selected on sidebar
     name: 'All Tasks',
@@ -48,6 +49,7 @@ export default function Home(props) {
           setPercentComplete(result.perc_tasks_completed);
           setUserActive(result.user_active);
           setMostProductive("Wednesday"); //need to complete code on BE
+          setAvgCompletion(result.avg_completion_time);
         }
       })
   }, [])
@@ -274,6 +276,7 @@ export default function Home(props) {
               percentComplete={percentComplete}
               userActive={userActive}
               mostProductive={mostProductive}
+              avgCompletion={avgCompletion}
             />
           </div>
         </div>

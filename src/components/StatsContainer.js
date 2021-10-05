@@ -17,7 +17,7 @@ export default function StatsContainer(props) {
       <ProgressBar data={props.percentComplete}/>
       <br/>
       <vl></vl>
-      <p><BsClockHistory /> You have been a member for <span>{props.userActive}</span> days.</p>
+      <p><BsClockHistory /> Your average task takes <span>{props.avgCompletion}</span> hours to complete.</p>
       <vl></vl>
       <CategoryChart data={props.tasksPer}/>
     </div>
