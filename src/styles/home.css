@@ -206,6 +206,7 @@
   width: 90%;
   animation: flowUp .6s linear;
   animation-fill-mode: both;
+  cursor: default;
 }
 @keyframes flowUp {
   0% {
@@ -241,6 +242,7 @@ button.check {
   background-color: transparent;
   border: none;
   height: 100%;
+  cursor: pointer;
 }
 .task-right {
   display: flex;
@@ -252,6 +254,7 @@ button.edit {
   background-color: transparent;
   color: #FF4B2B;
   border: none;
+  cursor: pointer;
 }
 .modalBackground {
   width: 100vw;
