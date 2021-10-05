@@ -147,6 +147,11 @@ button.ghost {
 			0 10px 10px rgba(0,0,0,0.22);
 }
 
+.profile span{
+	color:#FF4B2B;
+	font-size: 20px;
+}
+
 footer {
   background-color: #222;
   color: #fff;

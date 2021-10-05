@@ -11,7 +11,8 @@ export default function Profile(props) {
           {props.isLoggedIn? (
             <>
             <h1> Hi, {props.user.firstname}! </h1>
-            <p><BsClockHistory /> Thank you for being a loyal patron of Task Rocket. Your acount has been active for <span>{props.user.user_active}</span> hours.</p>
+            <p>Thank you for being a loyal patron of Task Rocket.</p>
+            <p><BsClockHistory /> Your acount has been active for <span>{props.user.user_active}</span> days.</p>
 
             <h2>Here's a look at your profile.</h2>
             <hr/>
