@@ -15,12 +15,13 @@ export default function Home(props) {
     category: 'Work',
     priority: 2,
     completed: false
-  })
-  const [tasksPer, setTasksPer]= useState([])
-  const [percentComplete, setPercentComplete] = useState([])
-  const [userActive, setUserActive] = useState('')
-  const [mostProductive, setMostProductive] = useState('Monday')
-  const [avgCompletion, setAvgCompletion] = useState('')
+  });
+  const [tasksPer, setTasksPer]= useState([]);
+  const [percentComplete, setPercentComplete] = useState([]);
+  const [userActive, setUserActive] = useState('');
+  const [mostProductive, setMostProductive] = useState('Monday');
+  const [mostTasksPer, setMostTasksPer] = useState([]);
+  const [avgCompletion, setAvgCompletion] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [selected, setSelected]= useState({ //holds state of filter selected on sidebar
     name: 'All Tasks',
@@ -50,6 +51,7 @@ export default function Home(props) {
           setUserActive(result.user_active);
           setMostProductive(result.most_productive_day); //need to complete code on BE
           setAvgCompletion(result.avg_completion_time);
+          setMostTasksPer(result.most_tasks_per_category);
         }
       })
   }, [])
@@ -276,6 +278,7 @@ export default function Home(props) {
               userActive={userActive}
               mostProductive={mostProductive}
               avgCompletion={avgCompletion}
+              mostTasksPer={mostTasksPer}
             />
           </div>
         </div>
