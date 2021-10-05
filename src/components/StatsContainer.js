@@ -11,7 +11,7 @@ export default function StatsContainer(props) {
   return (
     <div className="allStats">
       <vl></vl>
-      <p><BiCalendarCheck /> Interesting! Most of your tasks are completed on <span>{props.mostProductive}s</span>.</p>
+      <p><BiCalendarCheck /> Interesting! Most of your tasks are completed on <span>{props.mostProductive[0]}s</span>.</p>
       <vl></vl>
       <p><AiOutlineThunderbolt /> Great work! You have completed <span>{props.percentComplete[3]}%</span> of your tasks. That's <span>{props.percentComplete[1]}</span> tasks done and <span>{props.percentComplete[7]}</span> to go.</p>
       <ProgressBar data={props.percentComplete}/>
