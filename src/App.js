@@ -52,7 +52,7 @@ function App() {
       <div className="container">
         <Switch>
           <Route
-            exact path="/home"
+            path="/home"
             render={() =>
               <Home 
                 user={user}
@@ -60,7 +60,7 @@ function App() {
             }
             />
           <Route 
-            path="/"
+            exact path="/"
             component={About}
             />
           <Route 

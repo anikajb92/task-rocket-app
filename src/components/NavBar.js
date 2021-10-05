@@ -19,8 +19,8 @@ export default function NavBar(props) {
       </>) : (
       <>
       <nav>
-        <Link to="/about"><IoRocketOutline /></Link>
-        <Link className="link" to="/about">Task Rocket</Link>
+        <Link to="/"><IoRocketOutline /></Link>
+        <Link className="link" to="/">Task Rocket</Link>
       </nav>
       <nav>
         <Link className="link" to="/login">Login</Link>
