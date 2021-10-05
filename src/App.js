@@ -60,7 +60,7 @@ function App() {
             }
             />
           <Route 
-            path="/about"
+            path="/"
             component={About}
             />
           <Route 

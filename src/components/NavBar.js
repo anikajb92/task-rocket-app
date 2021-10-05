@@ -9,8 +9,8 @@ export default function NavBar(props) {
       {props.isLoggedIn? (
         <>
         <nav>
-          <Link to="/about"><IoRocketOutline /></Link>
-          <Link className="link" to="/about">Task Rocket</Link>
+          <Link to="/"><IoRocketOutline /></Link>
+          <Link className="link" to="/">Task Rocket</Link>
           <Link className="link" to="/home">My Tasks</Link>
         </nav>
         <nav>
