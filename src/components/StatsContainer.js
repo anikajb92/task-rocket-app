@@ -3,7 +3,7 @@ import CategoryChart from './CategoryChart';
 import ProgressBar from './ProgressBar';
 
 import {BsClockHistory} from 'react-icons/bs';
-import {AiOutlineThunderbolt} from 'react-icons/ai';
+import {AiOutlineThunderbolt, AiOutlinePieChart} from 'react-icons/ai';
 import {BiCalendarCheck} from 'react-icons/bi';
 
 export default function StatsContainer(props) {
@@ -19,6 +19,7 @@ export default function StatsContainer(props) {
       <vl></vl>
       <p><BsClockHistory /> Your average task takes <span>{props.avgCompletion}</span> hours to complete.</p>
       <vl></vl>
+      <p><AiOutlinePieChart /> Most of your tasks are associated with <span>{props.mostTasksPer[0]}.</span></p>
       <CategoryChart data={props.tasksPer}/>
     </div>
   )
