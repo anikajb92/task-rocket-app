@@ -203,7 +203,6 @@ export default function Home(props) {
         console.log("backend result", result);
         removePendingTasks(task);
         setPercentComplete(result.data);
-        alert('You rocked it!');
       })
   }
 
