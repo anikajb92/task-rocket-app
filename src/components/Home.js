@@ -234,7 +234,7 @@ export default function Home(props) {
   }
   
   return (
-    <div className="home">
+    <div className="home" style={openAddTask? {filter: 'blur(5px)'} : {filter: 'blur(0px)'}}>
       <div className="welcomeback">
         <h1>Welcome Back, {props.user.firstname}!</h1>
       </div>

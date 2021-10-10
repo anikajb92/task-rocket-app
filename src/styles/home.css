@@ -279,6 +279,7 @@ button.edit {
   display: flex;
   flex-direction: column;
   padding: 25px;
+  filter: blur(0px);
 }
 .editFormButtons{
   display: flex;
