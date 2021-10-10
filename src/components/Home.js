@@ -267,6 +267,7 @@ export default function Home(props) {
               handleAddTask={handleAddTask}
               task={task}
               setTask={setTask}
+              openAddTask={openAddTask}
               setOpenAddTask={setOpenAddTask} 
             />}
           </div>
