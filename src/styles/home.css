@@ -187,6 +187,7 @@
   margin-top: 0px;
   padding-left: 7px;
   color: white;
+  filter: blur(0px);
 }
 .taskform h2{
   color: white;
@@ -197,13 +198,40 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #eee;
+  background-image: linear-gradient(rgba(255,56,20,1), rgba(255,220,214,0));
+  background-attachment: fixed;  /* gradient throughout all tasks in view */
   border: none;
   border-radius: 5px;
   padding: 0px 15px;
   margin: 4px 0px;
   width: 90%;
+  animation: flowUp .6s linear;
+  animation-fill-mode: both;
+  cursor: default;
 }
+@keyframes flowUp {
+  0% {
+  	margin-bottom: 100%;
+  }
+  100% {
+    margin-bottom: 0%;
+  }
+}
+.task:nth-child(1) {animation-delay: .1s}
+.task:nth-child(2) {animation-delay: .1s}
+.task:nth-child(3) {animation-delay: .2s}
+.task:nth-child(4) {animation-delay: .3s}
+.task:nth-child(5) {animation-delay: .4s}
+.task:nth-child(6) {animation-delay: .5s}
+.task:nth-child(7) {animation-delay: .6s}
+.task:nth-child(8) {animation-delay: .7s}
+.task:nth-child(9) {animation-delay: .8s}
+.task:nth-child(10) {animation-delay: .9s}
+.task:nth-child(11) {animation-delay: 1s}
+.task:nth-child(12) {animation-delay: 1.2s}
+.task:nth-child(13) {animation-delay: 1.5s}
+.task:nth-child(14) {animation-delay: 2s}
+
 .task-left {
   display: flex;
   justify-content: center;
@@ -215,6 +243,7 @@ button.check {
   background-color: transparent;
   border: none;
   height: 100%;
+  cursor: pointer;
 }
 .task-right {
   display: flex;
@@ -226,6 +255,7 @@ button.edit {
   background-color: transparent;
   color: #FF4B2B;
   border: none;
+  cursor: pointer;
 }
 .modalBackground {
   width: 100vw;
@@ -250,6 +280,7 @@ button.edit {
   display: flex;
   flex-direction: column;
   padding: 25px;
+  filter: blur(0px);
 }
 .editFormButtons{
   display: flex;

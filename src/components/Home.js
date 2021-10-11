@@ -145,7 +145,7 @@ export default function Home(props) {
         alert(result.error);
       } else {
         console.log("backend result", result);
-        setPendingTasks([...pendingTasks, result.new_task]);
+        setPendingTasks([result.new_task, ...pendingTasks]);
         setSubmitted(true);
         setOpenAddTask(false);
         setPercentComplete(result.data);
@@ -234,7 +234,7 @@ export default function Home(props) {
   }
   
   return (
-    <div className="home">
+    <div className="home" style={openAddTask? {filter: 'blur(5px)'} : {filter: 'blur(0px)'}}>
       <div className="welcomeback">
         <h1>Welcome Back, {props.user.firstname}!</h1>
       </div>
@@ -267,6 +267,7 @@ export default function Home(props) {
               handleAddTask={handleAddTask}
               task={task}
               setTask={setTask}
+              openAddTask={openAddTask}
               setOpenAddTask={setOpenAddTask} 
             />}
           </div>
