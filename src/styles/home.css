@@ -18,8 +18,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: var(--darkorange);
-	background: linear-gradient(to right, var(--lightorange), var(--darkorange));
+	background: linear-gradient(to right, var(--lightblue), var(--darkblue));
 	background-repeat: no-repeat;
 	background-size: cover;
   box-sizing: border-box;
@@ -35,7 +34,7 @@
 .existing-tasks, .new-tasks {
   display: flex;
   flex-direction: row;
-  background-color: #f6f5f7;
+  background-color: var(--mywhite);
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.25);
   margin: 5px;
@@ -65,7 +64,7 @@
   -webkit-appearance: none;
     width: 100%;
     height: 2px;
-    background: #eee;
+    background: var(--mygrey);
     border: none;
     border-radius: 3px;
 }
@@ -75,22 +74,22 @@
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background: #FF4B2B;
+    background: var(--darkblue);
     margin-top: -4px;
 }
 .taskform input[type=range]::-webkit-slider-thumb:hover {
   filter: brightness(1.06);
-  box-shadow: 0 0 0 5px rgba(255,75,43,0.25);
+  box-shadow: 0 0 0 5px var(--medblue), 0.25;
 }
 .taskform input[type=range]::-webkit-slider-thumb:active {
-  box-shadow: 0 0 0 7px rgba(255,75,43,0.5);
+  box-shadow: 0 0 0 7px var(--medblue), 0.25;
 }
 .taskform input[type=range]:focus {
     outline: none;
 }
 
 .taskform input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
+    background: var(--medgrey);
     height: 2px;
 }
 
@@ -129,7 +128,7 @@
 }
 
 .aside-container {
-  background-color: #f6f5f7;
+  background-color: var(--mywhite);
   /* position: sticky; */
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.25);
@@ -159,8 +158,8 @@
 .aside button{
   background-color: transparent;
   display: inline;
-	border-color: #FF4B2B;
-  color: #FF4B2B;
+	border-color: var(--medorange);
+  color: var(--medorange);
   margin: 2px;
   font-size: 10px;
   width: 90%;

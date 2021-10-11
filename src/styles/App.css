@@ -69,8 +69,8 @@ hr, vl {
 
 button, #button {
 	border-radius: 10px;
-	border: 1px solid var(--lightorange);
-	background-color: var(--lightorange);
+	border: 1px solid var(--medorange);
+	background-color: var(--medorange);
 	color: var(--mywhite);
 	font-size: 12px;
 	font-weight: bold;
@@ -138,7 +138,7 @@ button.ghost {
 }
 .profileContainer {
   background: var(--darkorange);
-	background: linear-gradient(to right, var(--lightorange), var(--darkorange));
+	background: linear-gradient(to right, var(--lightblue), var(--darkblue));
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
