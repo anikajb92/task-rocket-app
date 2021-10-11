@@ -26,6 +26,7 @@ export default function LoginForm(props) {
           localStorage.setItem('token', result.token);
           localStorage.setItem('name', result.user.firstname, result.user.lastname);
           console.log('login successful');
+          props.setSuccessful(true);
           props.handleLogin();
           props.setUser(result.user);
           history.push('/home');
