@@ -4,7 +4,7 @@ export default function TaskForm(props) {
 
   return (
     <div className="modalBackground">
-      <div className="modalContainer" style={props.openAddTask && {filter: 'none'}}>
+      <div className="modalContainer">
         <button className="ghost" onClick={() => props.setOpenAddTask(false)}> X </button>
         <form onSubmit={props.handleAddTask} className="taskform">
           <h2>Add A Task</h2>

@@ -69,6 +69,7 @@ function App() {
               <Credentials 
               isLoggedIn={isLoggedIn}
               handleLogin={handleLogin}
+              user={user}
               setUser={setUser}
               />
             }  
