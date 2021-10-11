@@ -1,6 +1,6 @@
 .home {
   /* background-color: #f6f5f7; */
-  background-color: #eee;
+  background-color: var(--mygrey);
   position: relative;
   width: calc(100% - 100px);
   min-height: calc(100vh - 200px);
@@ -18,9 +18,8 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+  background: var(--darkorange);
+	background: linear-gradient(to right, var(--lightorange), var(--darkorange));
 	background-repeat: no-repeat;
 	background-size: cover;
   box-sizing: border-box;
@@ -30,7 +29,7 @@
 }
 .welcomeback h1{
   font-size: 60px;
-  color: #ffffff;
+  color: var(--mywhite);
   padding: 15px 0px;
 }
 .existing-tasks, .new-tasks {

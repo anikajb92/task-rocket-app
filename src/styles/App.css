@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-* {
-	box-sizing: border-box;
-	color: #0D1321;
-}
 
 :root {
 	--lightblue: #92EBFA;
@@ -15,9 +11,15 @@
 	--medorange: #FF7815;
 	--darkorange: #FF4A00;
 	--mywhite: #F6F5F7;
+	--mygrey: #eee;
 	--lightgrey: #EBEBF0;
 	--medgrey: #E1E1E7;
 	--darkgrey: #5A5A5A;
+}
+
+* {
+	box-sizing: border-box;
+	color: var(--darkgrey);
 }
 
 .App {
@@ -69,7 +71,7 @@ button, #button {
 	border-radius: 10px;
 	border: 1px solid var(--lightorange);
 	background-color: var(--lightorange);
-	color: #FFFFFF;
+	color: var(--mywhite);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
@@ -88,7 +90,7 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	border-color: var(--mywhite);
 }
 
 .icon {
@@ -110,7 +112,7 @@ button.ghost {
 
 #navbar {
   font-family: 'Montserrat', sans-serif;
-  background: #f6f5f7;
+  background: var(--mywhite);
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.25);
   position: sticky;
@@ -154,7 +156,7 @@ button.ghost {
 }
 
 .profile {
-	background-color: var(--mywhite);
+	background-color: var(--mygrey);
 	padding: 35px;
   box-sizing: border-box;
   border-radius: 10px;
