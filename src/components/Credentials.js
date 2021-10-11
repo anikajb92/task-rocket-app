@@ -14,6 +14,7 @@ export default function Credentials(props) {
         <SignUpForm />
         <LoginForm 
           handleLogin={props.handleLogin}
+          user={props.user}
           setUser={props.setUser}
           routerprops={props.routerprops}
           /> 
