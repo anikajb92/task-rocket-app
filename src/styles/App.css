@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
-.root {
+:root {
 	--lightblush: #FF9085;
 	--medblush: #FD80A0;
 	--darkblush: #FB6FBB;
@@ -66,7 +66,8 @@ hr, vl {
 
 button, #button {
 	border-radius: 10px;
-	border: 1px solid var(--darkorange);
+	border: 1px solid;
+	border-color: var(--darkorange);
 	background-color: var(--darkorange);
 	color: #FFFFFF;
 	font-size: 12px;
@@ -142,7 +143,7 @@ button.ghost {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	flex-direction: column;
+	flex-direction: row;
 	text-align: center;
 	height: 70%;
 	width: 70%;
