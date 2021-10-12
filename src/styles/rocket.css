@@ -14,17 +14,18 @@
 
 .about h1 {
   font-size: 150px;
+  color: var(--medblue);
 }
 
 .about span {
   font-size: 60px;
-  color: #FF4B2B;
+  color: var(--medorange);
   animation: rocket 0.1s ease infinite;
 }
 
 .about span2 {
   font-size: 30px;
-  color: #FF4B2B;
+  color: var(--lightorange);
 }
 
 .pulse-container {
@@ -33,12 +34,11 @@
   align-items:top;
   min-height: 50vh;
   min-width: 20vw;
-  /* background: #ffeb3b; */
   overflow: hidden;
   margin:auto; 
 }
 
-/* .pulse {
+/* Radiating Yellow Pulse Circles .pulse {
   position: relative;
   width: 200px;
   height: 200px;
@@ -103,7 +103,7 @@
   transform: translateX(-50%);
   width: 20px;
   height: 250px;
-  background: linear-gradient(#FF4B2B, transparent);
+  background: linear-gradient(var(--medorange), transparent);
 }
 .rocket::after {
   content: '';
@@ -113,6 +113,6 @@
   transform: translateX(-50%);
   width: 20px;
   height: 250px;
-  background: linear-gradient(#FF4B2B, transparent);
+  background: linear-gradient(var(--medorange), transparent);
   filter: blur(20px);
 }

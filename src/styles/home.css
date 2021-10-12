@@ -196,7 +196,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(var(--darkorange), var(--darkyellow));
+  background-image: linear-gradient(var(--medorange), var(--darkyellow));
   background-attachment: fixed;  /* gradient throughout all tasks in view */
   border: none;
   border-radius: 5px;

@@ -18,9 +18,9 @@ export default function CategoryChart(props) {
           pieStartAngle: 100,
           slices: {
             0: { color: '#24D9F8',textStyle: {fontSize: 12, color: '#5A5A5A'}}, // --darkblue
-            1: { color: '#FF7815', textStyle: {fontSize: 12, color: '#5A5A5A'} }, // --medorange
-            2: { color: '#FFD300', textStyle: {fontSize: 12, color: '#5A5A5A'} }, // --darkyellow
-            3: { color: '#FF9F00', textStyle: {fontSize: 12, color: '#5A5A5A'}},  // --lightorange
+            1: { color: '#92EBFA', textStyle: {fontSize: 12, color: '#5A5A5A'} }, // --medorange
+            2: { color: '#76E1F8', textStyle: {fontSize: 12, color: '#5A5A5A'} }, // --darkyellow
+            3: { color: '#E1E1E7', textStyle: {fontSize: 12, color: '#5A5A5A'}},  // --lightorange
             4: { color: '#76E1F8' } // --medblue
           }, 
           is3D: true, 
