@@ -45,7 +45,7 @@ export default function Profile(props) {
         <Player
           autoplay
           loop
-          src="https://assets3.lottiefiles.com/packages/lf20_rw0hvilj.json"
+          src="https://assets9.lottiefiles.com/packages/lf20_h1l0ibez.json"
           style={{ height: '600px', width: '600px' }}
         >
         </Player>

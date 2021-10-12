@@ -82,7 +82,7 @@ input, option {
 
 .signup-form {
 	position: absolute;
-	background: linear-gradient(to right, var(--lightblue), var(--darkblue));
+	background: linear-gradient(to right, var(--darkorange), var(--medpink));
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
