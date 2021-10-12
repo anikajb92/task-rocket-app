@@ -312,7 +312,7 @@ button.edit {
 .allStats span{
   font-size: 20px;
   font-weight: 500;
-  color: var(--darkorange);
+  color: var(--darkblue);
 }
 
 .chart {

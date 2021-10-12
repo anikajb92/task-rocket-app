@@ -12,7 +12,7 @@ export default function ProgressBar({data}) {
         styles={buildStyles({
           pathTransitionDuration: 0.5,
           textsize: '16px',
-          textColor: '#FF416C',
+          textColor: 'var(--darkblue)',
           trailColor: '#eee',
           backgroundColor: '#eee',
         })}
