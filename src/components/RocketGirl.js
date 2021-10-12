@@ -2,13 +2,13 @@ import React from 'react';
 import { Player } from '@lottiefiles/react-lottie-player';
 
 
-export default function RocketSolo() {
+export default function RocketGirl() {
   return (
     <div>
       <Player
         autoplay
         loop
-        src="https://assets10.lottiefiles.com/packages/lf20_uu7dytpr.json"
+        src="https://assets4.lottiefiles.com/packages/lf20_3gwaboe0.json"
         style={{ height: '500px', width: '500px' }}
       >
       </Player>

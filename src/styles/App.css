@@ -1,5 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+.root {
+	--lightblush: #FF9085;
+	--medblush: #FD80A0;
+	--darkblush: #FB6FBB;
+	--lightpink: #FF98B0;
+	--medpink: #FF416C;
+	--darkpink: #FF1046;
+	--deeppink: #A70025;
+	--lightorange: #F99A4D;
+	--darkorange: #FF4B2B;
+	--yellow: #FFC444;
+	--lightblue: #6165D7;
+	--medblue: #444B8C;
+	--deeppurple: #26264F;
+}
+
 * {
 	box-sizing: border-box;
 	color: #0D1321;

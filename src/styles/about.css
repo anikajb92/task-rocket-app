@@ -31,11 +31,11 @@
   color: #FF4B2B;
 }
 
-.rocket-solo {
+.rocket-girl {
   display: flex;
   justify-content: center;
   align-items:top;
-  min-height: 50vh;
-  min-width: 20vw;
+  /* min-height: 50vh;
+  min-width: 20vw; */
 }
 
