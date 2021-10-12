@@ -282,7 +282,7 @@ button.edit {
 	background: linear-gradient(to right, #FF4B2B, #FF416C);
 	background-repeat: no-repeat;
 	background-size: cover;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 10px 10px 15px;
   display: flex;
   flex-direction: column;
   padding: 25px;
