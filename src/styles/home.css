@@ -274,7 +274,7 @@ button.edit {
 
 .modalContainer {
   width: 500px;
-  height: 500px;
+  height: 550px;
   overflow: scroll;
   border-radius: 12px;
   background: #FF416C;
