@@ -1,0 +1,41 @@
+.about-container {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+}
+.about {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+.about-words {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about h1 {
+  font-size: 150px;
+}
+
+.about span {
+  font-size: 60px;
+  color: #FF416C;
+  animation: rocket 0.1s ease infinite;
+}
+
+.about span2 {
+  font-size: 30px;
+  color: #FF4B2B;
+}
+
+.rocket-solo {
+  display: flex;
+  justify-content: center;
+  align-items:top;
+  min-height: 50vh;
+  min-width: 20vw;
+}
+

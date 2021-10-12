@@ -1,6 +1,6 @@
 import React from 'react';
-import About2 from './About2';
-import '../styles/rocket.css';
+import RocketSolo from './RocketSolo';
+import '../styles/about.css';
 
 import Rocket from '../images/rocket.png';
 
@@ -8,8 +8,11 @@ export default function About() {
   return (
     <div className="about-container">
       <div className="about">
-        <div className="pulse-container">
-          <div className="pulse">
+        <div className="rocket-solo">
+          <RocketSolo />
+        </div>
+        {/* <div className="pulse-container">
+           <div className="pulse">
             <span style={{"--i": 1}}></span>
             <span style={{"--i": 2}}></span>
             <span style={{"--i": 3}}></span>
@@ -18,8 +21,8 @@ export default function About() {
             <div className="rocket">
               <img src={Rocket} alt="Rumbling rocket"></img>
             </div>
-          </div>
-        </div>
+          </div> 
+        </div> */}
         <div className="about-words">
           <h1>Welcome!</h1>
           <hr/>
@@ -37,9 +40,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="about2">
-        <About2 />
-      </div>
+      
     </div>
   )
 }
