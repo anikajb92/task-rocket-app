@@ -65,6 +65,7 @@ export default function EditTask(props) {
               <button className="ghost">Submit Update</button>
             </div>
           </form>
+          <br/>
           <div className="editFormButtons">
             <button className="ghost" onClick={() => props.handleDeleteTask(props.selectedToEdit)}>Delete Task</button>
           </div>

@@ -1,6 +1,6 @@
 .home {
   /* background-color: #f6f5f7; */
-  background-color: #eee;
+  background-color: var(--mygrey);
   position: relative;
   width: calc(100% - 100px);
   min-height: calc(100vh - 200px);
@@ -18,9 +18,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, var(--lightblue), var(--darkblue));
 	background-repeat: no-repeat;
 	background-size: cover;
   box-sizing: border-box;
@@ -30,13 +28,13 @@
 }
 .welcomeback h1{
   font-size: 60px;
-  color: #ffffff;
+  color: var(--mywhite);
   padding: 15px 0px;
 }
 .existing-tasks, .new-tasks {
   display: flex;
   flex-direction: row;
-  background-color: #f6f5f7;
+  background-color: var(--mywhite);
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.25);
   margin: 5px;
@@ -66,7 +64,7 @@
   -webkit-appearance: none;
     width: 100%;
     height: 2px;
-    background: #eee;
+    background: var(--mygrey);
     border: none;
     border-radius: 3px;
 }
@@ -76,22 +74,22 @@
     height: 16px;
     width: 16px;
     border-radius: 50%;
-    background: #FF4B2B;
+    background: var(--darkblue);
     margin-top: -4px;
 }
 .taskform input[type=range]::-webkit-slider-thumb:hover {
   filter: brightness(1.06);
-  box-shadow: 0 0 0 5px rgba(255,75,43,0.25);
+  box-shadow: 0 0 0 5px var(--medblue), 0.25;
 }
 .taskform input[type=range]::-webkit-slider-thumb:active {
-  box-shadow: 0 0 0 7px rgba(255,75,43,0.5);
+  box-shadow: 0 0 0 7px var(--medblue), 0.25;
 }
 .taskform input[type=range]:focus {
     outline: none;
 }
 
 .taskform input[type=range]:focus::-webkit-slider-runnable-track {
-    background: #ccc;
+    background: var(--medgrey);
     height: 2px;
 }
 
@@ -130,7 +128,7 @@
 }
 
 .aside-container {
-  background-color: #f6f5f7;
+  background-color: var(--mywhite);
   /* position: sticky; */
   border-radius: 10px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.25);
@@ -160,8 +158,8 @@
 .aside button{
   background-color: transparent;
   display: inline;
-	border-color: #FF4B2B;
-  color: #FF4B2B;
+	border-color: var(--medorange);
+  color: var(--medorange);
   margin: 2px;
   font-size: 10px;
   width: 90%;
@@ -186,11 +184,11 @@
   font-size: 25px ;
   margin-top: 0px;
   padding-left: 7px;
-  color: white;
+  color: var(--mywhite);
   filter: blur(0px);
 }
 .taskform h2{
-  color: white;
+  color: var(--mywhite);
   font-size: 30px;
 }
 
@@ -198,7 +196,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(rgba(255,56,20,1), rgba(255,220,214,0));
+  background-image: linear-gradient(var(--medorange), var(--darkyellow));
   background-attachment: fixed;  /* gradient throughout all tasks in view */
   border: none;
   border-radius: 5px;
@@ -209,6 +207,7 @@
   animation-fill-mode: both;
   cursor: default;
 }
+
 @keyframes flowUp {
   0% {
   	margin-bottom: 100%;
@@ -253,7 +252,6 @@ button.edit {
   border-radius: 50%;
   padding: 3px;
   background-color: transparent;
-  color: #FF4B2B;
   border: none;
   cursor: pointer;
 }
@@ -261,7 +259,7 @@ button.edit {
   width: 100%;
   height: 100%;
   background-color: black;
-  background-color: rgba(0, 0, 0, 0.6);
+  background-color: rgba(0, 0, 0, 0.7);
   position: fixed;
   left: 0;
   top: 0;
@@ -274,15 +272,13 @@ button.edit {
 
 .modalContainer {
   width: 500px;
-  height: 500px;
+  height: 550px;
   overflow: scroll;
   border-radius: 12px;
-  background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, var(--lightorange), var(--darkorange));
 	background-repeat: no-repeat;
 	background-size: cover;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 10px 10px 15px;
   display: flex;
   flex-direction: column;
   padding: 25px;
@@ -293,7 +289,7 @@ button.edit {
   justify-content: space-around;
 }
 .editFormButtons button{
-  border-color: white;
+  border-color: var(--mywhite);
   background-color: transparent;
 }
 .statscolumn {
@@ -316,7 +312,7 @@ button.edit {
 .allStats span{
   font-size: 20px;
   font-weight: 500;
-  color: #FF416C;
+  color: var(--darkblue);
 }
 
 .chart {

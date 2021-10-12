@@ -1,8 +1,25 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
+
+:root {
+	--lightblue: #92EBFA;
+	--medblue: #76E1F8;
+	--darkblue: #24D9F8;
+	--lightyellow: #FFE36F;
+	--darkyellow: #FFD300;
+	--lightorange: #FF9F00;
+	--medorange: #FF7815;
+	--darkorange: #FF4A00;
+	--mywhite: #F6F5F7;
+	--mygrey: #eee;
+	--lightgrey: #EBEBF0;
+	--medgrey: #E1E1E7;
+	--darkgrey: #5A5A5A;
+}
+
 * {
 	box-sizing: border-box;
-	color: #0D1321;
+	color: var(--darkgrey);
 }
 
 .App {
@@ -12,7 +29,7 @@
 }
 
 .container {
-	background: #f6f5f7;
+	background: var(--mywhite);
   display: flex;
 	justify-content: center;
   flex-direction: column;
@@ -25,10 +42,12 @@
 h1 {
 	font-weight: bold;
 	margin: 0;
+	color: var(--darkgrey);
 }
 
 h2 {
 	text-align: center;
+	color: var(--darkgrey);
 }
 
 p {
@@ -37,21 +56,22 @@ p {
 	line-height: 20px;
 	letter-spacing: 0.5px;
 	margin: 20px 0 30px;
+	color: var(--darkgrey);
 }
 
 
 hr, vl {
 	border-top: 1px solid;
-	color: rgba(132, 152, 177, 0.228);
+	color: var(--lightgrey);
 	width: 70%;
 	text-align: center;
 }
 
 button, #button {
 	border-radius: 10px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
-	color: #FFFFFF;
+	border: 1px solid var(--medorange);
+	background-color: var(--medorange);
+	color: var(--mywhite);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
@@ -70,21 +90,21 @@ button:focus {
 
 button.ghost {
 	background-color: transparent;
-	border-color: #FFFFFF;
+	border-color: var(--mywhite);
 }
 
 .icon {
 	display: inline-flex;
 	justify-content: center;
 	align-items: center;
-  color: #FF4B2B;
+  color: var(--darkorange);
 	margin: 0 5px;
 	height: 30px;
 	width: 30px;
 }
 
 .iconlarge {
-  color: #FF4B2B;
+  color: var(--darkorange);
   margin: -30px 0px 0px 0px;
   height:50px;
 	width: 50px;
@@ -92,15 +112,16 @@ button.ghost {
 
 #navbar {
   font-family: 'Montserrat', sans-serif;
-  background: #f6f5f7;
+  background: var(--mywhite);
   border-radius: 10px;
+	border-style: solid;
+	border-color: var(--lightgrey);
+	border-width: 1px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.25);
   position: sticky;
   display: flex;
   align-items: center;
   justify-content: space-between;
-	background-repeat: no-repeat;
-	background-size: cover;
   padding: 0px 12px 0px 12px;
   margin: 8px;
 }
@@ -112,16 +133,15 @@ button.ghost {
 #navbar a {
   float: left;
   display: flex;
-  color: black;
+  color: var(--darkgrey);
   font-size: 20px;
   text-align: center;
   padding: 8px;
   text-decoration: none;
 }
 .profileContainer {
-  background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+  background: var(--darkorange);
+	background: linear-gradient(to right, var(--lightblue), var(--darkblue));
 	background-repeat: no-repeat;
 	background-size: cover;
 	display: flex;
@@ -139,7 +159,7 @@ button.ghost {
 }
 
 .profile {
-	background-color: #eee;
+	background-color: var(--mygrey);
 	padding: 35px;
   box-sizing: border-box;
   border-radius: 10px;
@@ -148,12 +168,12 @@ button.ghost {
 }
 
 .profile span{
-	color:#FF4B2B;
+	color: var(--darkorange);
 	font-size: 20px;
 }
 
 footer {
-  background-color: #222;
+  background-color:var(--darkgrey);
   color: #fff;
   font-size: 14px;
   bottom: 0;
