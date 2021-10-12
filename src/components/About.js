@@ -1,8 +1,7 @@
 import React from 'react';
 import RocketGirl from './RocketGirl';
+import CalendarMan from './CalendarMan';
 import '../styles/about.css';
-
-import Rocket from '../images/rocket.png';
 
 export default function About() {
   return (
@@ -23,12 +22,25 @@ export default function About() {
             this application will encourage <span2>productivity</span2> and lower
             turnaround times for all of your task completion needs. 
           </h3>
-          <div>
-            <h3>Together, we can <span2>rock</span2> it! </h3>
-          </div>
+          <button>Sign Up</button>
         </div>
       </div>
-      
+      <hr/>
+      <div className="about-2">
+        <div className="about-words-2">
+          <h3>  
+            Plan, organize, and track all of your tasks in <span2>one place</span2>.
+            Save time, streamline projects, and keep track of all the moving pieces.
+          </h3>
+          <h3>
+            Create a <span2>profile</span2> so you can start <span2>rocking</span2> your tasks today!
+          </h3>
+          <button>Get Started</button>
+        </div>
+        <div className="calendar-man">
+          <CalendarMan />
+        </div>
+      </div>
     </div>
   )
 }

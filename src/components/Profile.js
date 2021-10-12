@@ -1,4 +1,6 @@
 import React from 'react';
+import { Player } from '@lottiefiles/react-lottie-player';
+
 import {BsClockHistory} from 'react-icons/bs';
 import {IoRocketOutline} from "react-icons/io5";
 
@@ -39,6 +41,16 @@ export default function Profile(props) {
           </>
           )}
       </div>
+      <div className="user-profile">
+        <Player
+          autoplay
+          loop
+          src="https://assets9.lottiefiles.com/packages/lf20_h1l0ibez.json"
+          style={{ height: '600px', width: '600px' }}
+        >
+        </Player>
+      </div>
     </div>
   )
 }
+

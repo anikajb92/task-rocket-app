@@ -1,9 +1,13 @@
 .about-container {
   display: flex;
   flex-direction: column;
-  overflow: scroll;
+  /* overflow: scroll; */
+  border-radius: 20px;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+  padding: 20px;
+
 }
-.about {
+.about, .about-2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -16,27 +20,32 @@
   align-items: center;
 }
 
-.about h1 {
+.about-words-2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.about-container h1 {
   font-size: 150px;
   color: var(--deeppurple);
 }
 
-.about span {
+.about-container span {
   font-size: 60px;
-  color: #FF416C;
+  color: var(--darkpink);
   animation: rocket 0.1s ease infinite;
 }
 
-.about span2 {
+.about-container span2 {
   font-size: 30px;
   color: #FF4B2B;
 }
 
-.rocket-girl {
+.rocket-girl, .calendar-man {
   display: flex;
   justify-content: center;
   align-items:top;
-  /* min-height: 50vh;
-  min-width: 20vw; */
 }
 

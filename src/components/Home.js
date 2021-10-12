@@ -4,6 +4,8 @@ import '../styles/home.css';
 import TaskForm from './TaskForm';
 import Tasks from './Tasks';
 import SideBar from './SideBar';
+import Gears from './Gears';
+import Star from './Star';
 import StatsContainer from './StatsContainer';
 import EditTask from './EditTask';
 
@@ -247,6 +249,7 @@ export default function Home(props) {
           setOpenAddTask={setOpenAddTask}
           openAddTask={openAddTask}
           />
+          <Gears />
         </div>
         <div className="board">
           <div className="taskcolumn">
@@ -272,7 +275,10 @@ export default function Home(props) {
             />}
           </div>
           <div className="statscolumn">
-            <h2>{props.user.firstname}'s Stats</h2> {/* User props from App.js */}
+            <div className="statsheader">
+              <Star />
+              <h2>{props.user.firstname}'s Stats</h2> {/* User props from App.js */}
+            </div>
             <StatsContainer 
               tasksPer={tasksPer}
               percentComplete={percentComplete}
