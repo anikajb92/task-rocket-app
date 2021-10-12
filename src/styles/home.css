@@ -252,7 +252,6 @@ button.edit {
   border-radius: 50%;
   padding: 3px;
   background-color: transparent;
-  color: #FF4B2B;
   border: none;
   cursor: pointer;
 }
@@ -273,15 +272,13 @@ button.edit {
 
 .modalContainer {
   width: 500px;
-  height: 500px;
+  height: 550px;
   overflow: scroll;
   border-radius: 12px;
-  background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, var(--lightorange), var(--darkorange));
 	background-repeat: no-repeat;
 	background-size: cover;
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 10px 10px 15px;
   display: flex;
   flex-direction: column;
   padding: 25px;
@@ -292,7 +289,7 @@ button.edit {
   justify-content: space-around;
 }
 .editFormButtons button{
-  border-color: white;
+  border-color: var(--mywhite);
   background-color: transparent;
 }
 .statscolumn {
@@ -315,7 +312,7 @@ button.edit {
 .allStats span{
   font-size: 20px;
   font-weight: 500;
-  color: #FF416C;
+  color: var(--darkorange);
 }
 
 .chart {
