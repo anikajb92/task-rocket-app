@@ -18,6 +18,7 @@
 
 .about h1 {
   font-size: 150px;
+  color: var(--deeppurple);
 }
 
 .about span {
