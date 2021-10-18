@@ -7,6 +7,7 @@ import Home from './components/Home';
 import NavBar from './components/NavBar';
 import About from './components/About';
 import Profile from './components/Profile';
+import Footer from './components/Footer';
 
 function App() {
 
@@ -87,9 +88,7 @@ function App() {
           />
         </Switch>
         </div>
-        <footer>
-          <p>Task Rocket was created by Anika Bernstein 2021. All rights reserved.</p>
-        </footer>
+        <Footer />
     </div>
   </BrowserRouter>
   );
