@@ -121,6 +121,7 @@ button.ghost {
 	background-size: cover;
   padding: 0px 12px 0px 12px;
   margin: 8px;
+	z-index: 2;
 }
 
 #navbar nav {
@@ -168,18 +169,19 @@ button.ghost {
 	font-size: 20px;
 }
 
-footer {
-  background-color: #222;
+.footer {
+  background-color: var(--deeppurple);
   color: #fff;
   font-size: 14px;
   bottom: 0;
-  position: fixed;
   left: 0;
   right: 0;
   text-align: center;
 	margin-top: 5px;
+	bottom: 0;
 }
 
-footer p {
+.footer p {
   margin: 10px 0;
+	color: #fff;
 }
