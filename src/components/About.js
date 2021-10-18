@@ -1,4 +1,6 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
+
 import RocketGirl from './RocketGirl';
 import CalendarMan from './CalendarMan';
 import '../styles/about.css';
@@ -22,7 +24,9 @@ export default function About() {
             this application will encourage <span2>productivity</span2> and lower
             turnaround times for all of your task completion needs. 
           </h3>
-          <button>Sign Up</button>
+          <Link to="/login">
+            <button type="button"> Sign Up!</button>
+          </Link>
         </div>
       </div>
       <hr/>
@@ -35,7 +39,9 @@ export default function About() {
           <h3>
             Create a <span2>profile</span2> so you can start <span2>rocking</span2> your tasks today!
           </h3>
-          <button>Get Started</button>
+          <Link to="/login">
+            <button type="button"> Get Started!</button>
+          </Link>
         </div>
         <div className="calendar-man">
           <CalendarMan />
