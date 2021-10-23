@@ -8,7 +8,7 @@ export default function CalendarMan() {
        <Player
         autoplay
         loop
-        src="https://assets10.lottiefiles.com/packages/lf20_tl3xalr6.json"
+        src="https://assets9.lottiefiles.com/packages/lf20_tl3xalr6.json"
         style={{ height: '600px', width: '600px' }}
       >
       </Player>

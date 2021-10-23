@@ -18,16 +18,13 @@ export default function About() {
   return (
     <div 
       className="about-container"
-      style={{transform: `translateY(${offsetY * 0.5}px)`}}
+      // style={{transform: `translateY(${offsetY * 0.5}px)`}}
     >
-      <div 
-        className="about"
-        // style={{transform: `translateY(${offsetY * 0.8}px)`}}
-      >
+      <div className="about">
         <div className="rocket-girl">
           <RocketGirl />
         </div>
-        <div className="about-words">
+        <div className="about-words" style={{transform: `translateY(${offsetY * 0.5}px)`}}>
           <h1>Welcome!</h1>
           <hr/>
           <h3>
@@ -44,11 +41,8 @@ export default function About() {
           </Link>
         </div>
       </div>
-      <div 
-        className="about-2"
-        // style={{transform: `translateY(${offsetY * 0.8}px)`}}
-      >
-        <div className="about-words-2">
+      <div className="about-2">
+        <div className="about-words-2" style={{transform: `translateY(${offsetY * 0.5}px)`}}>
           <hr/>
           <h3>  
             Plan, organize, and track all of your tasks in <span2>one place</span2>.
