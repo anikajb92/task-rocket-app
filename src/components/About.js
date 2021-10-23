@@ -22,7 +22,7 @@ export default function About() {
     >
       <div 
         className="about"
-        style={{transform: `translateY(${offsetY * 0.8}px)`}}
+        // style={{transform: `translateY(${offsetY * 0.8}px)`}}
       >
         <div className="rocket-girl">
           <RocketGirl />
@@ -46,7 +46,7 @@ export default function About() {
       </div>
       <div 
         className="about-2"
-        style={{transform: `translateY(${offsetY * 0.8}px)`}}
+        // style={{transform: `translateY(${offsetY * 0.8}px)`}}
       >
         <div className="about-words-2">
           <hr/>
