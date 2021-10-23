@@ -44,12 +44,12 @@ export default function About() {
           </Link>
         </div>
       </div>
-      <hr/>
       <div 
         className="about-2"
         style={{transform: `translateY(${offsetY * 0.8}px)`}}
       >
         <div className="about-words-2">
+          <hr/>
           <h3>  
             Plan, organize, and track all of your tasks in <span2>one place</span2>.
             Save time, streamline projects, and keep track of all the moving pieces.
