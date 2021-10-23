@@ -161,11 +161,22 @@
   background-color: transparent;
   display: inline;
 	border-color: #FF4B2B;
+  box-shadow: 0 0.2em 0.5em -0.4em var(--darkorange);
   color: #FF4B2B;
   margin: 2px;
   font-size: 10px;
   width: 90%;
   padding: 6px;
+}
+
+.aside button:hover {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--deeppink);
+  transform: translateY(-0.20em);
+  /* background-color: var(--lightblush);
+  color: var(--mywhite); */
+  transition:all .5s ease;
+  z-index:1;
+
 }
 
 .taskcolumn {
@@ -202,6 +213,7 @@
   background-attachment: fixed;  /* gradient throughout all tasks in view */
   border: none;
   border-radius: 5px;
+  box-shadow: 0 0.5em 0.5em -0.4em var(--darkorange);
   padding: 0px 15px;
   margin: 4px 0px;
   width: 90%;
@@ -263,8 +275,6 @@ button.edit {
   background-color: var(--lightblush);
   transition:all .5s ease;
   z-index:1;
-  box-sizing:border-box;
-  
 }
 
 .modalBackground {
