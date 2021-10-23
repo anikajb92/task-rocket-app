@@ -21,7 +21,7 @@ export default function About() {
       // style={{transform: `translateY(${offsetY * 0.5}px)`}}
     >
       <div className="about">
-        <div className="rocket-girl">
+        <div className="rocket-girl" >
           <RocketGirl />
         </div>
         <div className="about-words" style={{transform: `translateY(${offsetY * 0.5}px)`}}>
@@ -42,7 +42,7 @@ export default function About() {
         </div>
       </div>
       <div className="about-2">
-        <div className="about-words-2" style={{transform: `translateY(${offsetY * 0.5}px)`}}>
+        <div className="about-words-2" style={{transform: `translateY(${offsetY * 0.3}px)`}}>
           <hr/>
           <h3>  
             Plan, organize, and track all of your tasks in <span2>one place</span2>.
