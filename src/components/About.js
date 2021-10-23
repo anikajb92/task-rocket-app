@@ -21,10 +21,10 @@ export default function About() {
       // style={{transform: `translateY(${offsetY * 0.5}px)`}}
     >
       <div className="about">
-        <div className="rocket-girl" >
+        <div className="rocket-girl" style={{transform: `translateY(${offsetY * 0.5}px)`}}>
           <RocketGirl />
         </div>
-        <div className="about-words" style={{transform: `translateY(${offsetY * 0.5}px)`}}>
+        <div className="about-words" style={{transform: `translateY(${offsetY * 0.4}px)`}}>
           <h1>Welcome!</h1>
           <hr/>
           <h3>
@@ -55,7 +55,7 @@ export default function About() {
             <button type="button"> Get Started!</button>
           </Link>
         </div>
-        <div className="calendar-man">
+        <div className="calendar-man" style={{transform: `translateY(${offsetY * 0.5}px)`}}>
           <CalendarMan />
         </div>
       </div>
