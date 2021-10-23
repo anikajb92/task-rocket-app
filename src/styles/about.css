@@ -1,11 +1,14 @@
 .about-container {
   display: flex;
   flex-direction: column;
-  /* overflow: scroll; */
+  overflow: hidden;
   border-radius: 20px;
   box-shadow: 0 2px 2px rgba(0,0,0,0.25);
   padding: 20px;
-
+  /* background-image: linear-gradient(180deg, var(--lightblush), var(--mywhite));   */
+  background-image: url('../assets/pinkdotsopacity.png');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .about, .about-2 {
   display: flex;

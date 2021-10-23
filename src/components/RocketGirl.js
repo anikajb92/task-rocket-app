@@ -8,7 +8,7 @@ export default function RocketGirl() {
       <Player
         autoplay
         loop
-        src="https://assets4.lottiefiles.com/packages/lf20_3gwaboe0.json"
+        src="https://assets7.lottiefiles.com/packages/lf20_1luftwvr.json"
         style={{ height: '500px', width: '500px' }}
       >
       </Player>

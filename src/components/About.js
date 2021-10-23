@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
 import RocketGirl from './RocketGirl';
@@ -6,13 +6,25 @@ import CalendarMan from './CalendarMan';
 import '../styles/about.css';
 
 export default function About() {
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [])
+
   return (
-    <div className="about-container">
+    <div 
+      className="about-container"
+      // style={{transform: `translateY(${offsetY * 0.5}px)`}}
+    >
       <div className="about">
-        <div className="rocket-girl">
+        <div className="rocket-girl" style={{transform: `translateY(${offsetY * 0.5}px)`}}>
           <RocketGirl />
         </div>
-        <div className="about-words">
+        <div className="about-words" style={{transform: `translateY(${offsetY * 0.4}px)`}}>
           <h1>Welcome!</h1>
           <hr/>
           <h3>
@@ -29,9 +41,9 @@ export default function About() {
           </Link>
         </div>
       </div>
-      <hr/>
       <div className="about-2">
-        <div className="about-words-2">
+        <div className="about-words-2" style={{transform: `translateY(${offsetY * 0.3}px)`}}>
+          <hr/>
           <h3>  
             Plan, organize, and track all of your tasks in <span2>one place</span2>.
             Save time, streamline projects, and keep track of all the moving pieces.
@@ -43,7 +55,7 @@ export default function About() {
             <button type="button"> Get Started!</button>
           </Link>
         </div>
-        <div className="calendar-man">
+        <div className="calendar-man" style={{transform: `translateY(${offsetY * 0.5}px)`}}>
           <CalendarMan />
         </div>
       </div>
