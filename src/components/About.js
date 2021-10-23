@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import {Link} from 'react-router-dom';
 
 import RocketGirl from './RocketGirl';
@@ -6,9 +6,24 @@ import CalendarMan from './CalendarMan';
 import '../styles/about.css';
 
 export default function About() {
+  const [offsetY, setOffsetY] = useState(0);
+  const handleScroll = () => setOffsetY(window.pageYOffset);
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [])
+
   return (
-    <div className="about-container">
-      <div className="about">
+    <div 
+      className="about-container"
+      style={{transform: `translateY(${offsetY * 0.5}px)`}}
+    >
+      <div 
+        className="about"
+        style={{transform: `translateY(${offsetY * 0.8}px)`}}
+      >
         <div className="rocket-girl">
           <RocketGirl />
         </div>
@@ -30,7 +45,10 @@ export default function About() {
         </div>
       </div>
       <hr/>
-      <div className="about-2">
+      <div 
+        className="about-2"
+        style={{transform: `translateY(${offsetY * 0.8}px)`}}
+      >
         <div className="about-words-2">
           <h3>  
             Plan, organize, and track all of your tasks in <span2>one place</span2>.
