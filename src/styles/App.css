@@ -136,12 +136,17 @@ button.ghost {
 #navbar a {
   float: left;
   display: flex;
-  color: black;
+  color: var(--deeppurple);
   font-size: 20px;
   text-align: center;
   padding: 8px;
   text-decoration: none;
 }
+
+.link:hover, .link:focus, .link:active {
+	border-bottom:2px solid var(--lightblush);
+}
+
 .profileContainer {
 	background: linear-gradient(to right, var(--darkorange), var(--medpink));
 	background-repeat: no-repeat;
