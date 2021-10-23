@@ -70,6 +70,7 @@ button, #button {
 	border-color: var(--darkorange);
 	background-color: var(--darkorange);
 	color: #FFFFFF;
+	box-shadow: 0 0.3em 0.5em -0.4em var(--darkorange);
 	font-size: 12px;
 	font-weight: bold;
 	padding: 12px 45px;
@@ -78,8 +79,12 @@ button, #button {
 	transition: transform 80ms ease-in;
 }
 
-button:active {
+button:active, button:hover {
 	transform: scale(0.95);
+	box-shadow: 0 0.5em 0.5em -0.4em var(--deeppink);
+  transform: translateY(-0.20em);
+  transition:all .5s ease;
+  z-index:1;
 }
 
 button:focus {
@@ -131,12 +136,17 @@ button.ghost {
 #navbar a {
   float: left;
   display: flex;
-  color: black;
+  color: var(--deeppurple);
   font-size: 20px;
   text-align: center;
   padding: 8px;
   text-decoration: none;
 }
+
+.link:hover, .link:focus, .link:active {
+	border-bottom:2px solid var(--lightblush);
+}
+
 .profileContainer {
 	background: linear-gradient(to right, var(--darkorange), var(--medpink));
 	background-repeat: no-repeat;

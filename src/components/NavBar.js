@@ -14,7 +14,7 @@ export default function NavBar(props) {
           <Link className="link" to="/home">My Tasks</Link>
         </nav>
         <nav>
-        <Link to="/profile"><CgProfile /> {props.user.firstname} {props.user.lastname}</Link>
+        <Link className="link" to="/profile"><CgProfile /> {props.user.firstname} {props.user.lastname}</Link>
         </nav>
       </>) : (
       <>
