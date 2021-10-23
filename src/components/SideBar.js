@@ -14,7 +14,7 @@ export default function SideBar(props) {
     <div className="aside">
       <h4 id="title" >Get Rock'n</h4>
       {props.openAddTask ? <button> Adding... </button>:
-        <button onClick={() => props.setOpenAddTask(true)} style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}> Add Task </button>
+        <button onClick={() => props.setOpenAddTask(true)} style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}> Add A Task </button>
       }
       <hr/>
       <p id="title" >Filter Tasks</p>
