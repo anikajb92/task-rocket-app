@@ -10,23 +10,24 @@ export default function Tasks(props) {
 
   const priorityColor = (arg) => {
     if (arg == '1') {
-      return '#FF9085'
+      console.log('it works, low priority found')
+      return 'lowpriority'
     } else if (arg == '2') {
-      return '#F99A4D'
+      return 'medpriority'
     } else {
-      return '#A70025'
+      return 'highpriority'
     }
   }
 
   return (
-    <div className="task">
+    <div className={`task ${priorityColor(props.task.priority)}`}>
       <div className="task-left">
         {props.task.completed?
           <button className="check"><BsCheckCircle /> </button> :
           <button className="check" onClick={()=> props.handleMarkComplete(props.task)}><BsCircle /> </button>
         }
        <p> {props.task.description} </p>
-       <GoPrimitiveDot fill={priorityColor(props.task.priority)}/>
+       {/* <GoPrimitiveDot fill={priorityColor(props.task.priority)} className="priorityDot"/> */}
       </div>
       <div className="task-right">
         <button className="edit" onClick={() => props.taskToEdit(props.task)}> <FiEdit /></button>

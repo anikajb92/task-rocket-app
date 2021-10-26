@@ -209,9 +209,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(rgba(255,56,20,1), rgba(255,220,214,0));
-  background-attachment: fixed;  /* gradient throughout all tasks in view */
-  border: none;
+  /* background-image: linear-gradient(rgba(255,56,20,1), rgba(255,220,214,0)); */
+  /* background-attachment: fixed;   gradient throughout all tasks in view */
+  /* border: none; */
   border-radius: 5px;
   box-shadow: 0 0.5em 0.5em -0.4em var(--darkorange);
   padding: 0px 15px;
@@ -244,6 +244,17 @@
 .task:nth-child(13) {animation-delay: 1.5s}
 .task:nth-child(14) {animation-delay: 2s}
 
+.task.lowpriority{
+  border-left: 5px solid black;
+  background-color: red;
+}
+.task.medpriority{
+  background-color: blue;
+}
+.task.highpriority{
+  background-color: yellow;
+}
+
 .task-left {
   display: flex;
   justify-content: center;
@@ -275,6 +286,9 @@ button.edit {
   background-color: var(--lightblush);
   transition:all .5s ease;
   z-index:1;
+}
+.priorityDot {
+  margin-bottom: 8px;
 }
 
 .modalBackground {
