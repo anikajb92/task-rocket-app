@@ -19,9 +19,9 @@ export default function Profile(props) {
             <hr/>
             <h3>Full Name: <p>{props.user.firstname} {props.user.lastname}</p></h3>
             <h3>Username: <p>{props.user.username}</p></h3>
-            <h3>Password: <p>(Currently Unavailable)</p></h3>
+            {/* <h3>Password: <p>(Currently Unavailable)</p></h3>
             <h3>Profile Picture: </h3>
-            <button>Upload</button>
+            <button>Upload</button> */}
             <br/>
             <hr/>
             <button onClick={props.handleLogout}>Logout</button>
