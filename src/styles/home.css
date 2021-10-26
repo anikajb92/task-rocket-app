@@ -213,7 +213,7 @@
   /* background-attachment: fixed;   gradient throughout all tasks in view */
   /* border: none; */
   border-radius: 5px;
-  box-shadow: 0 0.5em 0.5em -0.4em var(--darkorange);
+  box-shadow: 0.1em 0.2em 0.5em -0.4em var(--darkorange);
   padding: 0px 15px;
   margin: 4px 0px;
   width: 90%;
