@@ -14,15 +14,14 @@ export default function Profile(props) {
             <>
             <h1> Hi, {props.user.firstname}! </h1>
             <p>Thank you for being a loyal patron of Task Rocket.</p>
-            <p><BsClockHistory /> Your acount has been active for <span>{props.user.user_active}</span> days.</p>
-
             <h2>Here's a look at your profile.</h2>
+            <p><BsClockHistory /> Your acount has been active for <span>{props.user.user_active}</span> days.</p>
             <hr/>
             <h3>Full Name: <p>{props.user.firstname} {props.user.lastname}</p></h3>
             <h3>Username: <p>{props.user.username}</p></h3>
-            <h3>Password: <p>(Currently Unavailable)</p></h3>
+            {/* <h3>Password: <p>(Currently Unavailable)</p></h3>
             <h3>Profile Picture: </h3>
-            <button>Upload</button>
+            <button>Upload</button> */}
             <br/>
             <hr/>
             <button onClick={props.handleLogout}>Logout</button>
