@@ -18,14 +18,12 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: linear-gradient(to right, var(--darkorange), var(--medpink));
 	background-repeat: no-repeat;
 	background-size: cover;
   box-sizing: border-box;
   border-radius: 10px;
-  	box-shadow: 0 2px 2px rgba(0,0,0,0.25);
+  box-shadow: 0 2px 2px rgba(0,0,0,0.25);
   margin: 5px;
 }
 .welcomeback h1{
@@ -211,11 +209,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-image: linear-gradient(rgba(255,56,20,1), rgba(255,220,214,0));
-  background-attachment: fixed;  /* gradient throughout all tasks in view */
-  border: none;
+  /* background-image: linear-gradient(rgba(255,56,20,1), rgba(255,220,214,0)); */
+  /* background-attachment: fixed;   gradient throughout all tasks in view */
+  /* border: none; */
   border-radius: 5px;
-  box-shadow: 0 0.5em 0.5em -0.4em var(--darkorange);
+  box-shadow: 0.1em 0.1em 0.5em -0.4em var(--darkorange);
   padding: 0px 15px;
   margin: 4px 0px;
   width: 90%;
@@ -246,6 +244,16 @@
 .task:nth-child(13) {animation-delay: 1.5s}
 .task:nth-child(14) {animation-delay: 2s}
 
+.task.lowpriority{
+  border-left: 5px solid var(--lightblush);
+}
+.task.medpriority{
+  border-left: 5px solid var(--darkpink);
+}
+.task.highpriority{
+  border-left: 5px solid var(--deeppink);
+}
+
 .task-left {
   display: flex;
   justify-content: center;
@@ -272,11 +280,14 @@ button.edit {
   cursor: pointer;
 }
 .task:hover, .task:focus {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--deeppink);
-  transform: translateY(-0.20em);
-  background-color: var(--lightblush);
+  box-shadow: 0.2em 0.5em 0.5em -0.4em var(--deeppink);
+  transform: translateX(0.20em);
+  /* background-color: var(--lightblush); */
   transition:all .5s ease;
   z-index:1;
+}
+.priorityDot {
+  margin-bottom: 8px;
 }
 
 .modalBackground {
