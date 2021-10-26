@@ -10,14 +10,11 @@ export default function Tasks(props) {
 
   const priorityColor = (arg) => {
     if (arg == '1') {
-      console.log('1 priority');
-      return 'yellow'
+      return '#FF9085'
     } else if (arg == '2') {
-      console.log('2 priority');
-      return 'orange'
+      return '#F99A4D'
     } else {
-      console.log('3 priority');
-      return 'red'
+      return '#A70025'
     }
   }
 
