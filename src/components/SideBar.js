@@ -30,41 +30,41 @@ export default function SideBar(props) {
       <p>Categories</p>
       {
         props.selected.name === "Work" ?
-          <button onClick={handleClick} id="Category" name="Work" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><MdComputer style={{fill: "#ffffff"}}/> Work</button> :
-          <button onClick={handleClick} id="Category" name="Work"><MdComputer style={{fill: "#FF4B2B"}} /> Work</button>
+          <button onClick={handleClick} id="Category" name="Work" style={{ borderColor: "var(--deeppurple)", backgroundColor: "var(--deeppurple)", color: "#ffffff" }}><MdComputer style={{fill: "#ffffff"}}/> Work</button> :
+          <button onClick={handleClick} id="Category" name="Work" style={{ borderColor: "var(--deeppurple)", color: "var(--deeppurple)"}}><MdComputer style={{fill: "var(--deeppurple)"}} /> Work</button>
       }
       {
         props.selected.name === "Personal" ?
-          <button onClick={handleClick} id="Category" name="Personal" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><MdPersonOutline style={{fill: "#ffffff"}}/> Personal</button> :
-          <button onClick={handleClick} id="Category" name="Personal"><MdPersonOutline style={{fill: "#FF4B2B"}}/> Personal</button>
+          <button onClick={handleClick} id="Category" name="Personal" style={{ borderColor: "var(--deeppurple)", backgroundColor: "var(--deeppurple)", color: "#ffffff" }}><MdPersonOutline style={{fill: "#ffffff"}}/> Personal</button> :
+          <button onClick={handleClick} id="Category" name="Personal" style={{ borderColor: "var(--deeppurple)", color: "var(--deeppurple)"}}><MdPersonOutline style={{fill: "var(--deeppurple)"}}/> Personal</button>
       }
       {
         props.selected.name === "Household" ?
-          <button onClick={handleClick} id="Category" name="Household" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><BsHouseDoor style={{fill: "#ffffff"}}/> Household</button> :
-          <button onClick={handleClick} id="Category" name="Household"><BsHouseDoor style={{fill: "#FF4B2B"}}/> Household</button>
+          <button onClick={handleClick} id="Category" name="Household" style={{ borderColor: "var(--deeppurple)", backgroundColor: "var(--deeppurple)", color: "#ffffff" }}><BsHouseDoor style={{fill: "#ffffff"}}/> Household</button> :
+          <button onClick={handleClick} id="Category" name="Household" style={{ borderColor: "var(--deeppurple)", color: "var(--deeppurple)"}}><BsHouseDoor style={{fill: "var(--deeppurple)"}}/> Household</button>
       }
       {
         props.selected.name === "Social" ?
-          <button onClick={handleClick} id="Category" name="Social" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}><MdPeopleOutline style={{fill: "#ffffff"}}/> Social</button> :
-          <button onClick={handleClick} id="Category" name="Social"><MdPeopleOutline style={{fill: "#FF4B2B"}}/> Social</button>
+          <button onClick={handleClick} id="Category" name="Social" style={{ borderColor: "var(--deeppurple)", backgroundColor: "var(--deeppurple)", color: "#ffffff" }}><MdPeopleOutline style={{fill: "#ffffff"}}/> Social</button> :
+          <button onClick={handleClick} id="Category" name="Social" style={{ borderColor: "var(--deeppurple)", color: "var(--deeppurple)"}}><MdPeopleOutline style={{fill: "var(--deeppurple)"}}/> Social</button>
       }
       <br/>
       <hr/>
       <p>Priority</p>
       {
         props.selected.name === "3" ?
-          <button onClick={handleClick} id="Priority" name="3" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}>High</button> :
-          <button onClick={handleClick} id="Priority" name="3">High</button>
+          <button onClick={handleClick} id="Priority" name="3" style={{ borderColor: "var(--deeppink)", backgroundColor: "var(--deeppink)", color: "#ffffff" }}>High</button> :
+          <button onClick={handleClick} id="Priority" name="3" style={{ borderColor: "var(--deeppink)", color: "var(--deeppink)"}}>High</button>
       }
       {
         props.selected.name === "2" ?
-          <button onClick={handleClick} id="Priority" name="2" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}>Medium</button> :
-          <button onClick={handleClick} id="Priority" name="2">Medium</button>
+          <button onClick={handleClick} id="Priority" name="2" style={{ borderColor: "var(--darkpink)", backgroundColor: "var(--darkpink)", color: "#ffffff" }}>Medium</button> :
+          <button onClick={handleClick} id="Priority" name="2" style={{ borderColor: "var(--darkpink)", color: "var(--darkpink)"}}>Medium</button>
       }
       {
         props.selected.name === "1" ?
-          <button onClick={handleClick} id="Priority" name="1" style={{ backgroundColor: "#FF4B2B", color: "#ffffff" }}>Low</button> :
-          <button onClick={handleClick} id="Priority" name="1">Low</button>
+          <button onClick={handleClick} id="Priority" name="1" style={{ borderColor: "var(--lightblush)", backgroundColor: "var(--lightblush)", color: "#ffffff" }}>Low</button> :
+          <button onClick={handleClick} id="Priority" name="1" style={{ borderColor: "var(--lightblush)", color: "var(--lightblush)"}}>Low</button>
       }
     </div>
   )

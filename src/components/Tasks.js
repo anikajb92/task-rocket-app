@@ -20,13 +20,13 @@ export default function Tasks(props) {
 
   const categoryIcon = (arg) => {
     if (arg == 'Work') {
-      return <MdComputer />
+      return <MdComputer  style={{fill: 'var(--deeppurple)'}}/>
     } else if (arg == 'Personal') {
-      return <MdPeopleOutline />
+      return <MdPeopleOutline style={{fill: 'var(--deeppurple)'}}/>
     } else if (arg == 'Household') {
-      return <BsHouseDoor />
+      return <BsHouseDoor style={{fill: 'var(--deeppurple)'}}/>
     } else if (arg == 'Social') {
-      return <MdPeopleOutline />
+      return <MdPeopleOutline style={{fill: 'var(--deeppurple)'}}/>
     } else {
       return null
     }
@@ -39,7 +39,8 @@ export default function Tasks(props) {
           <button className="check"><BsCheckCircle /> </button> :
           <button className="check" onClick={()=> props.handleMarkComplete(props.task)}><BsCircle /> </button>
         }
-       <p> {categoryIcon(props.task.category)} {props.task.description} </p>
+       <p className="categoryTaskIcon"> {categoryIcon(props.task.category)} </p>
+       <p> {props.task.description} </p>
       </div>
       <div className="task-right">
         <button className="edit" onClick={() => props.taskToEdit(props.task)}> <FiEdit /></button>
