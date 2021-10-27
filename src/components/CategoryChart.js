@@ -20,7 +20,7 @@ export default function CategoryChart(props) {
             0: { color: '#FF416C',textStyle: {fontSize: 12}}, // pink
             1: { color: '#FFB627', textStyle: {fontSize: 12} }, // yellow
             2: { color: '#FF4B2B', textStyle: {fontSize: 12} }, // orange
-            3: { color: '#EEE', textStyle: {fontSize: 12, color: '5A5A5A'}},  // blue
+            3: { color: '#EEE', textStyle: {fontSize: 12, color: '#26264F'}},  // white
             4: { color: '#F7EDF0' } //FF4B2B 
           }, 
           is3D: true, 
