@@ -171,8 +171,6 @@
 .aside button:hover {
   box-shadow: 0 0.5em 0.5em -0.4em var(--deeppink);
   transform: translateY(-0.20em);
-  /* background-color: var(--lightblush);
-  color: var(--mywhite); */
   transition:all .5s ease;
   z-index:1;
 
