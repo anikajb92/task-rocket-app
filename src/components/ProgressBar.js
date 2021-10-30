@@ -5,7 +5,7 @@ import 'react-circular-progressbar/dist/styles.css';
 export default function ProgressBar({data}) {
 
   return (
-    <div className="chart" style={{ width: 200, height: 200 }}>
+    <div className="chart" style={{ width: 150, height: 150 }}>
       <CircularProgressbar 
         value={data[3]} 
         text={`${data[3]}%`}

@@ -19,6 +19,7 @@ export default function Home(props) {
     completed: false
   });
   const [tasksPer, setTasksPer]= useState([]);
+  const [numTasksPerPriority, setNumTasksPerPriority] = useState([]);
   const [percentComplete, setPercentComplete] = useState([]);
   const [userActive, setUserActive] = useState('');
   const [mostProductive, setMostProductive] = useState('Monday');
@@ -45,15 +46,16 @@ export default function Home(props) {
         if (result.error) {
           alert(result.error);
         } else {
-          console.log(result);
+          // console.log(result);
           setPendingTasks(result.sorted_tasks);
           setCompletedTasks(result.completed_tasks);
           setTasksPer(result.num_tasks_per_category);
           setPercentComplete(result.perc_tasks_completed);
           setUserActive(result.user_active);
-          setMostProductive(result.most_productive_day); //need to complete code on BE
+          setMostProductive(result.most_productive_day); 
           setAvgCompletion(result.avg_completion_time);
           setMostTasksPer(result.most_tasks_per_category);
+          setNumTasksPerPriority(result.num_tasks_per_priority);
         }
       })
   }, [])

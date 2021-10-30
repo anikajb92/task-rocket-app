@@ -6,8 +6,8 @@ export default function CategoryChart(props) {
   return (
     <div className="chart">
       <Chart
-        width={'210px'}
-        height={'210px'}
+        width={'150px'}
+        height={'150px'}
         chartType="PieChart"
         loader={<div>Preparing for Liftoff...</div>}
         data={[['Category', 'Number of Tasks Per'], ...props.data]}
