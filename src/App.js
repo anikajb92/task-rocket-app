@@ -13,6 +13,7 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [user, setUser] = useState({})
+  const [logInError, setLogInError] = useState('')
 
   const handleLogout = () => {
     setIsLoggedIn(false)
@@ -33,6 +34,7 @@ function App() {
         .then(result => {
           if (result.error) {
             alert(result.error);
+            setLogInError(result.error);
           } else {
             handleLogin();
             setUser(result.user);
