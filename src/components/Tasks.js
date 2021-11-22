@@ -22,7 +22,7 @@ export default function Tasks(props) {
     if (arg == 'Work') {
       return <MdComputer  style={{fill: 'var(--deeppurple)'}}/>
     } else if (arg == 'Personal') {
-      return <MdPeopleOutline style={{fill: 'var(--deeppurple)'}}/>
+      return <MdPersonOutline style={{fill: 'var(--deeppurple)'}}/>
     } else if (arg == 'Household') {
       return <BsHouseDoor style={{fill: 'var(--deeppurple)'}}/>
     } else if (arg == 'Social') {
