@@ -60,7 +60,7 @@ export default function LoginForm(props) {
             onChange={(event) => setPassword(event.target.value)}
           />
           <br/>
-          <p>{error? error : null} </p>
+          <p style={{color:"red"}}>{error? error : null} </p>
         <button className="button">Login</button>
       </form>
     </div>
