@@ -30,6 +30,7 @@ export default function Credentials(props) {
             setUser={props.setUser}
             setSuccessful={setSuccessful}
             routerprops={props.routerprops}
+            logInError={props.logInError}
             /> 
         )</>
       }

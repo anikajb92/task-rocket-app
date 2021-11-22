@@ -5,6 +5,8 @@ import {IoRocketOutline} from "react-icons/io5";
 export default function LoginForm(props) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('')
+
   const history = useHistory()
 
   const handleSubmit = event => {
@@ -22,6 +24,7 @@ export default function LoginForm(props) {
       .then(result => {
         if (result.error){
           console.error(result.error);
+          setError(result.error);
         } else {
           localStorage.setItem('token', result.token);
           localStorage.setItem('name', result.user.firstname, result.user.lastname);
@@ -57,6 +60,7 @@ export default function LoginForm(props) {
             onChange={(event) => setPassword(event.target.value)}
           />
           <br/>
+          <p>{error? error : null} </p>
         <button className="button">Login</button>
       </form>
     </div>
