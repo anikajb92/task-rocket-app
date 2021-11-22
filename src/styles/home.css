@@ -345,7 +345,7 @@ button.edit {
 .star {
   position: absolute;
   right: 0px;
-  top: 50px;
+  top: 30px;
   overflow:visible;
   z-index: 1;
 }
