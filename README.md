@@ -25,7 +25,7 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
 
 ### Technologies
 
-* React.js
+* React.js 
 * CSS
 
 ## Node Packages
@@ -37,12 +37,14 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
  * To be able to utilize this full-stack app, open and run the [backend repo](https://github.com/anikajb92/task_rocket_api) first
  * Install dependencies `npm install`
  * Run scripts `npm start`
- * Navigate to [http://localhost:3000](http://localhost:3000) in your browser. Note that some browsers may be outdated for this application.
+ * Navigate to [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Features
 * Fully authenticated login built with JWT and Bcrypt
-* Ability to add, prioritize, categorize, edit, and complete tasks
+* Ability to add, edit, and complete tasks
+* Filter through tasks based on priority or category
 * 
+* Parallax scroll on Home Page 
 
 ### Inspiration
 
