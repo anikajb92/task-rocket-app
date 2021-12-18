@@ -124,12 +124,13 @@ def authenticate
 
 ### Inspiration
 
-I am a highly organized to-do list lover. This was an app that I fully customized to my needs and aesthetic likings. Building a project like this helps me understand a customer's needs because I am both the user and developer. There were many trials I went through to create the app that Task Rocket is today.
+I am a highly organized to-do list lover. This was an app that I fully customized to my needs and aesthetic likings. Building a project like this helps me understand a customer's needs because I am both the user and developer. There were many trials I went through to create the app that Task Rocket is today, but there is always room to grow. If you have suggestions or are interested in pair-programming, please don't hesitate to reach out to me. I welcome all new ideas!
 
 ### Contact
 
  My name is Anika Bernstein. Drop me a line anytime!
- 📫 My email is anikabernsteindev@gmail.com
+ 📫 Email me at anikabernsteindev@gmail.com 
+ 💬 Connect with me on [LinkedIn](https://www.linkedin.com/in/anika-bernstein/)
 
 ## License
 [Click to View](https://www.gnu.org/licenses/gpl-3.0.en.html)
