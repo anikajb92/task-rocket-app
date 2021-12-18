@@ -52,6 +52,41 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
 
 ### Code Examples
 
+```javascript
+  //function to handle edit task on form submit
+  const handleEditTask = event => {
+    event.preventDefault();
+    
+    fetch(`http://localhost:3000/tasks/${selectedToEdit.id}`, {
+      method: 'PATCH',
+      headers: {
+        Accept: 'application/json', 
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify(
+        {task: 
+          { description: selectedToEdit.description, 
+            category: selectedToEdit.category,
+            priority: selectedToEdit.priority,
+            completed: selectedToEdit.completed
+          }
+        })
+      })
+      .then(response => response.json())
+      .then(result => {
+        if (result.error) {
+          alert(result.error)
+        } else {
+          console.log("backend result", result);
+          setPendingTasks([...pendingTasks, result]);
+          setPercentComplete(result.data);
+          setSubmitted(true);
+          setOpenEditTask(false);
+      }
+    })
+  }
+```
 
 
 ### Inspiration
