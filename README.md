@@ -52,6 +52,7 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
 
 ### Code Examples
 
+Frontend
 ```javascript
   const handleEditTask = event => {
     event.preventDefault();
@@ -85,6 +86,23 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
     })
   }
 ```
+```javascript
+ <div className={`task ${priorityColor(props.task.priority)}`}> 
+      <div className="task-left">
+        {props.task.completed?
+          <button className="check"><BsCheckCircle /> </button> :
+          <button className="check" onClick={()=> props.handleMarkComplete(props.task)}><BsCircle /> </button>
+        }
+       <p className="categoryTaskIcon"> {categoryIcon(props.task.category)} </p>
+       <p> {props.task.description} </p>
+      </div>
+      <div className="task-right">
+        <button className="edit" onClick={() => props.taskToEdit(props.task)}> <FiEdit /></button>
+        <button className="edit" onClick={() => props.handleDeleteTask(props.task)}><IoTrashBinOutline /></button>
+      </div>
+    </div>
+```
+Backend
 ```ruby
 def authenticate
     auth_header = request.headers[:Authorization]
