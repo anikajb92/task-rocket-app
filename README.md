@@ -6,10 +6,10 @@ Task Rocket is a Full-Stack Web Application. This is the repository for the fron
 
 * [General Info](#general-info)
 * [Preview](#preview)
-* [Intro Video](#intro-video)
 * [Technologies](#technologies)
 * [Launch](#launch)
 * [Features](#features)
+* [Code Examples](#code-examples)
 * [Inspiration](#inspiration)
 * [Contact](#contact)
 * [License](#license)
@@ -21,7 +21,11 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
 
 ### Preview
 
+![welcomepage](https://media.giphy.com/media/ElZWHWwfVrsixJY4B5/giphy.gif)
 
+![signup](https://media.giphy.com/media/JoIDpiFgrI2Tag20gO/giphy.gif)
+
+![addtask](https://media.giphy.com/media/CI8st1XhKkLCD7Dlx6/giphy.gif)
 
 ### Technologies
 
@@ -41,10 +45,14 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
 
 ### Features
 * Fully authenticated login built with JWT and Bcrypt
-* Ability to add, edit, and complete tasks
-* Filter through tasks based on priority or category
-* 
+* Ability to add, edit, and complete tasks *(full CRUD, RESTful API)*
+* Filter through tasks based on priority or category *(state management using hooks, instant re-renders)*
+* Personalized data and productivity analytics *(independent active record class methods)*
 * Parallax scroll on Home Page 
+
+### Code Examples
+
+
 
 ### Inspiration
 
