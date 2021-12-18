@@ -53,7 +53,6 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
 ### Code Examples
 
 ```javascript
-  //function to handle edit task on form submit
   const handleEditTask = event => {
     event.preventDefault();
     
@@ -78,7 +77,6 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
         if (result.error) {
           alert(result.error)
         } else {
-          console.log("backend result", result);
           setPendingTasks([...pendingTasks, result]);
           setPercentComplete(result.data);
           setSubmitted(true);
@@ -87,7 +85,24 @@ Task Rocket is a task management app that prioritizes tasks and calculates user 
     })
   }
 ```
-
+```ruby
+def authenticate
+    auth_header = request.headers[:Authorization]
+    if !auth_header
+      render json: {error: 'Auth bearer token header is required'}, status: :forbidden
+    else 
+      token = auth_header.split(' ')[1]
+      secret = '*#*#*' #enter protected secret here
+      begin
+        decoded_token = JWT.decode token, secret
+        payload = decoded_token.first
+        @user = User.find payload['user_id'] #instance variable that can be carried across methods
+      rescue 
+        render json: {error: 'Unrecognized auth bearer token'}, status: :forbidden
+      end
+    end 
+  end
+```
 
 ### Inspiration
 
